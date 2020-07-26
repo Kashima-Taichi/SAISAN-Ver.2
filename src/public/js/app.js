@@ -1921,6 +1921,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -37528,11 +37529,13 @@ var staticRenderFns = [
       _c("div", { staticClass: "container" }, [
         _c("nav", { staticClass: "navbar navbar-dark" }, [
           _c("span", { staticClass: "navbar-brand mb-0 h1" }, [
-            _vm._v("Vue Laravel SPA")
+            _vm._v("SAISAN Ver.2")
           ]),
           _vm._v(" "),
           _c("div", [
-            _c("button", { staticClass: "btn btn-success" }, [_vm._v("TOP")])
+            _c("button", { staticClass: "btn btn-success" }, [_vm._v("TOP")]),
+            _vm._v(" "),
+            _c("button", { staticClass: "btn btn-success" }, [_vm._v("Menu")])
           ])
         ])
       ])
