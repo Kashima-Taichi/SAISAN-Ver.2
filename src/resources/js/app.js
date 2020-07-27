@@ -2,9 +2,12 @@
  * 独自で実装したComponentを下記にて取り込む
  */
 import VueRouter from 'vue-router';
+// メニュー関係
 import HeaderComponent from "./components/HeaderComponent";
 import MenuComponent from "./components/MenuComponent";
+// 経費関係
 import CostMenuComponent from "./components/cost/CostMenuComponent";
+import CostRecordComponent from "./components/cost/CostRecordComponent";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -37,6 +40,7 @@ const router = new VueRouter({
         |
         */
         { /* 経費トップ */ path: '/cost', name: 'saisan.cost', component: CostMenuComponent },
+        { /* 経費計上 */ path: '/cost/rec', name: 'cost.rec', component: CostRecordComponent },
     ]
 });
 

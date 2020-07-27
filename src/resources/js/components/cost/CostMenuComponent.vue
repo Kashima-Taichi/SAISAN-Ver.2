@@ -11,7 +11,9 @@
         <tr>
           <th scope="row">経費計上</th>
           <td>
-            <button class="btn btn-primary">GO!</button>
+            <router-link v-bind:to="{name: 'cost.rec'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
           </td>
         </tr>
         <tr>
