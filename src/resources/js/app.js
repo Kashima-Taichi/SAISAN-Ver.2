@@ -4,6 +4,7 @@
 import VueRouter from 'vue-router';
 import HeaderComponent from "./components/HeaderComponent";
 import MenuComponent from "./components/MenuComponent";
+import CostMenuComponent from "./components/cost/CostMenuComponent";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -31,7 +32,20 @@ const router = new VueRouter({
             path: '/menus',
             name: 'saisan.menus',
             component: MenuComponent
-        }
+        },
+        /*
+        |--------------------------------------------------------------------------
+        | Cost routes
+        |--------------------------------------------------------------------------
+        | 経費ノ部のルーティングは下記にて実装
+        |
+        */
+        {
+            path: '/cost',
+            name: 'saisan.cost',
+            component: CostMenuComponent
+        },
+
     ]
 });
 
