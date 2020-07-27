@@ -1,0 +1,42 @@
+<template>
+  <div class="container">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">コンテンツ</th>
+          <th scope="col">アクション</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">支出ノ部</th>
+          <td>
+            <button class="btn btn-primary">GO!</button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">収入ノ部</th>
+          <td>
+            <button class="btn btn-primary">GO!</button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">賞与ノ部</th>
+          <td>
+            <button class="btn btn-primary">GO!</button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">時間ノ部</th>
+          <td>
+            <button class="btn btn-primary">GO!</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>

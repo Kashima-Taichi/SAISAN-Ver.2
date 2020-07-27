@@ -1,7 +1,9 @@
 /**
  * 独自で実装したComponentを下記にて取り込む
  */
+import VueRouter from 'vue-router';
 import HeaderComponent from "./components/HeaderComponent";
+import MenuComponent from "./components/MenuComponent";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -12,6 +14,26 @@ import HeaderComponent from "./components/HeaderComponent";
 require('./bootstrap');
 
 window.Vue = require('vue');
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        /*
+        |--------------------------------------------------------------------------
+        | Menu routes
+        |--------------------------------------------------------------------------
+        | メニュー関係のルーティングは下記にて実装
+        |
+        */
+        {
+            path: '/menus',
+            name: 'saisan.menus',
+            component: MenuComponent
+        }
+    ]
+});
 
 /**
  * The following block of code may be used to automatically register your
@@ -34,4 +56,5 @@ Vue.component('header-component', HeaderComponent);
 
 const app = new Vue({
     el: '#app',
+    router
 });

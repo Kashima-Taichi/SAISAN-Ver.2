@@ -5,7 +5,9 @@
         <span class="navbar-brand mb-0 h1">SAISAN Ver.2</span>
         <div>
           <button class="btn btn-success">TOP</button>
-          <button class="btn btn-success">Menu</button>
+          <router-link v-bind:to="{name: 'saisan.menus'}">
+            <button class="btn btn-success">Menu</button>
+          </router-link>
         </div>
       </nav>
     </div>
