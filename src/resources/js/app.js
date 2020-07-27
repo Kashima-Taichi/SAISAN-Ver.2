@@ -28,11 +28,7 @@ const router = new VueRouter({
         | メニュー関係のルーティングは下記にて実装
         |
         */
-        {
-            path: '/menus',
-            name: 'saisan.menus',
-            component: MenuComponent
-        },
+        { /* メニュー */ path: '/menus', name: 'saisan.menus', component: MenuComponent },
         /*
         |--------------------------------------------------------------------------
         | Cost routes
@@ -40,12 +36,7 @@ const router = new VueRouter({
         | 経費ノ部のルーティングは下記にて実装
         |
         */
-        {
-            path: '/cost',
-            name: 'saisan.cost',
-            component: CostMenuComponent
-        },
-
+        { /* 経費トップ */ path: '/cost', name: 'saisan.cost', component: CostMenuComponent },
     ]
 });
 
