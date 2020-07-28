@@ -18,9 +18,9 @@ class CreateCostsTable extends Migration
             $table->string('accountName', 45);
             $table->integer('price');
             $table->string('journal', 45);
-            $table->int('year');
-            $table->int('month');
-            $table->int('day');
+            $table->integer('year');
+            $table->integer('month');
+            $table->integer('day');
             $table->date('date');
             $table->timestamps();
         });
