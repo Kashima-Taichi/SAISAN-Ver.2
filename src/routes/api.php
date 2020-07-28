@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/*
+|--------------------------------------------------------------------------
+| 経費関係
+|--------------------------------------------------------------------------
+| 経費関係のAPIルーティングは下記にて実装する。
+*/
+Route::post('/cost/store', 'CostController@store');
