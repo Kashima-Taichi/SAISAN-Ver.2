@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <form v-on:submit.prevent="submit">
       <div class="form-group">
         <label for="year">please select year</label>
