@@ -4,19 +4,19 @@
       <div class="col-sm-6">
         <form v-on:submit.prevent="submit">
           <div class="form-group row">
-            <label for="title" class="col-sm-3 col-form-label">Year</label>
+            <label for="year" class="col-sm-3 col-form-label">Year</label>
             <input type="text" class="col-sm-9 form-control" id="year" v-model="cost.year" />
           </div>
           <div class="form-group row">
-            <label for="title" class="col-sm-3 col-form-label">Month</label>
+            <label for="month" class="col-sm-3 col-form-label">Month</label>
             <input type="text" class="col-sm-9 form-control" id="month" v-model="cost.month" />
           </div>
           <div class="form-group row">
-            <label for="title" class="col-sm-3 col-form-label">Day</label>
+            <label for="day" class="col-sm-3 col-form-label">Day</label>
             <input type="text" class="col-sm-9 form-control" id="day" v-model="cost.day" />
           </div>
           <div class="form-group row">
-            <label for="content" class="col-sm-3 col-form-label">Account</label>
+            <label for="account-name" class="col-sm-3 col-form-label">Account</label>
             <input
               type="text"
               class="col-sm-9 form-control"
@@ -25,11 +25,11 @@
             />
           </div>
           <div class="form-group row">
-            <label for="person-in-charge" class="col-sm-3 col-form-label">Price</label>
+            <label for="price" class="col-sm-3 col-form-label">Price</label>
             <input type="text" class="col-sm-9 form-control" id="price" v-model="cost.price" />
           </div>
           <div class="form-group row">
-            <label for="person-in-charge" class="col-sm-3 col-form-label">Journal</label>
+            <label for="journal" class="col-sm-3 col-form-label">Journal</label>
             <input type="text" class="col-sm-9 form-control" id="journal" v-model="cost.journal" />
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
