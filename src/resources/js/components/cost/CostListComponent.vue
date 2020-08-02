@@ -1,0 +1,64 @@
+<template>
+  <div class="container">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">account</th>
+          <th scope="col">price</th>
+          <th scope="col">journal</th>
+          <th scope="col">year</th>
+          <th scope="col">month</th>
+          <th scope="col">day</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(cost, index) in costs" :key="index">
+          <th scope="row">{{ cost.id }}</th>
+          <td>{{ cost.accountName }}</td>
+          <td>{{ cost.price }}</td>
+          <td>{{ cost.journal }}</td>
+          <td>{{ cost.year }}</td>
+          <td>{{ cost.month }}</td>
+          <td>{{ cost.day }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+<script>
+export default {
+  props: {
+    year: Number,
+    month: Number,
+    day: Number,
+  },
+  data: function () {
+    return {
+      costs: [],
+    };
+  },
+  methods: {
+    getCostData() {
+      if (this.day === undefined) {
+        axios
+          .get("/api/cost/list/" + this.year + "/" + this.month)
+          .then((res) => {
+            this.costs = res.data;
+          });
+      } else {
+        axios
+          .get(
+            "/api/cost/list/" + this.year + "/" + this.month + "/" + this.day
+          )
+          .then((res) => {
+            this.costs = res.data;
+          });
+      }
+    },
+  },
+  mounted() {
+    this.getCostData();
+  },
+};
+</script>

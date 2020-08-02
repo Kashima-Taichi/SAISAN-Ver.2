@@ -8,6 +8,9 @@ import MenuComponent from "./components/MenuComponent";
 // 経費関係
 import CostMenuComponent from "./components/cost/CostMenuComponent";
 import CostRecordComponent from "./components/cost/CostRecordComponent";
+import CostRecordDoneComponent from "./components/cost/CostRecordDoneComponent";
+import CostListComponent from "./components/cost/CostListComponent";
+import SelectYearMonthComponent from "./components/cost/SelectYearMonthComponent";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -39,8 +42,12 @@ const router = new VueRouter({
         | 経費ノ部のルーティングは下記にて実装
         |
         */
-        { /* 経費トップ */ path: '/cost', name: 'saisan.cost', component: CostMenuComponent },
-        { /* 経費計上 */ path: '/cost/rec', name: 'cost.rec', component: CostRecordComponent },
+        { /* 経費トップ */ path: '/cost/', name: 'saisan.cost', component: CostMenuComponent },
+        { /* 経費計上 */ path: '/cost/rec/', name: 'cost.rec', component: CostRecordComponent },
+        { /* 経費計上完了 */ path: '/cost/rec-done/', name: 'cost.rec-done', component: CostRecordDoneComponent },
+        { /* 経費計上年月日の取得 */ path: '/cost/list/select-ym/', name: 'cost.list.selectym', component: SelectYearMonthComponent },
+        { /* 経費計上リスト(日次) */ path: '/cost/list/:year/:month/:day/', name: 'cost.list-day', component: CostListComponent, props: true },
+        { /* 経費計上リスト(月次) */ path: '/cost/list/:year/:month/', name: 'cost.list-month', component: CostListComponent, props: true },
     ]
 });
 

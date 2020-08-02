@@ -19,7 +19,9 @@
         <tr>
           <th scope="row">経費参照</th>
           <td>
-            <button class="btn btn-primary">GO!</button>
+            <router-link v-bind:to="{name: 'cost.list.selectym'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
           </td>
         </tr>
       </tbody>
