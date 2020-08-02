@@ -10,11 +10,12 @@
           <th scope="col">year</th>
           <th scope="col">month</th>
           <th scope="col">day</th>
-          <th scope="col">Watch</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(cost, index) in costs" :key="index">
+        <tr>
           <th scope="row">{{ cost.id }}</th>
           <td>{{ cost.accountName }}</td>
           <td>{{ cost.price }}</td>
@@ -23,9 +24,10 @@
           <td>{{ cost.month }}</td>
           <td>{{ cost.day }}</td>
           <td>
-            <router-link v-bind:to="{name: 'cost.detail', params: { costId: cost.id } }">
-              <button class="btn btn-primary">Watch</button>
-            </router-link>
+            <button class="btn btn-success">Edit</button>
+          </td>
+          <td>
+            <button class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -35,36 +37,22 @@
 <script>
 export default {
   props: {
-    year: Number,
-    month: Number,
-    day: Number,
+    costId: Number,
   },
   data: function () {
     return {
-      costs: [],
+      cost: {},
     };
   },
   methods: {
-    getCostData() {
-      if (this.day === undefined) {
-        axios
-          .get("/api/cost/list/" + this.year + "/" + this.month)
-          .then((res) => {
-            this.costs = res.data;
-          });
-      } else {
-        axios
-          .get(
-            "/api/cost/list/" + this.year + "/" + this.month + "/" + this.day
-          )
-          .then((res) => {
-            this.costs = res.data;
-          });
-      }
+    getCostIndividualData() {
+      axios.get("/api/cost/detail/" + this.costId).then((res) => {
+        this.cost = res.data;
+      });
     },
   },
   mounted() {
-    this.getCostData();
+    this.getCostIndividualData();
   },
 };
 </script>
