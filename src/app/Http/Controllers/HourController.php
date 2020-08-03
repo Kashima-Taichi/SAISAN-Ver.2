@@ -19,7 +19,18 @@ class HourController extends Controller
         return;
     }
     // 時間計上後のデータ取得
-    public function getLatestHourData () {
+    public function getLatestHourData() {
         return Hour::orderBy('id', 'desc')->first();
     }
+
+    // APIで年次の稼働時間計上リストを取得
+    public function getHourListYear($year) {
+        return Hour::whereRaw('year = ?', $year)->get();
+    }
+
+    // APIで稼働時間計上実績のある年月情報を取得
+    public function getHourYear() {
+        return Hour::groupBy('year')->get('year');
+    }
+
 }

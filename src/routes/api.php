@@ -53,3 +53,9 @@ Route::post('/hour/store', 'HourController@store');
 
 // 時間計上後のデータ取得
 Route::get('/hour/latest', 'HourController@getLatestHourData');
+
+// 稼働時間計上リスト
+Route::get('/hour/list/{year}/', 'HourController@getHourListYear');
+
+// 時間計上年月の取得
+Route::get('/hour/year', 'HourController@getHourYear');
