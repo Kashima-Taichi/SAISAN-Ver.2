@@ -49,7 +49,7 @@ export default {
   methods: {
     submit() {
       axios.post("/api/cost/store", this.cost).then((res) => {
-        this.$router.push({ name: "cost.rec-done", params: this.cost });
+        this.$router.push({ name: "cost.rec-done" });
       });
     },
   },
