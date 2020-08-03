@@ -12,6 +12,10 @@ import CostRecordDoneComponent from "./components/cost/CostRecordDoneComponent";
 import CostListComponent from "./components/cost/CostListComponent";
 import CostDetailComponent from "./components/cost/CostDetailComponent";
 import SelectYearMonthComponent from "./components/cost/SelectYearMonthComponent";
+// 時間関係
+import HourMenuComponent from "./components/hour/HourMenuComponent";
+import HourRecordComponent from "./components/hour/HourRecordComponent";
+import HourRecordDoneComponent from "./components/hour/HourRecordDoneComponent";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -50,6 +54,16 @@ const router = new VueRouter({
         { /* 経費計上年月日の取得 */ path: '/cost/list/select-ym/', name: 'cost.list.selectym', component: SelectYearMonthComponent },
         { /* 経費計上リスト(日次) */ path: '/cost/list/:year/:month/:day/', name: 'cost.list-day', component: CostListComponent, props: true },
         { /* 経費計上リスト(月次) */ path: '/cost/list/:year/:month/', name: 'cost.list-month', component: CostListComponent, props: true },
+        /*
+        |--------------------------------------------------------------------------
+        | Hour routes
+        |--------------------------------------------------------------------------
+        | 時間ノ部のルーティングは下記にて実装
+        |
+        */
+        { /* 時間トップ */ path: '/hour/', name: 'saisan.hour', component: HourMenuComponent },
+        { /* 時間計上 */ path: '/hour/rec/', name: 'hour.rec', component: HourRecordComponent },
+        { /* 時間計上完了 */ path: '/hour/rec-done/', name: 'hour.rec-done', component: HourRecordDoneComponent },
     ]
 });
 

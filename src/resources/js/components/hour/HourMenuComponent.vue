@@ -9,29 +9,17 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">支出ノ部</th>
+          <th scope="row">稼働時間計上</th>
           <td>
-            <router-link v-bind:to="{name: 'saisan.cost'}">
+            <router-link v-bind:to="{name: 'hour.rec'}">
               <button class="btn btn-primary">GO!</button>
             </router-link>
           </td>
         </tr>
         <tr>
-          <th scope="row">収入ノ部</th>
+          <th scope="row">稼働時間参照</th>
           <td>
-            <button class="btn btn-primary">GO!</button>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">賞与ノ部</th>
-          <td>
-            <button class="btn btn-primary">GO!</button>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">時間ノ部</th>
-          <td>
-            <router-link v-bind:to="{name: 'saisan.hour'}">
+            <router-link v-bind:to="{name: 'hour.list.selecty'}">
               <button class="btn btn-primary">GO!</button>
             </router-link>
           </td>
