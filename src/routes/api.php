@@ -40,3 +40,16 @@ Route::get('/cost/detail/{id}', 'CostController@getIndividualCostData');
 // 経費計上年月の取得
 Route::get('/cost/year', 'CostController@getCostYear');
 Route::get('/cost/month', 'CostController@getCostMonth');
+
+/*
+|--------------------------------------------------------------------------
+| 時間関係
+|--------------------------------------------------------------------------
+| 時間関係のAPIルーティングは下記にて実装する。
+*/
+
+// 稼働時間計上
+Route::post('/hour/store', 'HourController@store');
+
+// 時間計上後のデータ取得
+Route::get('/hour/latest', 'HourController@getLatestHourData');
