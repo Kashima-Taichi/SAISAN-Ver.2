@@ -16,6 +16,8 @@ import SelectYearMonthComponent from "./components/cost/SelectYearMonthComponent
 import HourMenuComponent from "./components/hour/HourMenuComponent";
 import HourRecordComponent from "./components/hour/HourRecordComponent";
 import HourRecordDoneComponent from "./components/hour/HourRecordDoneComponent";
+import SelectYearComponent from "./components/hour/SelectYearComponent";
+import HourListComponent from "./components/hour/HourListComponent";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -50,7 +52,7 @@ const router = new VueRouter({
         { /* 経費トップ */ path: '/cost/', name: 'saisan.cost', component: CostMenuComponent },
         { /* 経費計上 */ path: '/cost/rec/', name: 'cost.rec', component: CostRecordComponent },
         { /* 経費計上完了 */ path: '/cost/rec-done/', name: 'cost.rec-done', component: CostRecordDoneComponent },
-        { /* 経費計上個別データの参照 */ path: '/cost/detail/:costId', name: 'cost.detail', component: CostDetailComponent, props: true },
+        { /* 経費計上個別データの参照 */ path: '/cost/detail/:costId/', name: 'cost.detail', component: CostDetailComponent, props: true },
         { /* 経費計上年月日の取得 */ path: '/cost/list/select-ym/', name: 'cost.list.selectym', component: SelectYearMonthComponent },
         { /* 経費計上リスト(日次) */ path: '/cost/list/:year/:month/:day/', name: 'cost.list-day', component: CostListComponent, props: true },
         { /* 経費計上リスト(月次) */ path: '/cost/list/:year/:month/', name: 'cost.list-month', component: CostListComponent, props: true },
@@ -64,6 +66,8 @@ const router = new VueRouter({
         { /* 時間トップ */ path: '/hour/', name: 'saisan.hour', component: HourMenuComponent },
         { /* 時間計上 */ path: '/hour/rec/', name: 'hour.rec', component: HourRecordComponent },
         { /* 時間計上完了 */ path: '/hour/rec-done/', name: 'hour.rec-done', component: HourRecordDoneComponent },
+        { /* 時間計上年の取得 */ path: '/hour/list/select-ym/', name: 'hour.list.selecty', component: SelectYearComponent },
+        { /* 時間計上リスト（年次） */ path: '/hour/list/:year/', name: 'hour.list', component: HourListComponent, props: true },
     ]
 });
 

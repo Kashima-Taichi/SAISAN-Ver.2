@@ -34,3 +34,7 @@ php artisan migrate
 1 : 新しくVueコンポーネントを実装してもブラウザで反映されなかった
 　・DockerのNginxコンテナ上だとLaravelの内蔵サーバー起動時と異なり変更がリアルタイムで反映されなかった
 　・Chromeでキャッシュの削除とハードの再読み込みを行うと変更が反映された
+
+2 : app.jsのVue.jsのルーティング設定にて、URLの前スラを抜いてしまうと、
+　　 下記ようないびつなURLが生成される。
+　　　http://127.0.0.1:20080/hour/list/hour/list/hour/list/hour/list/2020
