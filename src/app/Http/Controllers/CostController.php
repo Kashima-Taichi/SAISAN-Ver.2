@@ -9,7 +9,12 @@ class CostController extends Controller
 {
     // APIで経費計上
     public function store(Request $request) {
-        return Cost::create($request->all());
+        $request['date'] = $request['year'] . '-' . (strlen($request['month']) === 1 ? '0' . $request['month'] : $request['month']) . '-' . (strlen($request['day']) === 1 ? '0' . $request['day'] : $request['day']);
+        // 経費データの登録
+        $costs = new Cost;
+        unset($request['_token']);
+        $costs->fill($request->all())->save();
+        return;
     }
     // 経費計上後のデータ取得
     public function getLatestCostData () {
