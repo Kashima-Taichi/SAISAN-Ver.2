@@ -52,6 +52,15 @@ export default {
         this.$router.push({ name: "cost.rec-done" });
       });
     },
+    fillDateTime() {
+      var now = new Date();
+      document.getElementById("year").value = now.getFullYear();
+      document.getElementById("month").value = now.getMonth() + 1;
+      document.getElementById("day").value = now.getDate();
+    },
+  },
+  mounted() {
+    this.fillDateTime();
   },
 };
 </script>
