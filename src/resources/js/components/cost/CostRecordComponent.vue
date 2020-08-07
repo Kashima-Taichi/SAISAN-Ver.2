@@ -17,12 +17,14 @@
           </div>
           <div class="form-group row">
             <label for="account-name" class="col-sm-3 col-form-label">Account</label>
-            <input
-              type="text"
-              class="col-sm-9 form-control"
-              id="account"
-              v-model="cost.accountName"
-            />
+            <select class="col-sm-9 form-control" id="account" v-model="cost.accountName">
+              <option value>select</option>
+              <option
+                v-for="(account, index) in accounts"
+                :key="index"
+                v-bind:value="account.accountKanji"
+              >{{ account.accountKanji }}</option>
+            </select>
           </div>
           <div class="form-group row">
             <label for="price" class="col-sm-3 col-form-label">Price</label>
@@ -44,6 +46,7 @@ export default {
   data: function () {
     return {
       cost: {},
+      accounts: [],
     };
   },
   methods: {
@@ -52,15 +55,20 @@ export default {
         this.$router.push({ name: "cost.rec-done" });
       });
     },
-    fillDateTime() {
+    window: (onload = function () {
       var now = new Date();
       document.getElementById("year").value = now.getFullYear();
       document.getElementById("month").value = now.getMonth() + 1;
       document.getElementById("day").value = now.getDate();
+    }),
+    getAccountList() {
+      axios.get("/api/account/list").then((res) => {
+        this.accounts = res.data;
+      });
     },
   },
   mounted() {
-    this.fillDateTime();
+    this.getAccountList();
   },
 };
 </script>

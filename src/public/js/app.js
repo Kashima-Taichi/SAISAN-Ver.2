@@ -2224,10 +2224,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      cost: {}
+      cost: {},
+      accounts: []
     };
   },
   methods: {
@@ -2239,7 +2242,23 @@ __webpack_require__.r(__webpack_exports__);
           name: "cost.rec-done"
         });
       });
+    },
+    window: onload = function onload() {
+      var now = new Date();
+      document.getElementById("year").value = now.getFullYear();
+      document.getElementById("month").value = now.getMonth() + 1;
+      document.getElementById("day").value = now.getDate();
+    },
+    getAccountList: function getAccountList() {
+      var _this2 = this;
+
+      axios.get("/api/account/list").then(function (res) {
+        _this2.accounts = res.data;
+      });
     }
+  },
+  mounted: function mounted() {
+    this.getAccountList();
   }
 });
 
@@ -38820,27 +38839,52 @@ var render = function() {
                 [_vm._v("Account")]
               ),
               _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.cost.accountName,
-                    expression: "cost.accountName"
-                  }
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "account" },
-                domProps: { value: _vm.cost.accountName },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.cost.accountName,
+                      expression: "cost.accountName"
                     }
-                    _vm.$set(_vm.cost, "accountName", $event.target.value)
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { id: "account" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.cost,
+                        "accountName",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
                   }
-                }
-              })
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.accounts, function(account, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: account.accountKanji } },
+                      [_vm._v(_vm._s(account.accountKanji))]
+                    )
+                  })
+                ],
+                2
+              )
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-group row" }, [

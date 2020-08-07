@@ -59,3 +59,13 @@ Route::get('/hour/list/{year}/', 'HourController@getHourListYear');
 
 // 時間計上年月の取得
 Route::get('/hour/year', 'HourController@getHourYear');
+
+/*
+|--------------------------------------------------------------------------
+| 勘定科目関係
+|--------------------------------------------------------------------------
+| 勘定科目関係のAPIルーティングは下記にて実装する。
+*/
+
+// 勘定科目のリストを取得
+Route::get('/account/list', 'AccountController@getAccountList');
