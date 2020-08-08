@@ -18,7 +18,6 @@
           <div class="form-group row">
             <label for="account-name" class="col-sm-3 col-form-label">Account</label>
             <select class="col-sm-9 form-control" id="account" v-model="cost.accountName">
-              <option value>select</option>
               <option
                 v-for="(account, index) in accounts"
                 :key="index"
@@ -55,12 +54,12 @@ export default {
         this.$router.push({ name: "cost.rec-done" });
       });
     },
-    window: (onload = function () {
+    fillDateInfo() {
       var now = new Date();
-      document.getElementById("year").value = now.getFullYear();
-      document.getElementById("month").value = now.getMonth() + 1;
-      document.getElementById("day").value = now.getDate();
-    }),
+      this.cost.year = now.getFullYear();
+      this.cost.month = now.getMonth() + 1;
+      this.cost.day = now.getDate();
+    },
     getAccountList() {
       axios.get("/api/account/list").then((res) => {
         this.accounts = res.data;
@@ -69,6 +68,7 @@ export default {
   },
   mounted() {
     this.getAccountList();
+    this.fillDateInfo();
   },
 };
 </script>

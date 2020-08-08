@@ -2225,7 +2225,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2243,11 +2242,11 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    window: onload = function onload() {
+    fillDateInfo: function fillDateInfo() {
       var now = new Date();
-      document.getElementById("year").value = now.getFullYear();
-      document.getElementById("month").value = now.getMonth() + 1;
-      document.getElementById("day").value = now.getDate();
+      this.cost.year = now.getFullYear();
+      this.cost.month = now.getMonth() + 1;
+      this.cost.day = now.getDate();
     },
     getAccountList: function getAccountList() {
       var _this2 = this;
@@ -2259,6 +2258,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getAccountList();
+    this.fillDateInfo();
   }
 });
 
@@ -38872,18 +38872,14 @@ var render = function() {
                     }
                   }
                 },
-                [
-                  _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
-                  _vm._v(" "),
-                  _vm._l(_vm.accounts, function(account, index) {
-                    return _c(
-                      "option",
-                      { key: index, domProps: { value: account.accountKanji } },
-                      [_vm._v(_vm._s(account.accountKanji))]
-                    )
-                  })
-                ],
-                2
+                _vm._l(_vm.accounts, function(account, index) {
+                  return _c(
+                    "option",
+                    { key: index, domProps: { value: account.accountKanji } },
+                    [_vm._v(_vm._s(account.accountKanji))]
+                  )
+                }),
+                0
               )
             ]),
             _vm._v(" "),
