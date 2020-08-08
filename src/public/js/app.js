@@ -56248,7 +56248,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     component: _components_hour_HourRecordDoneComponent__WEBPACK_IMPORTED_MODULE_11__["default"]
   }, {
     /* 時間計上年の取得 */
-    path: '/hour/list/select-ym/',
+    path: '/hour/list/select-y/',
     name: 'hour.list.selecty',
     component: _components_hour_SelectYearComponent__WEBPACK_IMPORTED_MODULE_12__["default"]
   }, {

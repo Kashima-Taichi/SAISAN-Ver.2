@@ -67,7 +67,7 @@ const router = new VueRouter({
         { /* 時間トップ */ path: '/hour/', name: 'saisan.hour', component: HourMenuComponent },
         { /* 時間計上 */ path: '/hour/rec/', name: 'hour.rec', component: HourRecordComponent },
         { /* 時間計上完了 */ path: '/hour/rec-done/', name: 'hour.rec-done', component: HourRecordDoneComponent },
-        { /* 時間計上年の取得 */ path: '/hour/list/select-ym/', name: 'hour.list.selecty', component: SelectYearComponent },
+        { /* 時間計上年の取得 */ path: '/hour/list/select-y/', name: 'hour.list.selecty', component: SelectYearComponent },
         { /* 時間計上リスト（年次） */ path: '/hour/list/:year/', name: 'hour.list', component: HourListComponent, props: true },
         /*
         |--------------------------------------------------------------------------
