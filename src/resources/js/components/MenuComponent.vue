@@ -19,7 +19,9 @@
         <tr>
           <th scope="row">収入ノ部</th>
           <td>
-            <button class="btn btn-primary">GO!</button>
+            <router-link v-bind:to="{name: 'saisan.salary'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
           </td>
         </tr>
         <tr>
