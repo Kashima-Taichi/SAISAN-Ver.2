@@ -18,6 +18,10 @@ import HourRecordComponent from "./components/hour/HourRecordComponent";
 import HourRecordDoneComponent from "./components/hour/HourRecordDoneComponent";
 import SelectYearComponent from "./components/hour/SelectYearComponent";
 import HourListComponent from "./components/hour/HourListComponent";
+// 収入関係
+import SalaryMenuComponent from "./components/salary/SalaryMenuComponent";
+import SalaryRecordComponent from "./components/salary/SalaryRecordComponent";
+import SalaryRecordDoneComponent from "./components/salary/SalaryRecordDoneComponent";
 // その他の機能
 import OtherMenuComponent from "./components/other/OtherMenuComponent";
 import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";
@@ -65,6 +69,14 @@ const router = new VueRouter({
         { /* 時間計上完了 */ path: '/hour/rec-done/', name: 'hour.rec-done', component: HourRecordDoneComponent },
         { /* 時間計上年の取得 */ path: '/hour/list/select-ym/', name: 'hour.list.selecty', component: SelectYearComponent },
         { /* 時間計上リスト（年次） */ path: '/hour/list/:year/', name: 'hour.list', component: HourListComponent, props: true },
+        /*
+        |--------------------------------------------------------------------------
+        | Salary routes
+        |--------------------------------------------------------------------------
+        | 収入ノ部のルーティングは下記にて実装 */
+        { /* 収入トップ */ path: '/salary/', name: 'saisan.salary', component: SalaryMenuComponent },
+        { /* 収入計上 */ path: '/salary/rec/', name: 'salary.rec', component: SalaryRecordComponent },
+        { /* 収入計上 */ path: '/salary/rec-done/', name: 'salary.rec-done', component: SalaryRecordDoneComponent },
         /*
         |--------------------------------------------------------------------------
         | Others routes
