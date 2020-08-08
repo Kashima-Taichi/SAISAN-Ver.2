@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h2>経費計上合計金額：{{ totalAmount }}円</h2>
     <table class="table table-hover">
       <thead class="thead-light">
         <tr>
@@ -42,6 +43,7 @@ export default {
   data: function () {
     return {
       costs: [],
+      totalAmount: 0,
     };
   },
   methods: {
@@ -51,6 +53,9 @@ export default {
           .get("/api/cost/list/" + this.year + "/" + this.month)
           .then((res) => {
             this.costs = res.data;
+            for (var item in this.costs) {
+              this.totalAmount += this.costs[item]["price"];
+            }
           });
       } else {
         axios
@@ -59,6 +64,9 @@ export default {
           )
           .then((res) => {
             this.costs = res.data;
+            for (var item in this.costs) {
+              this.totalAmount += this.costs[item]["price"];
+            }
           });
       }
     },
