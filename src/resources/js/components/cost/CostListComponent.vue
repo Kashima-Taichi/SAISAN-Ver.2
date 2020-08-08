@@ -50,7 +50,7 @@ export default {
     getCostData() {
       if (this.day === undefined) {
         axios
-          .get("/api/cost/list/" + this.year + "/" + this.month)
+          .get("/api/cost/list/" + this.year + "/" + this.month + "/")
           .then((res) => {
             this.costs = res.data;
             for (var item in this.costs) {
@@ -60,7 +60,13 @@ export default {
       } else {
         axios
           .get(
-            "/api/cost/list/" + this.year + "/" + this.month + "/" + this.day
+            "/api/cost/list/" +
+              this.year +
+              "/" +
+              this.month +
+              "/" +
+              this.day +
+              "/"
           )
           .then((res) => {
             this.costs = res.data;

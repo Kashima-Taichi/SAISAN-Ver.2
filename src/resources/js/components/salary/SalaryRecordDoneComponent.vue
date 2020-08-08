@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     getSalaryLatestData() {
-      axios.get("/api/salary/latest").then((res) => {
+      axios.get("/api/salary/latest/").then((res) => {
         this.salary = res.data;
       });
     },

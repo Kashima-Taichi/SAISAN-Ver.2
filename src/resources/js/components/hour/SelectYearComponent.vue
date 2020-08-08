@@ -29,7 +29,7 @@ export default {
   methods: {
     // 年月の情報を取得
     getHourYear() {
-      axios.get("/api/hour/year").then((res) => {
+      axios.get("/api/hour/year/").then((res) => {
         this.years = res.data;
       });
     },

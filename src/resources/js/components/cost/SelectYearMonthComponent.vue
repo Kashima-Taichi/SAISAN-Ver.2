@@ -50,10 +50,10 @@ export default {
   methods: {
     // 年月の情報を取得
     getCostYearMonth() {
-      axios.get("/api/cost/year").then((res) => {
+      axios.get("/api/cost/year/").then((res) => {
         this.years = res.data;
       });
-      axios.get("/api/cost/month").then((res) => {
+      axios.get("/api/cost/month/").then((res) => {
         this.months = res.data;
       });
     },

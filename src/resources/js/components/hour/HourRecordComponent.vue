@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     submit() {
-      axios.post("/api/hour/store", this.hour).then((res) => {
+      axios.post("/api/hour/store/", this.hour).then((res) => {
         this.$router.push({ name: "hour.rec-done" });
       });
     },

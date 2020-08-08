@@ -2052,7 +2052,7 @@ __webpack_require__.r(__webpack_exports__);
     getCostIndividualData: function getCostIndividualData() {
       var _this = this;
 
-      axios.get("/api/cost/detail/" + this.costId).then(function (res) {
+      axios.get("/api/cost/detail/" + this.costId + "/").then(function (res) {
         _this.cost = res.data;
       });
     }
@@ -2125,7 +2125,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       if (this.day === undefined) {
-        axios.get("/api/cost/list/" + this.year + "/" + this.month).then(function (res) {
+        axios.get("/api/cost/list/" + this.year + "/" + this.month + "/").then(function (res) {
           _this.costs = res.data;
 
           for (var item in _this.costs) {
@@ -2133,7 +2133,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       } else {
-        axios.get("/api/cost/list/" + this.year + "/" + this.month + "/" + this.day).then(function (res) {
+        axios.get("/api/cost/list/" + this.year + "/" + this.month + "/" + this.day + "/").then(function (res) {
           _this.costs = res.data;
 
           for (var item in _this.costs) {
@@ -2256,7 +2256,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      axios.post("/api/cost/store", this.cost).then(function (res) {
+      axios.post("/api/cost/store/", this.cost).then(function (res) {
         _this.$router.push({
           name: "cost.rec-done"
         });
@@ -2271,7 +2271,7 @@ __webpack_require__.r(__webpack_exports__);
     getAccountList: function getAccountList() {
       var _this2 = this;
 
-      axios.get("/api/account/list").then(function (res) {
+      axios.get("/api/account/list/").then(function (res) {
         _this2.accounts = res.data;
       });
     }
@@ -2410,10 +2410,10 @@ __webpack_require__.r(__webpack_exports__);
     getCostYearMonth: function getCostYearMonth() {
       var _this = this;
 
-      axios.get("/api/cost/year").then(function (res) {
+      axios.get("/api/cost/year/").then(function (res) {
         _this.years = res.data;
       });
-      axios.get("/api/cost/month").then(function (res) {
+      axios.get("/api/cost/month/").then(function (res) {
         _this.months = res.data;
       });
     },
@@ -2491,7 +2491,7 @@ __webpack_require__.r(__webpack_exports__);
     getHourData: function getHourData() {
       var _this = this;
 
-      axios.get("/api/hour/list/" + this.year).then(function (res) {
+      axios.get("/api/hour/list/" + this.year + "/").then(function (res) {
         _this.hours = res.data;
       });
     }
@@ -2598,7 +2598,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      axios.post("/api/hour/store", this.hour).then(function (res) {
+      axios.post("/api/hour/store/", this.hour).then(function (res) {
         _this.$router.push({
           name: "hour.rec-done"
         });
@@ -2710,7 +2710,7 @@ __webpack_require__.r(__webpack_exports__);
     getHourYear: function getHourYear() {
       var _this = this;
 
-      axios.get("/api/hour/year").then(function (res) {
+      axios.get("/api/hour/year/").then(function (res) {
         _this.years = res.data;
       });
     },
@@ -3000,7 +3000,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      axios.post("/api/salary/store", this.salary).then(function (res) {
+      axios.post("/api/salary/store/", this.salary).then(function (res) {
         _this.$router.push({
           name: "salary.rec-done"
         });
@@ -3075,7 +3075,7 @@ __webpack_require__.r(__webpack_exports__);
     getSalaryLatestData: function getSalaryLatestData() {
       var _this = this;
 
-      axios.get("/api/salary/latest").then(function (res) {
+      axios.get("/api/salary/latest/").then(function (res) {
         _this.salary = res.data;
       });
     }
@@ -56128,7 +56128,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_hour_HourListComponent__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/hour/HourListComponent */ "./resources/js/components/hour/HourListComponent.vue");
 /* harmony import */ var _components_salary_SalaryMenuComponent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/salary/SalaryMenuComponent */ "./resources/js/components/salary/SalaryMenuComponent.vue");
 /* harmony import */ var _components_salary_SalaryRecordComponent__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/salary/SalaryRecordComponent */ "./resources/js/components/salary/SalaryRecordComponent.vue");
-/* harmony import */ var _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/salary/SalaryRecordDoneComponent */ "./resources/js/components/salary/SalaryRecordDoneComponent.vue");
+/* harmony import */ var _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/salary/SalaryRecordDoneComponent */ "./resources/js/components/salary/SalaryRecordDoneComponent.vue");
 /* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
 /* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
 /**
@@ -56178,7 +56178,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   | メニュー関係のルーティングは下記にて実装 */
   {
     /* メニュー */
-    path: '/menus',
+    path: '/menus/',
     name: 'saisan.menus',
     component: _components_MenuComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
@@ -56277,7 +56277,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* 収入計上 */
     path: '/salary/rec-done/',
     name: 'salary.rec-done',
-    component: _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_19__["default"]
+    component: _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_16__["default"]
   },
   /*
   |--------------------------------------------------------------------------

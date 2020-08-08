@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     submit() {
-      axios.post("/api/cost/store", this.cost).then((res) => {
+      axios.post("/api/cost/store/", this.cost).then((res) => {
         this.$router.push({ name: "cost.rec-done" });
       });
     },
@@ -61,7 +61,7 @@ export default {
       this.cost.day = now.getDate();
     },
     getAccountList() {
-      axios.get("/api/account/list").then((res) => {
+      axios.get("/api/account/list/").then((res) => {
         this.accounts = res.data;
       });
     },

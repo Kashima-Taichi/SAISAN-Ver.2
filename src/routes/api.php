@@ -25,21 +25,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 */
 
 // 経費計上
-Route::post('/cost/store', 'CostController@store');
+Route::post('/cost/store/', 'CostController@store');
 
 // 経費計上後のデータ取得
-Route::get('/cost/latest', 'CostController@getLatestCostData');
+Route::get('/cost/latest/', 'CostController@getLatestCostData');
 
 // 経費計上リスト
-Route::get('/cost/list/{year}/{month}', 'CostController@getCostListMonth');
-Route::get('/cost/list/{year}/{month}/{day}', 'CostController@getCostListDay');
+Route::get('/cost/list/{year}/{month}/', 'CostController@getCostListMonth');
+Route::get('/cost/list/{year}/{month}/{day}/', 'CostController@getCostListDay');
 
 // 経費計上詳細データ
-Route::get('/cost/detail/{id}', 'CostController@getIndividualCostData');
+Route::get('/cost/detail/{id}/', 'CostController@getIndividualCostData');
 
 // 経費計上年月の取得
-Route::get('/cost/year', 'CostController@getCostYear');
-Route::get('/cost/month', 'CostController@getCostMonth');
+Route::get('/cost/year/', 'CostController@getCostYear');
+Route::get('/cost/month/', 'CostController@getCostMonth');
 
 /*
 |--------------------------------------------------------------------------
@@ -49,16 +49,16 @@ Route::get('/cost/month', 'CostController@getCostMonth');
 */
 
 // 稼働時間計上
-Route::post('/hour/store', 'HourController@store');
+Route::post('/hour/store/', 'HourController@store');
 
 // 時間計上後のデータ取得
-Route::get('/hour/latest', 'HourController@getLatestHourData');
+Route::get('/hour/latest/', 'HourController@getLatestHourData');
 
 // 稼働時間計上リスト
 Route::get('/hour/list/{year}/', 'HourController@getHourListYear');
 
 // 時間計上年月の取得
-Route::get('/hour/year', 'HourController@getHourYear');
+Route::get('/hour/year/', 'HourController@getHourYear');
 
 /*
 |--------------------------------------------------------------------------
@@ -68,10 +68,10 @@ Route::get('/hour/year', 'HourController@getHourYear');
 */
 
 // 収入計上
-Route::post('/salary/store', 'SalaryController@store');
+Route::post('/salary/store/', 'SalaryController@store');
 
 // 収入計上後のデータ取得
-Route::get('/salary/latest', 'SalaryController@getLatestSalaryData');
+Route::get('/salary/latest/', 'SalaryController@getLatestSalaryData');
 
 
 /*
@@ -82,4 +82,4 @@ Route::get('/salary/latest', 'SalaryController@getLatestSalaryData');
 */
 
 // 勘定科目のリストを取得
-Route::get('/account/list', 'AccountController@getAccountList');
+Route::get('/account/list/', 'AccountController@getAccountList');

@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     getCostIndividualData() {
-      axios.get("/api/cost/detail/" + this.costId).then((res) => {
+      axios.get("/api/cost/detail/" + this.costId + "/").then((res) => {
         this.cost = res.data;
       });
     },

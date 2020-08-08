@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     getHourData() {
-      axios.get("/api/hour/list/" + this.year).then((res) => {
+      axios.get("/api/hour/list/" + this.year + "/").then((res) => {
         this.hours = res.data;
       });
     },

@@ -126,7 +126,7 @@ export default {
   },
   methods: {
     submit() {
-      axios.post("/api/salary/store", this.salary).then((res) => {
+      axios.post("/api/salary/store/", this.salary).then((res) => {
         this.$router.push({ name: "salary.rec-done" });
       });
     },

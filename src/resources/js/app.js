@@ -46,7 +46,7 @@ const router = new VueRouter({
         | Menu routes
         |--------------------------------------------------------------------------
         | メニュー関係のルーティングは下記にて実装 */
-        { /* メニュー */ path: '/menus', name: 'saisan.menus', component: MenuComponent },
+        { /* メニュー */ path: '/menus/', name: 'saisan.menus', component: MenuComponent },
         /*
         |--------------------------------------------------------------------------
         | Cost routes
