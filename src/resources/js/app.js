@@ -18,6 +18,9 @@ import HourRecordComponent from "./components/hour/HourRecordComponent";
 import HourRecordDoneComponent from "./components/hour/HourRecordDoneComponent";
 import SelectYearComponent from "./components/hour/SelectYearComponent";
 import HourListComponent from "./components/hour/HourListComponent";
+// その他の機能
+import OtherMenuComponent from "./components/other/OtherMenuComponent";
+import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -38,17 +41,13 @@ const router = new VueRouter({
         |--------------------------------------------------------------------------
         | Menu routes
         |--------------------------------------------------------------------------
-        | メニュー関係のルーティングは下記にて実装
-        |
-        */
+        | メニュー関係のルーティングは下記にて実装 */
         { /* メニュー */ path: '/menus', name: 'saisan.menus', component: MenuComponent },
         /*
         |--------------------------------------------------------------------------
         | Cost routes
         |--------------------------------------------------------------------------
-        | 経費ノ部のルーティングは下記にて実装
-        |
-        */
+        | 経費ノ部のルーティングは下記にて実装 */
         { /* 経費トップ */ path: '/cost/', name: 'saisan.cost', component: CostMenuComponent },
         { /* 経費計上 */ path: '/cost/rec/', name: 'cost.rec', component: CostRecordComponent },
         { /* 経費計上完了 */ path: '/cost/rec-done/', name: 'cost.rec-done', component: CostRecordDoneComponent },
@@ -60,14 +59,19 @@ const router = new VueRouter({
         |--------------------------------------------------------------------------
         | Hour routes
         |--------------------------------------------------------------------------
-        | 時間ノ部のルーティングは下記にて実装
-        |
-        */
+        | 時間ノ部のルーティングは下記にて実装 */
         { /* 時間トップ */ path: '/hour/', name: 'saisan.hour', component: HourMenuComponent },
         { /* 時間計上 */ path: '/hour/rec/', name: 'hour.rec', component: HourRecordComponent },
         { /* 時間計上完了 */ path: '/hour/rec-done/', name: 'hour.rec-done', component: HourRecordDoneComponent },
         { /* 時間計上年の取得 */ path: '/hour/list/select-ym/', name: 'hour.list.selecty', component: SelectYearComponent },
         { /* 時間計上リスト（年次） */ path: '/hour/list/:year/', name: 'hour.list', component: HourListComponent, props: true },
+        /*
+        |--------------------------------------------------------------------------
+        | Others routes
+        |--------------------------------------------------------------------------
+        | その他ノ部のルーティングは下記にて実装 */
+        { /* その他トップ */ path: '/other/', name: 'saisan.other', component: OtherMenuComponent },
+        { /* データベースのダンプコマンド出力 */ path: '/other/dump/', name: 'other.dump', component: DumpDatabaseComponent },
     ]
 });
 
