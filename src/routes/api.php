@@ -73,6 +73,11 @@ Route::post('/salary/store/', 'SalaryController@store');
 // 収入計上後のデータ取得
 Route::get('/salary/latest/', 'SalaryController@getLatestSalaryData');
 
+// 稼働時間計上リスト
+Route::get('/salary/list/{year}/', 'SalaryController@getSalaryListYear');
+
+// 収入計上年月の取得
+Route::get('/salary/year/', 'SalaryController@getSalaryYear');
 
 /*
 |--------------------------------------------------------------------------

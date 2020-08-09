@@ -23,4 +23,14 @@ class SalaryController extends Controller
     public function getLatestSalaryData() {
         return Salary::orderBy('id', 'desc')->first();
     }
+
+    // 所得計上実績のある年数を取得
+    public function getSalaryYear() {
+        return Salary::groupBy('year')->get('year');
+    }
+
+    // APIで年次の所得計上リストを取得
+    public function getSalaryListYear($year) {
+        return Salary::whereRaw('year = ?', $year)->get();
+    }
 }
