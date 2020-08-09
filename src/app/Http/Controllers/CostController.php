@@ -16,6 +16,7 @@ class CostController extends Controller
         $costs->fill($request->all())->save();
         return;
     }
+
     // 経費計上後のデータ取得
     public function getLatestCostData () {
         return Cost::orderBy('id', 'desc')->first();
@@ -25,6 +26,7 @@ class CostController extends Controller
     public function getCostListMonth($year, $month) {
         return Cost::whereRaw('year = ? and month = ?', array($year, $month))->get();
     }
+
     // APIで日次の経費リストを取得
     public function getCostListDay($year, $month, $day) {
         return Cost::whereRaw('year = ? and month = ? and day =?', array($year, $month, $day))->get();
@@ -44,10 +46,18 @@ class CostController extends Controller
         return;
     }
 
+    // 経費明細の削除
+    public function delete($id) {
+        $costData = Cost::find($id);
+        $costData->delete();
+        return;
+    }
+
     // APIで経費計上実績のある年月情報を取得
     public function getCostYear() {
         return Cost::groupBy('year')->get('year');
     }
+
     public function getCostMonth() {
         return Cost::groupBy('month')->get('month');
     }

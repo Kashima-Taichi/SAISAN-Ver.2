@@ -42,7 +42,10 @@ Route::get('/cost/year/', 'CostController@getCostYear');
 Route::get('/cost/month/', 'CostController@getCostMonth');
 
 // 経費明細修正
-Route::post('/cost/edit/', 'CostController@edit');
+Route::put('/cost/edit/', 'CostController@edit');
+
+// 経費明細削除
+Route::delete('/cost/delete/{id}/', 'CostController@delete');
 
 /*
 |--------------------------------------------------------------------------
