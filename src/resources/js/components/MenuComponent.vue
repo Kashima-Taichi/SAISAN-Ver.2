@@ -27,7 +27,9 @@
         <tr>
           <th scope="row">賞与ノ部</th>
           <td>
-            <button class="btn btn-primary">GO!</button>
+            <router-link v-bind:to="{name: 'saisan.bonus'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
           </td>
         </tr>
         <tr>
