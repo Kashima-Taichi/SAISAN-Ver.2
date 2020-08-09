@@ -24,10 +24,10 @@
           <td>{{ cost.day }}</td>
         </tr>
       </tbody>
-      <router-link v-bind:to="{name: 'cost.rec'}">
-        <button class="btn btn-success">続けて経費計上</button>
-      </router-link>
     </table>
+    <router-link v-bind:to="{name: 'cost.rec'}">
+      <button class="btn btn-success mt-5">続けて経費計上</button>
+    </router-link>
   </div>
 </template>
 

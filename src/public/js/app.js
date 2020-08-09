@@ -40116,13 +40116,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h3", [_vm._v("経費計上完了")]),
-    _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "table table-hover" },
-      [
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("h3", [_vm._v("経費計上完了")]),
+      _vm._v(" "),
+      _c("table", { staticClass: "table table-hover" }, [
         _vm._m(0),
         _vm._v(" "),
         _c("tbody", [
@@ -40143,17 +40143,17 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(_vm.cost.day))])
           ])
-        ]),
-        _vm._v(" "),
-        _c("router-link", { attrs: { to: { name: "cost.rec" } } }, [
-          _c("button", { staticClass: "btn btn-success" }, [
-            _vm._v("続けて経費計上")
-          ])
         ])
-      ],
-      1
-    )
-  ])
+      ]),
+      _vm._v(" "),
+      _c("router-link", { attrs: { to: { name: "cost.rec" } } }, [
+        _c("button", { staticClass: "btn btn-success mt-5" }, [
+          _vm._v("続けて経費計上")
+        ])
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
