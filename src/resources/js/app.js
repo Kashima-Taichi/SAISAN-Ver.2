@@ -14,6 +14,7 @@ import CostDetailComponent from "./components/cost/CostDetailComponent";
 import SelectYearMonthComponent from "./components/cost/SelectYearMonthComponent";
 import CostEditComponent from "./components/cost/CostEditComponent";
 import CostEditDoneComponent from "./components/cost/CostEditDoneComponent";
+import CostDeleteDoneComponent from "./components/cost/CostDeleteDoneComponent";
 // 時間関係
 import HourMenuComponent from "./components/hour/HourMenuComponent";
 import HourRecordComponent from "./components/hour/HourRecordComponent";
@@ -65,6 +66,7 @@ const router = new VueRouter({
         { /* 経費計上リスト(月次) */ path: '/cost/list/:year/:month/', name: 'cost.list-month', component: CostListComponent, props: true },
         { /* 経費計上明細の修正 */ path: '/cost/edit/:costId/', name: 'cost.edit', component: CostEditComponent, props: true },
         { /* 経費計上明細の修正完了 */ path: '/cost/edit-done/:costId/', name: 'cost.edit-done', component: CostEditDoneComponent, props: true },
+        { /* 経費計上明細の削除完了 */ path: '/cost/delete-done/:costId/', name: 'cost.delete-done', component: CostDeleteDoneComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Hour routes

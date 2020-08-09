@@ -29,7 +29,7 @@
             </router-link>
           </td>
           <td>
-            <button class="btn btn-danger">Delete</button>
+            <button v-on:click="deleteCost(cost.id)" class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -47,6 +47,11 @@ export default {
     };
   },
   methods: {
+    deleteCost(id) {
+      axios.delete("/api/cost/delete/" + id + "/").then((res) => {
+        this.$router.push({ name: "cost.delete-done" });
+      });
+    },
     getCostIndividualData() {
       axios.get("/api/cost/detail/" + this.costId + "/").then((res) => {
         this.cost = res.data;
