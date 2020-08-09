@@ -35,6 +35,15 @@ class CostController extends Controller
         return Cost::find($id);
     }
 
+    // 経費明細の修正を実行
+    public function edit(Request $request) {
+        $request['date'] = $request['year'] . '-' . (strlen($request['month']) === 1 ? '0' . $request['month'] : $request['month']) . '-' . (strlen($request['day']) === 1 ? '0' . $request['day'] : $request['day']);
+        $toBeEditedData = Cost::find($request->id);
+        unset($request['_token']);
+        $toBeEditedData->fill($request->all())->save();
+        return;
+    }
+
     // APIで経費計上実績のある年月情報を取得
     public function getCostYear() {
         return Cost::groupBy('year')->get('year');

@@ -41,6 +41,9 @@ Route::get('/cost/detail/{id}/', 'CostController@getIndividualCostData');
 Route::get('/cost/year/', 'CostController@getCostYear');
 Route::get('/cost/month/', 'CostController@getCostMonth');
 
+// 経費明細修正
+Route::post('/cost/edit/', 'CostController@edit');
+
 /*
 |--------------------------------------------------------------------------
 | 時間関係
