@@ -36,10 +36,10 @@
           <td>{{ salary.netIncome.toLocaleString() }}</td>
         </tr>
       </tbody>
-      <router-link v-bind:to="{name: 'saisan.salary'}">
-        <button class="btn btn-success mt-5" style="width:170px">収入ノ部メニューへ</button>
-      </router-link>
     </table>
+    <router-link v-bind:to="{name: 'saisan.salary'}">
+      <button class="btn btn-success mt-5" style="width:170px">収入ノ部メニューへ</button>
+    </router-link>
   </div>
 </template>
 

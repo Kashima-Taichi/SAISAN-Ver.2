@@ -41109,13 +41109,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h3", [_vm._v("収入計上完了")]),
-    _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "table table-hover" },
-      [
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("h3", [_vm._v("収入計上完了")]),
+      _vm._v(" "),
+      _c("table", { staticClass: "table table-hover" }, [
         _vm._m(0),
         _vm._v(" "),
         _c("tbody", [
@@ -41158,22 +41158,22 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(_vm.salary.netIncome.toLocaleString()))])
           ])
-        ]),
-        _vm._v(" "),
-        _c("router-link", { attrs: { to: { name: "saisan.salary" } } }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-success mt-5",
-              staticStyle: { width: "170px" }
-            },
-            [_vm._v("収入ノ部メニューへ")]
-          )
         ])
-      ],
-      1
-    )
-  ])
+      ]),
+      _vm._v(" "),
+      _c("router-link", { attrs: { to: { name: "saisan.salary" } } }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-success mt-5",
+            staticStyle: { width: "170px" }
+          },
+          [_vm._v("収入ノ部メニューへ")]
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
