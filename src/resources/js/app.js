@@ -16,12 +16,14 @@ import SelectYearMonthComponent from "./components/cost/SelectYearMonthComponent
 import HourMenuComponent from "./components/hour/HourMenuComponent";
 import HourRecordComponent from "./components/hour/HourRecordComponent";
 import HourRecordDoneComponent from "./components/hour/HourRecordDoneComponent";
-import SelectYearComponent from "./components/hour/SelectYearComponent";
+import SelectYearHourComponent from "./components/hour/SelectYearComponent";
 import HourListComponent from "./components/hour/HourListComponent";
 // 収入関係
 import SalaryMenuComponent from "./components/salary/SalaryMenuComponent";
 import SalaryRecordComponent from "./components/salary/SalaryRecordComponent";
 import SalaryRecordDoneComponent from "./components/salary/SalaryRecordDoneComponent";
+import SelectYearSalaryComponent from "./components/salary/SelectYearComponent";
+import SalaryListComponent from "./components/salary/SalaryListComponent";
 // その他の機能
 import OtherMenuComponent from "./components/other/OtherMenuComponent";
 import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";
@@ -67,7 +69,7 @@ const router = new VueRouter({
         { /* 時間トップ */ path: '/hour/', name: 'saisan.hour', component: HourMenuComponent },
         { /* 時間計上 */ path: '/hour/rec/', name: 'hour.rec', component: HourRecordComponent },
         { /* 時間計上完了 */ path: '/hour/rec-done/', name: 'hour.rec-done', component: HourRecordDoneComponent },
-        { /* 時間計上年の取得 */ path: '/hour/list/select-y/', name: 'hour.list.selecty', component: SelectYearComponent },
+        { /* 時間計上年の取得 */ path: '/hour/list/select-y/', name: 'hour.list.selecty', component: SelectYearHourComponent },
         { /* 時間計上リスト（年次） */ path: '/hour/list/:year/', name: 'hour.list', component: HourListComponent, props: true },
         /*
         |--------------------------------------------------------------------------
@@ -77,6 +79,8 @@ const router = new VueRouter({
         { /* 収入トップ */ path: '/salary/', name: 'saisan.salary', component: SalaryMenuComponent },
         { /* 収入計上 */ path: '/salary/rec/', name: 'salary.rec', component: SalaryRecordComponent },
         { /* 収入計上 */ path: '/salary/rec-done/', name: 'salary.rec-done', component: SalaryRecordDoneComponent },
+        { /* 収入計上年の取得 */ path: '/salary/list/select-y/', name: 'salary.list.selecty', component: SelectYearSalaryComponent },
+        { /* 収入計上リスト（年次） */ path: '/salary/list/:year/', name: 'salary.list', component: SalaryListComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Others routes

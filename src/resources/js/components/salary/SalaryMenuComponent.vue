@@ -16,6 +16,14 @@
             </router-link>
           </td>
         </tr>
+        <tr>
+          <th scope="row">収入参照</th>
+          <td>
+            <router-link v-bind:to="{name: 'salary.list.selecty'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
