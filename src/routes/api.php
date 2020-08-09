@@ -94,3 +94,16 @@ Route::get('/salary/year/', 'SalaryController@getSalaryYear');
 
 // 勘定科目のリストを取得
 Route::get('/account/list/', 'AccountController@getAccountList');
+
+/*
+|--------------------------------------------------------------------------
+| 賞与関係
+|--------------------------------------------------------------------------
+| 賞与関係のAPIルーティングは下記にて実装する。
+*/
+
+// 賞与計上実績のある年を取得する
+Route::get('/bonus/year/', 'BonusController@getBonusYear');
+
+// 賞与計上実績を取得する
+Route::get('/bonus/list/{year}/', 'BonusController@getBonusListYear');
