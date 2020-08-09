@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     submit() {
-      axios.post("/api/cost/edit/", this.cost).then((res) => {
+      axios.put("/api/cost/edit/", this.cost).then((res) => {
         this.$router.push({ name: "cost.edit-done" });
       });
     },

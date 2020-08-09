@@ -24,7 +24,7 @@
           <td>{{ cost.month }}</td>
           <td>{{ cost.day }}</td>
           <td>
-            <router-link v-bind:to="{ name: 'cost.detail', params: { costId: cost.id } }">
+            <router-link v-bind:to="{name: 'cost.detail', params: { costId: cost.id } }">
               <button class="btn btn-primary">Watch</button>
             </router-link>
           </td>
