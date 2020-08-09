@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h2>経費明細修正完了</h2>
     <table class="table table-hover">
       <thead class="thead-light">
         <tr>
@@ -10,8 +11,6 @@
           <th scope="col">year</th>
           <th scope="col">month</th>
           <th scope="col">day</th>
-          <th scope="col">Edit</th>
-          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -23,14 +22,6 @@
           <td>{{ cost.year }}</td>
           <td>{{ cost.month }}</td>
           <td>{{ cost.day }}</td>
-          <td>
-            <router-link v-bind:to="{name: 'cost.edit', params: { costId: cost.id } }">
-              <button class="btn btn-success">Edit</button>
-            </router-link>
-          </td>
-          <td>
-            <button class="btn btn-danger">Delete</button>
-          </td>
         </tr>
       </tbody>
     </table>
@@ -39,7 +30,7 @@
 <script>
 export default {
   props: {
-    costId: Number,
+    costId: String,
   },
   data: function () {
     return {

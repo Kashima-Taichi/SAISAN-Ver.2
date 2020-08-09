@@ -2039,9 +2039,168 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     costId: Number
+  },
+  data: function data() {
+    return {
+      cost: {}
+    };
+  },
+  methods: {
+    getCostIndividualData: function getCostIndividualData() {
+      var _this = this;
+
+      axios.get("/api/cost/detail/" + this.costId + "/").then(function (res) {
+        _this.cost = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getCostIndividualData();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cost/CostEditComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cost/CostEditComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    costId: String
+  },
+  data: function data() {
+    return {
+      cost: {},
+      accounts: []
+    };
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      axios.post("/api/cost/edit/", this.cost).then(function (res) {
+        _this.$router.push({
+          name: "cost.edit-done"
+        });
+      });
+    },
+    getCostIndividualData: function getCostIndividualData() {
+      var _this2 = this;
+
+      axios.get("/api/cost/detail/" + this.costId + "/").then(function (res) {
+        _this2.cost = res.data;
+      });
+    },
+    getAccountList: function getAccountList() {
+      var _this3 = this;
+
+      axios.get("/api/account/list/").then(function (res) {
+        _this3.accounts = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getAccountList();
+    this.getCostIndividualData();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    costId: String
   },
   data: function data() {
     return {
@@ -39010,9 +39169,27 @@ var render = function() {
           _vm._v(" "),
           _c("td", [_vm._v(_vm._s(_vm.cost.day))]),
           _vm._v(" "),
-          _vm._m(1),
+          _c(
+            "td",
+            [
+              _c(
+                "router-link",
+                {
+                  attrs: {
+                    to: { name: "cost.edit", params: { costId: _vm.cost.id } }
+                  }
+                },
+                [
+                  _c("button", { staticClass: "btn btn-success" }, [
+                    _vm._v("Edit")
+                  ])
+                ]
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
-          _vm._m(2)
+          _vm._m(1)
         ])
       ])
     ])
@@ -39050,15 +39227,344 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("td", [
-      _c("button", { staticClass: "btn btn-success" }, [_vm._v("Edit")])
+      _c("button", { staticClass: "btn btn-danger" }, [_vm._v("Delete")])
     ])
-  },
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cost/CostEditComponent.vue?vue&type=template&id=53f6f922&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cost/CostEditComponent.vue?vue&type=template&id=53f6f922& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-sm-6" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submit($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "year" }
+                },
+                [_vm._v("Year")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.cost.year,
+                    expression: "cost.year"
+                  }
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "year" },
+                domProps: { value: _vm.cost.year },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.cost, "year", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "month" }
+                },
+                [_vm._v("Month")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.cost.month,
+                    expression: "cost.month"
+                  }
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "month" },
+                domProps: { value: _vm.cost.month },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.cost, "month", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "day" }
+                },
+                [_vm._v("Day")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.cost.day,
+                    expression: "cost.day"
+                  }
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "day" },
+                domProps: { value: _vm.cost.day },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.cost, "day", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "account-name" }
+                },
+                [_vm._v("Account")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.cost.accountName,
+                      expression: "cost.accountName"
+                    }
+                  ],
+                  staticClass: "col-sm-9 form-control",
+                  attrs: { id: "account" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.cost,
+                        "accountName",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                _vm._l(_vm.accounts, function(account, index) {
+                  return _c(
+                    "option",
+                    { key: index, domProps: { value: account.accountKanji } },
+                    [_vm._v(_vm._s(account.accountKanji))]
+                  )
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "price" }
+                },
+                [_vm._v("Price")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.cost.price,
+                    expression: "cost.price"
+                  }
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "price" },
+                domProps: { value: _vm.cost.price },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.cost, "price", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-sm-3 col-form-label",
+                  attrs: { for: "journal" }
+                },
+                [_vm._v("Journal")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.cost.journal,
+                    expression: "cost.journal"
+                  }
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", id: "journal" },
+                domProps: { value: _vm.cost.journal },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.cost, "journal", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+              [_vm._v("Submit")]
+            )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=template&id=f8a5d3e6&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=template&id=f8a5d3e6& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("h2", [_vm._v("経費明細修正完了")]),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-hover" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", [
+          _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(_vm.cost.id))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.cost.accountName))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.cost.price.toLocaleString()))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.cost.journal))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.cost.year))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.cost.month))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.cost.day))])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-danger" }, [_vm._v("Delete")])
+    return _c("thead", { staticClass: "thead-light" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("id")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("account")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("price")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("journal")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("year")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("month")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("day")])
+      ])
     ])
   }
 ]
@@ -56518,18 +57024,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_cost_CostListComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/cost/CostListComponent */ "./resources/js/components/cost/CostListComponent.vue");
 /* harmony import */ var _components_cost_CostDetailComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/cost/CostDetailComponent */ "./resources/js/components/cost/CostDetailComponent.vue");
 /* harmony import */ var _components_cost_SelectYearMonthComponent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/cost/SelectYearMonthComponent */ "./resources/js/components/cost/SelectYearMonthComponent.vue");
-/* harmony import */ var _components_hour_HourMenuComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/hour/HourMenuComponent */ "./resources/js/components/hour/HourMenuComponent.vue");
-/* harmony import */ var _components_hour_HourRecordComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/hour/HourRecordComponent */ "./resources/js/components/hour/HourRecordComponent.vue");
-/* harmony import */ var _components_hour_HourRecordDoneComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/hour/HourRecordDoneComponent */ "./resources/js/components/hour/HourRecordDoneComponent.vue");
-/* harmony import */ var _components_hour_SelectYearComponent__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/hour/SelectYearComponent */ "./resources/js/components/hour/SelectYearComponent.vue");
-/* harmony import */ var _components_hour_HourListComponent__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/hour/HourListComponent */ "./resources/js/components/hour/HourListComponent.vue");
-/* harmony import */ var _components_salary_SalaryMenuComponent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/salary/SalaryMenuComponent */ "./resources/js/components/salary/SalaryMenuComponent.vue");
-/* harmony import */ var _components_salary_SalaryRecordComponent__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/salary/SalaryRecordComponent */ "./resources/js/components/salary/SalaryRecordComponent.vue");
-/* harmony import */ var _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/salary/SalaryRecordDoneComponent */ "./resources/js/components/salary/SalaryRecordDoneComponent.vue");
-/* harmony import */ var _components_salary_SelectYearComponent__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/salary/SelectYearComponent */ "./resources/js/components/salary/SelectYearComponent.vue");
-/* harmony import */ var _components_salary_SalaryListComponent__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/salary/SalaryListComponent */ "./resources/js/components/salary/SalaryListComponent.vue");
-/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
-/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
+/* harmony import */ var _components_cost_CostEditComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/cost/CostEditComponent */ "./resources/js/components/cost/CostEditComponent.vue");
+/* harmony import */ var _components_cost_CostEditDoneComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/cost/CostEditDoneComponent */ "./resources/js/components/cost/CostEditDoneComponent.vue");
+/* harmony import */ var _components_hour_HourMenuComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/hour/HourMenuComponent */ "./resources/js/components/hour/HourMenuComponent.vue");
+/* harmony import */ var _components_hour_HourRecordComponent__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/hour/HourRecordComponent */ "./resources/js/components/hour/HourRecordComponent.vue");
+/* harmony import */ var _components_hour_HourRecordDoneComponent__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/hour/HourRecordDoneComponent */ "./resources/js/components/hour/HourRecordDoneComponent.vue");
+/* harmony import */ var _components_hour_SelectYearComponent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/hour/SelectYearComponent */ "./resources/js/components/hour/SelectYearComponent.vue");
+/* harmony import */ var _components_hour_HourListComponent__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/hour/HourListComponent */ "./resources/js/components/hour/HourListComponent.vue");
+/* harmony import */ var _components_salary_SalaryMenuComponent__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/salary/SalaryMenuComponent */ "./resources/js/components/salary/SalaryMenuComponent.vue");
+/* harmony import */ var _components_salary_SalaryRecordComponent__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/salary/SalaryRecordComponent */ "./resources/js/components/salary/SalaryRecordComponent.vue");
+/* harmony import */ var _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/salary/SalaryRecordDoneComponent */ "./resources/js/components/salary/SalaryRecordDoneComponent.vue");
+/* harmony import */ var _components_salary_SelectYearComponent__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/salary/SelectYearComponent */ "./resources/js/components/salary/SelectYearComponent.vue");
+/* harmony import */ var _components_salary_SalaryListComponent__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/salary/SalaryListComponent */ "./resources/js/components/salary/SalaryListComponent.vue");
+/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
+/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
 /**
  * 独自で実装したComponentを下記にて取り込む
  */
@@ -56537,6 +57045,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // 経費関係
+
+
 
 
 
@@ -56626,6 +57136,18 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     name: 'cost.list-month',
     component: _components_cost_CostListComponent__WEBPACK_IMPORTED_MODULE_6__["default"],
     props: true
+  }, {
+    /* 経費計上明細の修正 */
+    path: '/cost/edit/:costId/',
+    name: 'cost.edit',
+    component: _components_cost_CostEditComponent__WEBPACK_IMPORTED_MODULE_9__["default"],
+    props: true
+  }, {
+    /* 経費計上明細の修正完了 */
+    path: '/cost/edit-done/:costId/',
+    name: 'cost.edit-done',
+    component: _components_cost_CostEditDoneComponent__WEBPACK_IMPORTED_MODULE_10__["default"],
+    props: true
   },
   /*
   |--------------------------------------------------------------------------
@@ -56636,27 +57158,27 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* 時間トップ */
     path: '/hour/',
     name: 'saisan.hour',
-    component: _components_hour_HourMenuComponent__WEBPACK_IMPORTED_MODULE_9__["default"]
+    component: _components_hour_HourMenuComponent__WEBPACK_IMPORTED_MODULE_11__["default"]
   }, {
     /* 時間計上 */
     path: '/hour/rec/',
     name: 'hour.rec',
-    component: _components_hour_HourRecordComponent__WEBPACK_IMPORTED_MODULE_10__["default"]
+    component: _components_hour_HourRecordComponent__WEBPACK_IMPORTED_MODULE_12__["default"]
   }, {
     /* 時間計上完了 */
     path: '/hour/rec-done/',
     name: 'hour.rec-done',
-    component: _components_hour_HourRecordDoneComponent__WEBPACK_IMPORTED_MODULE_11__["default"]
+    component: _components_hour_HourRecordDoneComponent__WEBPACK_IMPORTED_MODULE_13__["default"]
   }, {
     /* 時間計上年の取得 */
     path: '/hour/list/select-y/',
     name: 'hour.list.selecty',
-    component: _components_hour_SelectYearComponent__WEBPACK_IMPORTED_MODULE_12__["default"]
+    component: _components_hour_SelectYearComponent__WEBPACK_IMPORTED_MODULE_14__["default"]
   }, {
     /* 時間計上リスト（年次） */
     path: '/hour/list/:year/',
     name: 'hour.list',
-    component: _components_hour_HourListComponent__WEBPACK_IMPORTED_MODULE_13__["default"],
+    component: _components_hour_HourListComponent__WEBPACK_IMPORTED_MODULE_15__["default"],
     props: true
   },
   /*
@@ -56668,27 +57190,27 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* 収入トップ */
     path: '/salary/',
     name: 'saisan.salary',
-    component: _components_salary_SalaryMenuComponent__WEBPACK_IMPORTED_MODULE_14__["default"]
+    component: _components_salary_SalaryMenuComponent__WEBPACK_IMPORTED_MODULE_16__["default"]
   }, {
     /* 収入計上 */
     path: '/salary/rec/',
     name: 'salary.rec',
-    component: _components_salary_SalaryRecordComponent__WEBPACK_IMPORTED_MODULE_15__["default"]
+    component: _components_salary_SalaryRecordComponent__WEBPACK_IMPORTED_MODULE_17__["default"]
   }, {
     /* 収入計上 */
     path: '/salary/rec-done/',
     name: 'salary.rec-done',
-    component: _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_16__["default"]
+    component: _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_18__["default"]
   }, {
     /* 収入計上年の取得 */
     path: '/salary/list/select-y/',
     name: 'salary.list.selecty',
-    component: _components_salary_SelectYearComponent__WEBPACK_IMPORTED_MODULE_17__["default"]
+    component: _components_salary_SelectYearComponent__WEBPACK_IMPORTED_MODULE_19__["default"]
   }, {
     /* 収入計上リスト（年次） */
     path: '/salary/list/:year/',
     name: 'salary.list',
-    component: _components_salary_SalaryListComponent__WEBPACK_IMPORTED_MODULE_18__["default"],
+    component: _components_salary_SalaryListComponent__WEBPACK_IMPORTED_MODULE_20__["default"],
     props: true
   },
   /*
@@ -56700,12 +57222,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* その他トップ */
     path: '/other/',
     name: 'saisan.other',
-    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_19__["default"]
+    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_21__["default"]
   }, {
     /* データベースのダンプコマンド出力 */
     path: '/other/dump/',
     name: 'other.dump',
-    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_20__["default"]
+    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_22__["default"]
   }]
 });
 /**
@@ -56979,6 +57501,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CostDetailComponent_vue_vue_type_template_id_7c0c0388___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CostDetailComponent_vue_vue_type_template_id_7c0c0388___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/cost/CostEditComponent.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/cost/CostEditComponent.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CostEditComponent_vue_vue_type_template_id_53f6f922___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CostEditComponent.vue?vue&type=template&id=53f6f922& */ "./resources/js/components/cost/CostEditComponent.vue?vue&type=template&id=53f6f922&");
+/* harmony import */ var _CostEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CostEditComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/cost/CostEditComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CostEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CostEditComponent_vue_vue_type_template_id_53f6f922___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CostEditComponent_vue_vue_type_template_id_53f6f922___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/cost/CostEditComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/cost/CostEditComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/cost/CostEditComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CostEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CostEditComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cost/CostEditComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CostEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/cost/CostEditComponent.vue?vue&type=template&id=53f6f922&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/cost/CostEditComponent.vue?vue&type=template&id=53f6f922& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CostEditComponent_vue_vue_type_template_id_53f6f922___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./CostEditComponent.vue?vue&type=template&id=53f6f922& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cost/CostEditComponent.vue?vue&type=template&id=53f6f922&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CostEditComponent_vue_vue_type_template_id_53f6f922___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CostEditComponent_vue_vue_type_template_id_53f6f922___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/cost/CostEditDoneComponent.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/cost/CostEditDoneComponent.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CostEditDoneComponent_vue_vue_type_template_id_f8a5d3e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CostEditDoneComponent.vue?vue&type=template&id=f8a5d3e6& */ "./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=template&id=f8a5d3e6&");
+/* harmony import */ var _CostEditDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CostEditDoneComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CostEditDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CostEditDoneComponent_vue_vue_type_template_id_f8a5d3e6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CostEditDoneComponent_vue_vue_type_template_id_f8a5d3e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/cost/CostEditDoneComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CostEditDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CostEditDoneComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CostEditDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=template&id=f8a5d3e6&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=template&id=f8a5d3e6& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CostEditDoneComponent_vue_vue_type_template_id_f8a5d3e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./CostEditDoneComponent.vue?vue&type=template&id=f8a5d3e6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cost/CostEditDoneComponent.vue?vue&type=template&id=f8a5d3e6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CostEditDoneComponent_vue_vue_type_template_id_f8a5d3e6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CostEditDoneComponent_vue_vue_type_template_id_f8a5d3e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
