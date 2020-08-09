@@ -9,6 +9,6 @@ class AccountController extends Controller
 {
     // 勘定科目のリストを取得
     public function getAccountList() {
-        return Account::all();
+        return Account::get('accountKanji');
     }
 }
