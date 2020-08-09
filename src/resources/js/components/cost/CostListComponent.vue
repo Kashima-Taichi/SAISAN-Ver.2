@@ -36,9 +36,9 @@
 <script>
 export default {
   props: {
-    year: Number,
-    month: Number,
-    day: Number,
+    year: String,
+    month: String,
+    day: String,
   },
   data: function () {
     return {

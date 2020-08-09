@@ -2269,9 +2269,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    year: Number,
-    month: Number,
-    day: Number
+    year: String,
+    month: String,
+    day: String
   },
   data: function data() {
     return {
