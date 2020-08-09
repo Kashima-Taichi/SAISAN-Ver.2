@@ -39000,7 +39000,7 @@ var render = function() {
           _vm._v(" "),
           _c("td", [_vm._v(_vm._s(_vm.cost.accountName))]),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.price))]),
+          _c("td", [_vm._v(_vm._s(_vm.cost.price.toLocaleString()))]),
           _vm._v(" "),
           _c("td", [_vm._v(_vm._s(_vm.cost.journal))]),
           _vm._v(" "),
@@ -39084,7 +39084,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h2", [_vm._v("経費計上合計金額：" + _vm._s(_vm.totalAmount) + "円")]),
+    _c("h2", [
+      _vm._v(
+        "経費計上合計金額：" + _vm._s(_vm.totalAmount.toLocaleString()) + "円"
+      )
+    ]),
     _vm._v(" "),
     _c("table", { staticClass: "table table-hover" }, [
       _vm._m(0),
@@ -39097,7 +39101,7 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(cost.accountName))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(cost.price))]),
+            _c("td", [_vm._v(_vm._s(cost.price.toLocaleString()))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(cost.journal))]),
             _vm._v(" "),
@@ -39542,7 +39546,7 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(_vm.cost.accountName))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.cost.price))]),
+            _c("td", [_vm._v(_vm._s(_vm.cost.price.toLocaleString()))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(_vm.cost.journal))]),
             _vm._v(" "),
@@ -40438,27 +40442,37 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(salary.month))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.totalSalary))]),
+              _c("td", [_vm._v(_vm._s(salary.totalSalary.toLocaleString()))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.basicSalary))]),
+              _c("td", [_vm._v(_vm._s(salary.basicSalary.toLocaleString()))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.overtimePay))]),
+              _c("td", [_vm._v(_vm._s(salary.overtimePay.toLocaleString()))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.healthInsurance))]),
+              _c("td", [
+                _vm._v(_vm._s(salary.healthInsurance.toLocaleString()))
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.employeePension))]),
+              _c("td", [
+                _vm._v(_vm._s(salary.employeePension.toLocaleString()))
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.employmentInsurance))]),
+              _c("td", [
+                _vm._v(_vm._s(salary.employmentInsurance.toLocaleString()))
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.incomeTax))]),
+              _c("td", [_vm._v(_vm._s(salary.incomeTax.toLocaleString()))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.residentTax))]),
+              _c("td", [_vm._v(_vm._s(salary.residentTax.toLocaleString()))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.otherDeduction))]),
+              _c("td", [
+                _vm._v(_vm._s(salary.otherDeduction.toLocaleString()))
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.totalDeduction))]),
+              _c("td", [
+                _vm._v(_vm._s(salary.totalDeduction.toLocaleString()))
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.netIncome))])
+              _c("td", [_vm._v(_vm._s(salary.netIncome.toLocaleString()))])
             ])
           }),
           0
@@ -41112,27 +41126,37 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(_vm.salary.month))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.totalSalary))]),
+            _c("td", [_vm._v(_vm._s(_vm.salary.totalSalary.toLocaleString()))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.basicSalary))]),
+            _c("td", [_vm._v(_vm._s(_vm.salary.basicSalary.toLocaleString()))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.overtimePay))]),
+            _c("td", [_vm._v(_vm._s(_vm.salary.overtimePay.toLocaleString()))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.healthInsurance))]),
+            _c("td", [
+              _vm._v(_vm._s(_vm.salary.healthInsurance.toLocaleString()))
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.employeePension))]),
+            _c("td", [
+              _vm._v(_vm._s(_vm.salary.employeePension.toLocaleString()))
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.employmentInsurance))]),
+            _c("td", [
+              _vm._v(_vm._s(_vm.salary.employmentInsurance.toLocaleString()))
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.incomeTax))]),
+            _c("td", [_vm._v(_vm._s(_vm.salary.incomeTax.toLocaleString()))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.residentTax))]),
+            _c("td", [_vm._v(_vm._s(_vm.salary.residentTax.toLocaleString()))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.otherDeduction))]),
+            _c("td", [
+              _vm._v(_vm._s(_vm.salary.otherDeduction.toLocaleString()))
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.totalDeduction))]),
+            _c("td", [
+              _vm._v(_vm._s(_vm.salary.totalDeduction.toLocaleString()))
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.netIncome))])
+            _c("td", [_vm._v(_vm._s(_vm.salary.netIncome.toLocaleString()))])
           ])
         ]),
         _vm._v(" "),

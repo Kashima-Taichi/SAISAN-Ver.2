@@ -22,17 +22,17 @@
         <tr v-for="(salary, index) in salaries" :key="index">
           <th scope="row">{{ salary.year }}</th>
           <td>{{ salary.month }}</td>
-          <td>{{ salary.totalSalary }}</td>
-          <td>{{ salary.basicSalary }}</td>
-          <td>{{ salary.overtimePay }}</td>
-          <td>{{ salary.healthInsurance }}</td>
-          <td>{{ salary.employeePension }}</td>
-          <td>{{ salary.employmentInsurance }}</td>
-          <td>{{ salary.incomeTax }}</td>
-          <td>{{ salary.residentTax }}</td>
-          <td>{{ salary.otherDeduction }}</td>
-          <td>{{ salary.totalDeduction }}</td>
-          <td>{{ salary.netIncome }}</td>
+          <td>{{ salary.totalSalary.toLocaleString() }}</td>
+          <td>{{ salary.basicSalary.toLocaleString() }}</td>
+          <td>{{ salary.overtimePay.toLocaleString() }}</td>
+          <td>{{ salary.healthInsurance.toLocaleString() }}</td>
+          <td>{{ salary.employeePension.toLocaleString() }}</td>
+          <td>{{ salary.employmentInsurance.toLocaleString() }}</td>
+          <td>{{ salary.incomeTax.toLocaleString() }}</td>
+          <td>{{ salary.residentTax.toLocaleString() }}</td>
+          <td>{{ salary.otherDeduction.toLocaleString() }}</td>
+          <td>{{ salary.totalDeduction.toLocaleString() }}</td>
+          <td>{{ salary.netIncome.toLocaleString() }}</td>
         </tr>
       </tbody>
     </table>

@@ -17,7 +17,7 @@
         <tr>
           <th scope="row">{{ cost.id }}</th>
           <td>{{ cost.accountName }}</td>
-          <td>{{ cost.price }}</td>
+          <td>{{ cost.price.toLocaleString() }}</td>
           <td>{{ cost.journal }}</td>
           <td>{{ cost.year }}</td>
           <td>{{ cost.month }}</td>
