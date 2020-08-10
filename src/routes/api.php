@@ -85,6 +85,9 @@ Route::get('/salary/list/{year}/', 'SalaryController@getSalaryListYear');
 // 収入計上年月の取得
 Route::get('/salary/year/', 'SalaryController@getSalaryYear');
 
+// 個別の収入情報を取得
+Route::get('/salary/detail/{id}/', 'SalaryController@getIndividualSalaryData');
+
 /*
 |--------------------------------------------------------------------------
 | 勘定科目関係

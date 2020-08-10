@@ -33,4 +33,9 @@ class SalaryController extends Controller
     public function getSalaryListYear($year) {
         return Salary::whereRaw('year = ?', $year)->get();
     }
+
+    // APIで個別の所得の情報を取得
+    public function getIndividualSalaryData($id) {
+        return Salary::find($id);
+    }
 }
