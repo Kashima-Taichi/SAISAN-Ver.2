@@ -1,19 +1,22 @@
 <template>
   <div class="container">
-    <form v-on:submit.prevent="submit">
-      <div class="form-group">
-        <label for="year">please select year</label>
-        <select class="form-control" id="year" v-model="year">
-          <option value>select</option>
-          <option
-            v-for="(year, index) in years"
-            :key="index"
-            v-bind:value="year.year"
-          >{{ year.year }}</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div v-show="loading" class="loader"></div>
+    <div v-show="!loading">
+      <form v-on:submit.prevent="submit">
+        <div class="form-group">
+          <label for="year">please select year</label>
+          <select class="form-control" id="year" v-model="year">
+            <option value>select</option>
+            <option
+              v-for="(year, index) in years"
+              :key="index"
+              v-bind:value="year.year"
+            >{{ year.year }}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
   </div>
 </template>
 <script>
@@ -24,6 +27,7 @@ export default {
       years: [],
       // formから送信するデータ
       year: "",
+      loading: true,
     };
   },
   methods: {
@@ -31,6 +35,7 @@ export default {
     getHourYear() {
       axios.get("/api/hour/year/").then((res) => {
         this.years = res.data;
+        this.loading = false;
       });
     },
     submit() {

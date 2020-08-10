@@ -2036,10 +2036,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      accounts: []
+      accounts: [],
+      loading: true
     };
   },
   methods: {
@@ -2048,6 +2052,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/account/all/").then(function (res) {
         _this.accounts = res.data;
+        _this.loading = false;
       });
     }
   },
@@ -2196,10 +2201,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      accont: {}
+      accont: {},
+      loading: true
     };
   },
   methods: {
@@ -2208,6 +2216,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/account/latest/").then(function (res) {
         _this.accont = res.data;
+        _this.loading = false;
       });
     }
   },
@@ -2262,13 +2271,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     year: Number
   },
   data: function data() {
     return {
-      bonuses: []
+      bonuses: [],
+      loading: true
     };
   },
   methods: {
@@ -2277,6 +2290,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/bonus/list/" + this.year + "/").then(function (res) {
         _this.bonuses = res.data;
+        _this.loading = false;
       });
     }
   },
@@ -2350,13 +2364,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       // formで使用するデータ
       years: [],
       // formから送信するデータ
-      year: ""
+      year: "",
+      loading: true
     };
   },
   methods: {
@@ -2366,6 +2384,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/bonus/year/").then(function (res) {
         _this.years = res.data;
+        _this.loading = false;
       });
     },
     submit: function submit() {
@@ -2541,6 +2560,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     costId: String
@@ -2548,7 +2570,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       cost: {},
-      accounts: []
+      accounts: [],
+      loading: true
     };
   },
   methods: {
@@ -2566,6 +2589,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/cost/detail/" + this.costId + "/").then(function (res) {
         _this2.cost = res.data;
+        _this2.loading = false;
       });
     },
     getAccountList: function getAccountList() {
@@ -2691,6 +2715,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     year: String,
@@ -2700,7 +2727,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       costs: [],
-      totalAmount: 0
+      totalAmount: 0,
+      loading: true
     };
   },
   methods: {
@@ -2714,6 +2742,8 @@ __webpack_require__.r(__webpack_exports__);
           for (var item in _this.costs) {
             _this.totalAmount += _this.costs[item]["price"];
           }
+
+          _this.loading = false;
         });
       } else {
         axios.get("/api/cost/list/" + this.year + "/" + this.month + "/" + this.day + "/").then(function (res) {
@@ -2722,6 +2752,8 @@ __webpack_require__.r(__webpack_exports__);
           for (var item in _this.costs) {
             _this.totalAmount += _this.costs[item]["price"];
           }
+
+          _this.loading = false;
         });
       }
     }
@@ -2828,11 +2860,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       cost: {},
-      accounts: []
+      accounts: [],
+      loading: true
     };
   },
   methods: {
@@ -2856,6 +2892,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/account/list/").then(function (res) {
         _this2.accounts = res.data;
+        _this2.loading = false;
       });
     }
   },
@@ -2976,6 +3013,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2985,7 +3025,8 @@ __webpack_require__.r(__webpack_exports__);
       // formから送信するデータ
       year: "",
       month: "",
-      day: ""
+      day: "",
+      loading: true
     };
   },
   methods: {
@@ -2998,6 +3039,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       axios.get("/api/cost/month/").then(function (res) {
         _this.months = res.data;
+        _this.loading = false;
       });
     },
     submit: function submit() {
@@ -3061,13 +3103,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     year: Number
   },
   data: function data() {
     return {
-      hours: []
+      hours: [],
+      loading: true
     };
   },
   methods: {
@@ -3076,6 +3122,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/hour/list/" + this.year + "/").then(function (res) {
         _this.hours = res.data;
+        _this.loading = false;
       });
     }
   },
@@ -3230,10 +3277,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      hour: []
+      hour: [],
+      loading: true
     };
   },
   methods: {
@@ -3242,6 +3293,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/hour/latest/").then(function (res) {
         _this.hour = res.data;
+        _this.loading = false;
       });
     }
   },
@@ -3279,13 +3331,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       // formで使用するデータ
       years: [],
       // formから送信するデータ
-      year: ""
+      year: "",
+      loading: true
     };
   },
   methods: {
@@ -3295,6 +3351,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/hour/year/").then(function (res) {
         _this.years = res.data;
+        _this.loading = false;
       });
     },
     submit: function submit() {
@@ -3461,13 +3518,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     year: Number
   },
   data: function data() {
     return {
-      salaries: []
+      salaries: [],
+      loading: true
     };
   },
   methods: {
@@ -3476,6 +3537,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/salary/list/" + this.year + "/").then(function (res) {
         _this.salaries = res.data;
+        _this.loading = false;
       });
     }
   },
@@ -3782,13 +3844,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       // formで使用するデータ
       years: [],
       // formから送信するデータ
-      year: ""
+      year: "",
+      loading: true
     };
   },
   methods: {
@@ -3798,6 +3864,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/salary/year/").then(function (res) {
         _this.years = res.data;
+        _this.loading = false;
       });
     },
     submit: function submit() {
@@ -39591,43 +39658,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.accounts, function(accounts, index) {
-            return _c("tr", { key: index }, [
-              _c("th", { attrs: { scope: "row" } }, [
-                _vm._v(_vm._s(accounts.id))
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(accounts.accountAlpha))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(accounts.accountKanji))])
-            ])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "saisan.account" } } }, [
-        _c(
-          "button",
+  return _c("div", { staticClass: "container" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
           {
-            staticClass: "btn btn-success mt-5",
-            staticStyle: { width: "190px" }
-          },
-          [_vm._v("勘定科目ノ部メニューへ")]
-        )
-      ])
-    ],
-    1
-  )
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.accounts, function(accounts, index) {
+              return _c("tr", { key: index }, [
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(accounts.id))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(accounts.accountAlpha))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(accounts.accountKanji))])
+              ])
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.account" } } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success mt-5",
+              staticStyle: { width: "190px" }
+            },
+            [_vm._v("勘定科目ノ部メニューへ")]
+          )
+        ])
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -39854,36 +39944,59 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("h3", [_vm._v("勘定科目登録完了")]),
-      _vm._v(" "),
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(0),
+  return _c("div", { staticClass: "container" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("h3", [_vm._v("勘定科目登録完了")]),
         _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [
-              _vm._v(_vm._s(_vm.accont.id))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.accont.accountAlpha))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.accont.accountKanji))])
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(_vm.accont.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.accont.accountAlpha))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.accont.accountKanji))])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.account" } } }, [
+          _c("button", { staticClass: "btn btn-success mt-5" }, [
+            _vm._v("勘定科目のメニューへ")
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "saisan.account" } } }, [
-        _c("button", { staticClass: "btn btn-success mt-5" }, [
-          _vm._v("勘定科目のメニューへ")
-        ])
-      ])
-    ],
-    1
-  )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -39922,61 +40035,86 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.bonuses, function(bonus, index) {
-            return _c("tr", { key: index }, [
-              _c("th", { attrs: { scope: "row" } }, [
-                _vm._v(_vm._s(bonus.year))
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(bonus.month))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(bonus.totalBonus.toLocaleString()))]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(_vm._s(bonus.healthInsurance.toLocaleString()))
-              ]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(_vm._s(bonus.employeePension.toLocaleString()))
-              ]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(_vm._s(bonus.employmentInsurance.toLocaleString()))
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(bonus.incomeTax.toLocaleString()))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(bonus.totalDeduction.toLocaleString()))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(bonus.netIncome.toLocaleString()))])
-            ])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "saisan.bonus" } } }, [
-        _c(
-          "button",
+  return _c("div", { staticClass: "container" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
           {
-            staticClass: "btn btn-success mt-5",
-            staticStyle: { width: "170px" }
-          },
-          [_vm._v("賞与ノ部メニューへ")]
-        )
-      ])
-    ],
-    1
-  )
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.bonuses, function(bonus, index) {
+              return _c("tr", { key: index }, [
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(bonus.year))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(bonus.month))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(bonus.totalBonus.toLocaleString()))]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(_vm._s(bonus.healthInsurance.toLocaleString()))
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(_vm._s(bonus.employeePension.toLocaleString()))
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(_vm._s(bonus.employmentInsurance.toLocaleString()))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(bonus.incomeTax.toLocaleString()))]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(_vm._s(bonus.totalDeduction.toLocaleString()))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(bonus.netIncome.toLocaleString()))])
+              ])
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.bonus" } } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success mt-5",
+              staticStyle: { width: "170px" }
+            },
+            [_vm._v("賞与ノ部メニューへ")]
+          )
+        ])
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -40091,70 +40229,97 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.submit($event)
-          }
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
         }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
       },
       [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "year" } }, [
-            _vm._v("please select year")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.year,
-                  expression: "year"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { id: "year" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.year = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
-              _vm._v(" "),
-              _vm._l(_vm.years, function(year, index) {
-                return _c(
-                  "option",
-                  { key: index, domProps: { value: year.year } },
-                  [_vm._v(_vm._s(year.year))]
-                )
-              })
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
         _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v("Submit")]
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submit($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "year" } }, [
+                _vm._v("please select year")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.year,
+                      expression: "year"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "year" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.year = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.years, function(year, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: year.year } },
+                      [_vm._v(_vm._s(year.year))]
+                    )
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+              [_vm._v("Submit")]
+            )
+          ]
         )
       ]
     )
@@ -40333,247 +40498,277 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c(
-          "form",
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
           {
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.submit($event)
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "year" }
-                },
-                [_vm._v("Year")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.cost.year,
-                    expression: "cost.year"
-                  }
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "year" },
-                domProps: { value: _vm.cost.year },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.cost, "year", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "month" }
-                },
-                [_vm._v("Month")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.cost.month,
-                    expression: "cost.month"
-                  }
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "month" },
-                domProps: { value: _vm.cost.month },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.cost, "month", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "day" }
-                },
-                [_vm._v("Day")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.cost.day,
-                    expression: "cost.day"
-                  }
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "day" },
-                domProps: { value: _vm.cost.day },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.cost, "day", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "account-name" }
-                },
-                [_vm._v("Account")]
-              ),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.cost.accountName,
-                      expression: "cost.accountName"
-                    }
-                  ],
-                  staticClass: "col-sm-9 form-control",
-                  attrs: { id: "account" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.cost,
-                        "accountName",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                _vm._l(_vm.accounts, function(account, index) {
-                  return _c(
-                    "option",
-                    { key: index, domProps: { value: account.accountKanji } },
-                    [_vm._v(_vm._s(account.accountKanji))]
-                  )
-                }),
-                0
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "price" }
-                },
-                [_vm._v("Price")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.cost.price,
-                    expression: "cost.price"
-                  }
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "price" },
-                domProps: { value: _vm.cost.price },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.cost, "price", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "journal" }
-                },
-                [_vm._v("Journal")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.cost.journal,
-                    expression: "cost.journal"
-                  }
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "journal" },
-                domProps: { value: _vm.cost.journal },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.cost, "journal", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
             _c(
-              "button",
-              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [_vm._v("Submit")]
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.submit($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "year" }
+                    },
+                    [_vm._v("Year")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cost.year,
+                        expression: "cost.year"
+                      }
+                    ],
+                    staticClass: "col-sm-9 form-control",
+                    attrs: { type: "text", id: "year" },
+                    domProps: { value: _vm.cost.year },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.cost, "year", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "month" }
+                    },
+                    [_vm._v("Month")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cost.month,
+                        expression: "cost.month"
+                      }
+                    ],
+                    staticClass: "col-sm-9 form-control",
+                    attrs: { type: "text", id: "month" },
+                    domProps: { value: _vm.cost.month },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.cost, "month", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "day" }
+                    },
+                    [_vm._v("Day")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cost.day,
+                        expression: "cost.day"
+                      }
+                    ],
+                    staticClass: "col-sm-9 form-control",
+                    attrs: { type: "text", id: "day" },
+                    domProps: { value: _vm.cost.day },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.cost, "day", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "account-name" }
+                    },
+                    [_vm._v("Account")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.cost.accountName,
+                          expression: "cost.accountName"
+                        }
+                      ],
+                      staticClass: "col-sm-9 form-control",
+                      attrs: { id: "account" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.cost,
+                            "accountName",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.accounts, function(account, index) {
+                      return _c(
+                        "option",
+                        {
+                          key: index,
+                          domProps: { value: account.accountKanji }
+                        },
+                        [_vm._v(_vm._s(account.accountKanji))]
+                      )
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "price" }
+                    },
+                    [_vm._v("Price")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cost.price,
+                        expression: "cost.price"
+                      }
+                    ],
+                    staticClass: "col-sm-9 form-control",
+                    attrs: { type: "text", id: "price" },
+                    domProps: { value: _vm.cost.price },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.cost, "price", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "journal" }
+                    },
+                    [_vm._v("Journal")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cost.journal,
+                        expression: "cost.journal"
+                      }
+                    ],
+                    staticClass: "col-sm-9 form-control",
+                    attrs: { type: "text", id: "journal" },
+                    domProps: { value: _vm.cost.journal },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.cost, "journal", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  [_vm._v("Submit")]
+                )
+              ]
             )
-          ]
-        )
-      ])
-    ])
+          ])
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -40670,57 +40865,91 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h2", [
-      _vm._v(
-        "経費計上合計金額：" + _vm._s(_vm.totalAmount.toLocaleString()) + "円"
-      )
-    ]),
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
     _vm._v(" "),
-    _c("table", { staticClass: "table table-hover" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.costs, function(cost, index) {
-          return _c("tr", { key: index }, [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(cost.id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(cost.accountName))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(cost.price.toLocaleString()))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(cost.journal))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(cost.year))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(cost.month))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(cost.day))]),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("h2", [
+          _vm._v(
+            "経費計上合計金額：" +
+              _vm._s(_vm.totalAmount.toLocaleString()) +
+              "円"
+          )
+        ]),
+        _vm._v(" "),
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.costs, function(cost, index) {
+              return _c("tr", { key: index }, [
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(cost.id))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(cost.accountName))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(cost.price.toLocaleString()))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(cost.journal))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(cost.year))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(cost.month))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(cost.day))]),
+                _vm._v(" "),
                 _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: { name: "cost.detail", params: { costId: cost.id } }
-                    }
-                  },
+                  "td",
                   [
-                    _c("button", { staticClass: "btn btn-primary" }, [
-                      _vm._v("Watch")
-                    ])
-                  ]
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "cost.detail",
+                            params: { costId: cost.id }
+                          }
+                        }
+                      },
+                      [
+                        _c("button", { staticClass: "btn btn-primary" }, [
+                          _vm._v("Watch")
+                        ])
+                      ]
+                    )
+                  ],
+                  1
                 )
-              ],
-              1
-            )
-          ])
-        }),
-        0
-      )
-    ])
+              ])
+            }),
+            0
+          )
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -40850,247 +41079,277 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c(
-          "form",
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
           {
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.submit($event)
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "year" }
-                },
-                [_vm._v("Year")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.cost.year,
-                    expression: "cost.year"
-                  }
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "year" },
-                domProps: { value: _vm.cost.year },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.cost, "year", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "month" }
-                },
-                [_vm._v("Month")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.cost.month,
-                    expression: "cost.month"
-                  }
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "month" },
-                domProps: { value: _vm.cost.month },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.cost, "month", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "day" }
-                },
-                [_vm._v("Day")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.cost.day,
-                    expression: "cost.day"
-                  }
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "day" },
-                domProps: { value: _vm.cost.day },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.cost, "day", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "account-name" }
-                },
-                [_vm._v("Account")]
-              ),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.cost.accountName,
-                      expression: "cost.accountName"
-                    }
-                  ],
-                  staticClass: "col-sm-9 form-control",
-                  attrs: { id: "account" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.cost,
-                        "accountName",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                _vm._l(_vm.accounts, function(account, index) {
-                  return _c(
-                    "option",
-                    { key: index, domProps: { value: account.accountKanji } },
-                    [_vm._v(_vm._s(account.accountKanji))]
-                  )
-                }),
-                0
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "price" }
-                },
-                [_vm._v("Price")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.cost.price,
-                    expression: "cost.price"
-                  }
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "price" },
-                domProps: { value: _vm.cost.price },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.cost, "price", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-3 col-form-label",
-                  attrs: { for: "journal" }
-                },
-                [_vm._v("Journal")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.cost.journal,
-                    expression: "cost.journal"
-                  }
-                ],
-                staticClass: "col-sm-9 form-control",
-                attrs: { type: "text", id: "journal" },
-                domProps: { value: _vm.cost.journal },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.cost, "journal", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
             _c(
-              "button",
-              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [_vm._v("Submit")]
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.submit($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "year" }
+                    },
+                    [_vm._v("Year")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cost.year,
+                        expression: "cost.year"
+                      }
+                    ],
+                    staticClass: "col-sm-9 form-control",
+                    attrs: { type: "text", id: "year" },
+                    domProps: { value: _vm.cost.year },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.cost, "year", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "month" }
+                    },
+                    [_vm._v("Month")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cost.month,
+                        expression: "cost.month"
+                      }
+                    ],
+                    staticClass: "col-sm-9 form-control",
+                    attrs: { type: "text", id: "month" },
+                    domProps: { value: _vm.cost.month },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.cost, "month", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "day" }
+                    },
+                    [_vm._v("Day")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cost.day,
+                        expression: "cost.day"
+                      }
+                    ],
+                    staticClass: "col-sm-9 form-control",
+                    attrs: { type: "text", id: "day" },
+                    domProps: { value: _vm.cost.day },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.cost, "day", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "account-name" }
+                    },
+                    [_vm._v("Account")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.cost.accountName,
+                          expression: "cost.accountName"
+                        }
+                      ],
+                      staticClass: "col-sm-9 form-control",
+                      attrs: { id: "account" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.cost,
+                            "accountName",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    _vm._l(_vm.accounts, function(account, index) {
+                      return _c(
+                        "option",
+                        {
+                          key: index,
+                          domProps: { value: account.accountKanji }
+                        },
+                        [_vm._v(_vm._s(account.accountKanji))]
+                      )
+                    }),
+                    0
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "price" }
+                    },
+                    [_vm._v("Price")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cost.price,
+                        expression: "cost.price"
+                      }
+                    ],
+                    staticClass: "col-sm-9 form-control",
+                    attrs: { type: "text", id: "price" },
+                    domProps: { value: _vm.cost.price },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.cost, "price", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 col-form-label",
+                      attrs: { for: "journal" }
+                    },
+                    [_vm._v("Journal")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cost.journal,
+                        expression: "cost.journal"
+                      }
+                    ],
+                    staticClass: "col-sm-9 form-control",
+                    attrs: { type: "text", id: "journal" },
+                    domProps: { value: _vm.cost.journal },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.cost, "journal", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  [_vm._v("Submit")]
+                )
+              ]
             )
-          ]
-        )
-      ])
-    ])
+          ])
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -41200,164 +41459,193 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.submit($event)
-          }
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
         }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
       },
       [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "year" } }, [
-            _vm._v("please select year")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.year,
-                  expression: "year"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { id: "year" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.year = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
-              _vm._v(" "),
-              _vm._l(_vm.years, function(year, index) {
-                return _c(
-                  "option",
-                  { key: index, domProps: { value: year.year } },
-                  [_vm._v(_vm._s(year.year))]
-                )
-              })
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "month" } }, [
-            _vm._v("please select month")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.month,
-                  expression: "month"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { id: "month" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.month = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
-              _vm._v(" "),
-              _vm._l(_vm.months, function(month, index) {
-                return _c(
-                  "option",
-                  { key: index, domProps: { value: month.month } },
-                  [_vm._v(_vm._s(month.month))]
-                )
-              })
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "day" } }, [_vm._v("please select day")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.day,
-                  expression: "day"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { id: "day" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.day = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
-              _vm._v(" "),
-              _vm._l(31, function(i) {
-                return _c("option", { key: i, domProps: { value: i } }, [
-                  _vm._v(_vm._s(i))
-                ])
-              })
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
         _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v("Submit")]
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submit($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "year" } }, [
+                _vm._v("please select year")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.year,
+                      expression: "year"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "year" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.year = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.years, function(year, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: year.year } },
+                      [_vm._v(_vm._s(year.year))]
+                    )
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "month" } }, [
+                _vm._v("please select month")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.month,
+                      expression: "month"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "month" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.month = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.months, function(month, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: month.month } },
+                      [_vm._v(_vm._s(month.month))]
+                    )
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "day" } }, [
+                _vm._v("please select day")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.day,
+                      expression: "day"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "day" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.day = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
+                  _vm._v(" "),
+                  _vm._l(31, function(i) {
+                    return _c("option", { key: i, domProps: { value: i } }, [
+                      _vm._v(_vm._s(i))
+                    ])
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+              [_vm._v("Submit")]
+            )
+          ]
         )
       ]
     )
@@ -41386,27 +41674,56 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("table", { staticClass: "table table-hover" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.hours, function(hour, index) {
-          return _c("tr", { key: index }, [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(hour.id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(hour.year))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(hour.month))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(hour.fixedTime))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(hour.overTime))])
-          ])
-        }),
-        0
-      )
-    ])
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.hours, function(hour, index) {
+              return _c("tr", { key: index }, [
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(hour.id))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(hour.year))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(hour.month))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(hour.fixedTime))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(hour.overTime))])
+              ])
+            }),
+            0
+          )
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -41709,37 +42026,64 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h3", [_vm._v("稼働時間計上完了")]),
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
     _vm._v(" "),
     _c(
-      "table",
-      { staticClass: "table table-hover" },
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
       [
-        _vm._m(0),
+        _c("h3", [_vm._v("稼働時間計上完了")]),
         _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [
-              _vm._v(_vm._s(_vm.hour.id))
+        _c(
+          "table",
+          { staticClass: "table table-hover" },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("tbody", [
+              _c("tr", [
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(_vm.hour.id))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.hour.fixedTime))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.hour.overTime))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.hour.year))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(_vm.hour.month))])
+              ])
             ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.hour.fixedTime))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.hour.overTime))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.hour.year))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.hour.month))])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("router-link", { attrs: { to: { name: "saisan.hour" } } }, [
-          _c("button", { staticClass: "btn btn-success" }, [
-            _vm._v("time menu")
-          ])
-        ])
-      ],
-      1
+            _c("router-link", { attrs: { to: { name: "saisan.hour" } } }, [
+              _c("button", { staticClass: "btn btn-success" }, [
+                _vm._v("時間ノ部メニューへ")
+              ])
+            ])
+          ],
+          1
+        )
+      ]
     )
   ])
 }
@@ -41785,70 +42129,97 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.submit($event)
-          }
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
         }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
       },
       [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "year" } }, [
-            _vm._v("please select year")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.year,
-                  expression: "year"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { id: "year" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.year = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
-              _vm._v(" "),
-              _vm._l(_vm.years, function(year, index) {
-                return _c(
-                  "option",
-                  { key: index, domProps: { value: year.year } },
-                  [_vm._v(_vm._s(year.year))]
-                )
-              })
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
         _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v("Submit")]
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submit($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "year" } }, [
+                _vm._v("please select year")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.year,
+                      expression: "year"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "year" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.year = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.years, function(year, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: year.year } },
+                      [_vm._v(_vm._s(year.year))]
+                    )
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+              [_vm._v("Submit")]
+            )
+          ]
         )
       ]
     )
@@ -42011,73 +42382,96 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.salaries, function(salary, index) {
-            return _c("tr", { key: index }, [
-              _c("th", { attrs: { scope: "row" } }, [
-                _vm._v(_vm._s(salary.year))
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.month))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.totalSalary.toLocaleString()))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.basicSalary.toLocaleString()))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.overtimePay.toLocaleString()))]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(_vm._s(salary.healthInsurance.toLocaleString()))
-              ]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(_vm._s(salary.employeePension.toLocaleString()))
-              ]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(_vm._s(salary.employmentInsurance.toLocaleString()))
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.incomeTax.toLocaleString()))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.residentTax.toLocaleString()))]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(_vm._s(salary.otherDeduction.toLocaleString()))
-              ]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(_vm._s(salary.totalDeduction.toLocaleString()))
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(salary.netIncome.toLocaleString()))])
-            ])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "saisan.salary" } } }, [
-        _c(
-          "button",
+  return _c("div", { staticClass: "container" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
           {
-            staticClass: "btn btn-success mt-5",
-            staticStyle: { width: "170px" }
-          },
-          [_vm._v("収入ノ部メニューへ")]
-        )
-      ])
-    ],
-    1
-  )
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.salaries, function(salary, index) {
+              return _c("tr", { key: index }, [
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(salary.year))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(salary.month))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(salary.totalSalary.toLocaleString()))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(salary.basicSalary.toLocaleString()))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(salary.overtimePay.toLocaleString()))]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(_vm._s(salary.healthInsurance.toLocaleString()))
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(_vm._s(salary.employeePension.toLocaleString()))
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(_vm._s(salary.employmentInsurance.toLocaleString()))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(salary.incomeTax.toLocaleString()))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(salary.residentTax.toLocaleString()))]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(_vm._s(salary.otherDeduction.toLocaleString()))
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(_vm._s(salary.totalDeduction.toLocaleString()))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(salary.netIncome.toLocaleString()))])
+              ])
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.salary" } } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success mt-5",
+              staticStyle: { width: "170px" }
+            },
+            [_vm._v("収入ノ部メニューへ")]
+          )
+        ])
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -42819,70 +43213,97 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.submit($event)
-          }
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
         }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
       },
       [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "year" } }, [
-            _vm._v("please select year")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.year,
-                  expression: "year"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { id: "year" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.year = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
-              _vm._v(" "),
-              _vm._l(_vm.years, function(year, index) {
-                return _c(
-                  "option",
-                  { key: index, domProps: { value: year.year } },
-                  [_vm._v(_vm._s(year.year))]
-                )
-              })
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
         _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v("Submit")]
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.submit($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "year" } }, [
+                _vm._v("please select year")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.year,
+                      expression: "year"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "year" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.year = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [_vm._v("select")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.years, function(year, index) {
+                    return _c(
+                      "option",
+                      { key: index, domProps: { value: year.year } },
+                      [_vm._v(_vm._s(year.year))]
+                    )
+                  })
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+              [_vm._v("Submit")]
+            )
+          ]
         )
       ]
     )

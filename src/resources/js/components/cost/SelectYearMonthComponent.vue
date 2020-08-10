@@ -1,37 +1,40 @@
 <template>
   <div class="container">
-    <form v-on:submit.prevent="submit">
-      <div class="form-group">
-        <label for="year">please select year</label>
-        <select class="form-control" id="year" v-model="year">
-          <option value>select</option>
-          <option
-            v-for="(year, index) in years"
-            :key="index"
-            v-bind:value="year.year"
-          >{{ year.year }}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="month">please select month</label>
-        <select class="form-control" id="month" v-model="month">
-          <option value>select</option>
-          <option
-            v-for="(month, index) in months"
-            :key="index"
-            v-bind:value="month.month"
-          >{{ month.month }}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="day">please select day</label>
-        <select class="form-control" id="day" v-model="day">
-          <option value>select</option>
-          <option v-for="i in 31" :key="i" :value="i">{{ i }}</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div v-show="loading" class="loader"></div>
+    <div v-show="!loading">
+      <form v-on:submit.prevent="submit">
+        <div class="form-group">
+          <label for="year">please select year</label>
+          <select class="form-control" id="year" v-model="year">
+            <option value>select</option>
+            <option
+              v-for="(year, index) in years"
+              :key="index"
+              v-bind:value="year.year"
+            >{{ year.year }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="month">please select month</label>
+          <select class="form-control" id="month" v-model="month">
+            <option value>select</option>
+            <option
+              v-for="(month, index) in months"
+              :key="index"
+              v-bind:value="month.month"
+            >{{ month.month }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="day">please select day</label>
+          <select class="form-control" id="day" v-model="day">
+            <option value>select</option>
+            <option v-for="i in 31" :key="i" :value="i">{{ i }}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
   </div>
 </template>
 <script>
@@ -45,6 +48,7 @@ export default {
       year: "",
       month: "",
       day: "",
+      loading: true,
     };
   },
   methods: {
@@ -55,6 +59,7 @@ export default {
       });
       axios.get("/api/cost/month/").then((res) => {
         this.months = res.data;
+        this.loading = false;
       });
     },
     submit() {
