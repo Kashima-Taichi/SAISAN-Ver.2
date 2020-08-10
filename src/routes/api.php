@@ -92,8 +92,17 @@ Route::get('/salary/year/', 'SalaryController@getSalaryYear');
 | 勘定科目関係のAPIルーティングは下記にて実装する。
 */
 
-// 勘定科目のリストを取得
+// 勘定科目の登録
+Route::post('/account/store/', 'AccountController@store');
+
+// 最新の勘定科目データの取得
+Route::get('/account/latest/', 'AccountController@getLatestAccountData');
+
+// 勘定科目のリストを取得 (経費計上用)
 Route::get('/account/list/', 'AccountController@getAccountList');
+
+// 勘定科目のリストを取得 (勘定科目ページ参照用)
+Route::get('/account/all/', 'AccountController@getAccountsData');
 
 /*
 |--------------------------------------------------------------------------

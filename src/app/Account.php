@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
-    // オートインクリメント
+    // テーブル設定
+    protected $table = 'accounts';
+
+    // ホワイトリストの設定
     protected $fillable = [
         'accountAlpha',
         'accountKanji',
