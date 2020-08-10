@@ -41,6 +41,14 @@
           </td>
         </tr>
         <tr>
+          <th scope="row">勘定科目ノ部</th>
+          <td>
+            <router-link v-bind:to="{name: 'saisan.account'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
+        <tr>
           <th scope="row">その他ノ部</th>
           <td>
             <router-link v-bind:to="{name: 'saisan.other'}">

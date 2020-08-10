@@ -31,6 +31,11 @@ import SalaryListComponent from "./components/salary/SalaryListComponent";
 import BonusMenuComponent from "./components/bonus/BonusMenuComponent";
 import SelectYearBonusComponent from "./components/bonus/SelectYearBonusComponent";
 import BonusListComponent from "./components/bonus/BonusListComponent";
+// 勘定科目関係
+import AccountMenuComponent from "./components/account/AccountMenuComponent";
+import AccountListComponent from "./components/account/AccountListComponent";
+import AccountRecordComponent from "./components/account/AccountRecordComponent";
+import AccountRecordDoneComponent from "./components/account/AccountRecordDoneComponent";
 // その他の機能
 import OtherMenuComponent from "./components/other/OtherMenuComponent";
 import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";
@@ -99,6 +104,15 @@ const router = new VueRouter({
         { /* 賞与トップ */ path: '/bonus/', name: 'saisan.bonus', component: BonusMenuComponent },
         { /* 賞与計上年の取得 */ path: '/bonus/list/select-y/', name: 'bonus.list.selecty', component: SelectYearBonusComponent },
         { /* 賞与計上リスト（年次） */ path: '/bonus/list/:year/', name: 'bonus.list', component: BonusListComponent, props: true },
+        /*
+        |--------------------------------------------------------------------------
+        | Accounts routes
+        |--------------------------------------------------------------------------
+        | 勘定科目ノ部のルーティングは下記にて実装 */
+        { /* 勘定科目トップ */ path: '/account/', name: 'saisan.account', component: AccountMenuComponent },
+        { /* 勘定科目リスト出力 */ path: '/account/list/', name: 'account.list', component: AccountListComponent },
+        { /* 勘定科目新規登録 */ path: '/account/rec/', name: 'account.rec', component: AccountRecordComponent },
+        { /* 勘定科目新規登録完了画面 */ path: '/account/rec-done/', name: 'account.rec-done', component: AccountRecordDoneComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Others routes
