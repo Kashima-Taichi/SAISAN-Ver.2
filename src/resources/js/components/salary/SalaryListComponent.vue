@@ -18,6 +18,7 @@
             <th scope="col">other Deduction</th>
             <th scope="col">total Deduction</th>
             <th scope="col">net Income</th>
+            <th scope="col">Watch</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +36,11 @@
             <td>{{ salary.otherDeduction.toLocaleString() }}</td>
             <td>{{ salary.totalDeduction.toLocaleString() }}</td>
             <td>{{ salary.netIncome.toLocaleString() }}</td>
+            <td>
+              <router-link v-bind:to="{name: 'salary.detail', params: { salaryId: salary.id } }">
+                <button class="btn btn-primary">Watch</button>
+              </router-link>
+            </td>
           </tr>
         </tbody>
       </table>

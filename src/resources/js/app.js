@@ -27,6 +27,7 @@ import SalaryRecordComponent from "./components/salary/SalaryRecordComponent";
 import SalaryRecordDoneComponent from "./components/salary/SalaryRecordDoneComponent";
 import SelectYearSalaryComponent from "./components/salary/SelectYearComponent";
 import SalaryListComponent from "./components/salary/SalaryListComponent";
+import SalaryDetailComponent from "./components/salary/SalaryDetailComponent";
 // 賞与関係
 import BonusMenuComponent from "./components/bonus/BonusMenuComponent";
 import SelectYearBonusComponent from "./components/bonus/SelectYearBonusComponent";
@@ -96,6 +97,7 @@ const router = new VueRouter({
         { /* 収入計上 */ path: '/salary/rec-done/', name: 'salary.rec-done', component: SalaryRecordDoneComponent },
         { /* 収入計上年の取得 */ path: '/salary/list/select-y/', name: 'salary.list.selecty', component: SelectYearSalaryComponent },
         { /* 収入計上リスト（年次） */ path: '/salary/list/:year/', name: 'salary.list', component: SalaryListComponent, props: true },
+        { /* 収入計上明細(個別id) */ path: '/salary/detail/:salaryId/', name: 'salary.detail', component: SalaryDetailComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Bonus routes
