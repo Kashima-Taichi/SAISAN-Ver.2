@@ -38,6 +38,8 @@ import BonusMenuComponent from "./components/bonus/BonusMenuComponent";
 import SelectYearBonusComponent from "./components/bonus/SelectYearBonusComponent";
 import BonusListComponent from "./components/bonus/BonusListComponent";
 import BonusDetailComponent from "./components/bonus/BonusDetailComponent";
+import BonusEditComponent from "./components/bonus/BonusEditComponent";
+import BonusEditDoneComponent from "./components/bonus/BonusEditDoneComponent";
 // 勘定科目関係
 import AccountMenuComponent from "./components/account/AccountMenuComponent";
 import AccountListComponent from "./components/account/AccountListComponent";
@@ -117,7 +119,9 @@ const router = new VueRouter({
         { /* 賞与計上完了 */ path: '/bonus/rec-done/', name: 'bonus.rec-done', component: BonusRecordDoneComponent },
         { /* 賞与計上年の取得 */ path: '/bonus/list/select-y/', name: 'bonus.list.selecty', component: SelectYearBonusComponent },
         { /* 賞与計上リスト（年次） */ path: '/bonus/list/:year/', name: 'bonus.list', component: BonusListComponent, props: true },
-        { /* 賞与計上個別明細 */ path: '/bonus/detail/:bonusId/', name: 'bonus.detail', component: BonusDetailComponent, props: true },
+        { /* 賞与計上明細(個別id) */ path: '/bonus/detail/:bonusId/', name: 'bonus.detail', component: BonusDetailComponent, props: true },
+        { /* 賞与計上明細の修正 */ path: '/bonus/edit/:bonusId/', name: 'bonus.edit', component: BonusEditComponent, props: true },
+        { /* 賞与計上明細の修正完了 */ path: '/bonus/edit-done/:bonusId/', name: 'bonus.edit-done', component: BonusEditDoneComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Accounts routes

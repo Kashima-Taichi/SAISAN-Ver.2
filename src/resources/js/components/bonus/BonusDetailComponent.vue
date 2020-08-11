@@ -12,6 +12,7 @@
           <th scope="col">income Tax</th>
           <th scope="col">total Deduction</th>
           <th scope="col">net Income</th>
+          <th scope="col">Edit</th>
         </tr>
       </thead>
       <tbody>
@@ -25,6 +26,11 @@
           <td>{{ bonus.incomeTax.toLocaleString() }}</td>
           <td>{{ bonus.totalDeduction.toLocaleString() }}</td>
           <td>{{ bonus.netIncome.toLocaleString() }}</td>
+          <td>
+            <router-link v-bind:to="{name: 'bonus.edit', params: { bonusId: bonus.id } }">
+              <button class="btn btn-success">Edit</button>
+            </router-link>
+          </td>
         </tr>
       </tbody>
     </table>
