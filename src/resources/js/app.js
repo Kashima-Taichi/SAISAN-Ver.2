@@ -37,6 +37,7 @@ import BonusRecordDoneComponent from "./components/bonus/BonusRecordDoneComponen
 import BonusMenuComponent from "./components/bonus/BonusMenuComponent";
 import SelectYearBonusComponent from "./components/bonus/SelectYearBonusComponent";
 import BonusListComponent from "./components/bonus/BonusListComponent";
+import BonusDetailComponent from "./components/bonus/BonusDetailComponent";
 // 勘定科目関係
 import AccountMenuComponent from "./components/account/AccountMenuComponent";
 import AccountListComponent from "./components/account/AccountListComponent";
@@ -116,6 +117,7 @@ const router = new VueRouter({
         { /* 賞与計上完了 */ path: '/bonus/rec-done/', name: 'bonus.rec-done', component: BonusRecordDoneComponent },
         { /* 賞与計上年の取得 */ path: '/bonus/list/select-y/', name: 'bonus.list.selecty', component: SelectYearBonusComponent },
         { /* 賞与計上リスト（年次） */ path: '/bonus/list/:year/', name: 'bonus.list', component: BonusListComponent, props: true },
+        { /* 賞与計上個別明細 */ path: '/bonus/detail/:bonusId/', name: 'bonus.detail', component: BonusDetailComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Accounts routes
