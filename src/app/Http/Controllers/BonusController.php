@@ -30,4 +30,9 @@ class BonusController extends Controller
     public function getBonusListYear($year) {
         return Bonus::whereRaw('year = ?', $year)->get();
     }
+
+    // APIで個別の賞与情報を取得
+    public function getIndividualBonusData($id) {
+        return Bonus::find($id);
+    }
 }
