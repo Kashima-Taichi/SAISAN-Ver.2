@@ -120,6 +120,12 @@ Route::get('/account/all/', 'AccountController@getAccountsData');
 | 賞与関係のAPIルーティングは下記にて実装する。
 */
 
+// 賞与計上
+Route::post('/bonus/store/', 'BonusController@store');
+
+// 最新の賞与データの取得
+Route::get('/bonus/latest/', 'BonusController@getLatestBonusData');
+
 // 賞与計上実績のある年を取得する
 Route::get('/bonus/year/', 'BonusController@getBonusYear');
 
