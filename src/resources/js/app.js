@@ -32,6 +32,8 @@ import SalaryEditComponent from "./components/salary/SalaryEditComponent";
 import SalaryEditDoneComponent from "./components/salary/SalaryEditDoneComponent";
 import SalaryDeleteDoneComponent from "./components/salary/SalaryDeleteDoneComponent";
 // 賞与関係
+import BonusRecordComponent from "./components/bonus/BonusRecordComponent";
+import BonusRecordDoneComponent from "./components/bonus/BonusRecordDoneComponent";
 import BonusMenuComponent from "./components/bonus/BonusMenuComponent";
 import SelectYearBonusComponent from "./components/bonus/SelectYearBonusComponent";
 import BonusListComponent from "./components/bonus/BonusListComponent";
@@ -97,7 +99,7 @@ const router = new VueRouter({
         | 収入ノ部のルーティングは下記にて実装 */
         { /* 収入トップ */ path: '/salary/', name: 'saisan.salary', component: SalaryMenuComponent },
         { /* 収入計上 */ path: '/salary/rec/', name: 'salary.rec', component: SalaryRecordComponent },
-        { /* 収入計上 */ path: '/salary/rec-done/', name: 'salary.rec-done', component: SalaryRecordDoneComponent },
+        { /* 収入計上完了 */ path: '/salary/rec-done/', name: 'salary.rec-done', component: SalaryRecordDoneComponent },
         { /* 収入計上年の取得 */ path: '/salary/list/select-y/', name: 'salary.list.selecty', component: SelectYearSalaryComponent },
         { /* 収入計上リスト（年次） */ path: '/salary/list/:year/', name: 'salary.list', component: SalaryListComponent, props: true },
         { /* 収入計上明細(個別id) */ path: '/salary/detail/:salaryId/', name: 'salary.detail', component: SalaryDetailComponent, props: true },
@@ -110,6 +112,8 @@ const router = new VueRouter({
         |--------------------------------------------------------------------------
         | 賞与ノ部のルーティングは下記にて実装 */
         { /* 賞与トップ */ path: '/bonus/', name: 'saisan.bonus', component: BonusMenuComponent },
+        { /* 賞与計上 */ path: '/bonus/rec/', name: 'bonus.rec', component: BonusRecordComponent },
+        { /* 賞与計上完了 */ path: '/bonus/rec-done/', name: 'bonus.rec-done', component: BonusRecordDoneComponent },
         { /* 賞与計上年の取得 */ path: '/bonus/list/select-y/', name: 'bonus.list.selecty', component: SelectYearBonusComponent },
         { /* 賞与計上リスト（年次） */ path: '/bonus/list/:year/', name: 'bonus.list', component: BonusListComponent, props: true },
         /*
