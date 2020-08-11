@@ -35,4 +35,12 @@ class BonusController extends Controller
     public function getIndividualBonusData($id) {
         return Bonus::find($id);
     }
+
+    // APIで計上された賞与の修正
+    public function edit(Request $request) {
+        $toBeEditedData = Bonus::find($request->id);
+        unset($request['_token']);
+        $toBeEditedData->fill($request->all())->save();
+        return;
+    }
 }

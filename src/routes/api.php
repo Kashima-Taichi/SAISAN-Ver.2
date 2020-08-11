@@ -134,3 +134,6 @@ Route::get('/bonus/list/{year}/', 'BonusController@getBonusListYear');
 
 // 個別の賞与情報を取得
 Route::get('/bonus/detail/{id}/', 'BonusController@getIndividualBonusData');
+
+// 計上された賞与の修正
+Route::put('/bonus/edit/', 'BonusController@edit');
