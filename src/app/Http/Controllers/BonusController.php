@@ -43,4 +43,11 @@ class BonusController extends Controller
         $toBeEditedData->fill($request->all())->save();
         return;
     }
+
+    // APIで計上されて賞与の削除
+    public function delete($id) {
+        $bonusData = Bonus::find($id);
+        $bonusData->delete();
+        return;
+    }
 }

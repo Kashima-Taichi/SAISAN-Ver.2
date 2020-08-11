@@ -137,3 +137,6 @@ Route::get('/bonus/detail/{id}/', 'BonusController@getIndividualBonusData');
 
 // 計上された賞与の修正
 Route::put('/bonus/edit/', 'BonusController@edit');
+
+// 計上された賞与の削除
+Route::delete('/bonus/delete/{id}/', 'BonusController@delete');
