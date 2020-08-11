@@ -50,4 +50,12 @@ class SalaryController extends Controller
         $toBeEditedData->fill($formContents)->save();
         return;
     }
+
+    // APIで所得明細の削除
+    public function delete($id) {
+        $salaryData = Salary::find($id);
+        $salaryData->delete();
+        return;
+    }
+
 }
