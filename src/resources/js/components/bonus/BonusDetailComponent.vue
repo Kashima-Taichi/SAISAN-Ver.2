@@ -13,6 +13,7 @@
           <th scope="col">total Deduction</th>
           <th scope="col">net Income</th>
           <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -30,6 +31,9 @@
             <router-link v-bind:to="{name: 'bonus.edit', params: { bonusId: bonus.id } }">
               <button class="btn btn-success">Edit</button>
             </router-link>
+          </td>
+          <td>
+            <button v-on:click="deleteBonus(bonus.id)" class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -50,6 +54,11 @@ export default {
     };
   },
   methods: {
+    deleteBonus(id) {
+      axios.delete("/api/bonus/delete/" + id + "/").then((res) => {
+        this.$router.push({ name: "bonus.delete-done" });
+      });
+    },
     getBonusIndividualData() {
       axios.get("/api/bonus/detail/" + this.bonusId + "/").then((res) => {
         this.bonus = res.data;
