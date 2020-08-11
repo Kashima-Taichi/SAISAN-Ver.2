@@ -38,4 +38,16 @@ class SalaryController extends Controller
     public function getIndividualSalaryData($id) {
         return Salary::find($id);
     }
+
+    // APIで所得の修正
+    public function edit(Request $request) {
+        $formContents = $request->all();
+        $fixedMonth = strlen($request->month) === 1 ? '0' . $request->month : $request->month;
+        $concatYearMonth = $request->year . $fixedMonth;
+        $formContents['yearMonth'] = $concatYearMonth;
+        unset($formContents['_token']);
+        $toBeEditedData = Salary::find($request->id);
+        $toBeEditedData->fill($formContents)->save();
+        return;
+    }
 }

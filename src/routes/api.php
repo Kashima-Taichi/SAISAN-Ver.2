@@ -88,6 +88,9 @@ Route::get('/salary/year/', 'SalaryController@getSalaryYear');
 // 個別の収入情報を取得
 Route::get('/salary/detail/{id}/', 'SalaryController@getIndividualSalaryData');
 
+// 経費明細修正
+Route::put('/salary/edit/', 'SalaryController@edit');
+
 /*
 |--------------------------------------------------------------------------
 | 勘定科目関係
