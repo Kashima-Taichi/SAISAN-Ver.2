@@ -3466,6 +3466,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    salaryId: String
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/salary/SalaryDetailComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/salary/SalaryDetailComponent.vue?vue&type=script&lang=js& ***!
@@ -3475,6 +3500,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -3530,11 +3559,20 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    getSalaryIndividualData: function getSalaryIndividualData() {
+    deleteSalary: function deleteSalary(id) {
       var _this = this;
 
+      axios["delete"]("/api/salary/delete/" + id + "/").then(function (res) {
+        _this.$router.push({
+          name: "salary.delete-done"
+        });
+      });
+    },
+    getSalaryIndividualData: function getSalaryIndividualData() {
+      var _this2 = this;
+
       axios.get("/api/salary/detail/" + this.salaryId + "/").then(function (res) {
-        _this.salary = res.data;
+        _this2.salary = res.data;
       });
     }
   },
@@ -42701,6 +42739,48 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=template&id=329365a8&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=template&id=329365a8& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("h2", [_vm._v("所得明細削除完了 id : " + _vm._s(_vm.salaryId))]),
+      _vm._v(" "),
+      _c("router-link", { attrs: { to: { name: "saisan.salary" } } }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-success mt-5",
+            staticStyle: { width: "170px" }
+          },
+          [_vm._v("所得ノ部メニューへ")]
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/salary/SalaryDetailComponent.vue?vue&type=template&id=6e12e5b0&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/salary/SalaryDetailComponent.vue?vue&type=template&id=6e12e5b0& ***!
@@ -42788,7 +42868,22 @@ var render = function() {
               )
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _c("td", [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger",
+                on: {
+                  click: function($event) {
+                    return _vm.deleteSalary(_vm.salary.id)
+                  }
+                }
+              },
+              [_vm._v("Delete")]
+            )
+          ])
         ])
       ])
     ])
@@ -42825,7 +42920,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("net Income")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Edit")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Edit")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Delete")])
       ])
     ])
   }
@@ -59716,16 +59813,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_salary_SalaryListComponent__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/salary/SalaryListComponent */ "./resources/js/components/salary/SalaryListComponent.vue");
 /* harmony import */ var _components_salary_SalaryDetailComponent__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/salary/SalaryDetailComponent */ "./resources/js/components/salary/SalaryDetailComponent.vue");
 /* harmony import */ var _components_salary_SalaryEditComponent__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/salary/SalaryEditComponent */ "./resources/js/components/salary/SalaryEditComponent.vue");
-/* harmony import */ var _components_salary_SalaryEditDoneComponent__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/salary/SalaryEditDoneComponent */ "./resources/js/components/salary/SalaryEditDoneComponent.vue");
-/* harmony import */ var _components_bonus_BonusMenuComponent__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/bonus/BonusMenuComponent */ "./resources/js/components/bonus/BonusMenuComponent.vue");
-/* harmony import */ var _components_bonus_SelectYearBonusComponent__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/bonus/SelectYearBonusComponent */ "./resources/js/components/bonus/SelectYearBonusComponent.vue");
-/* harmony import */ var _components_bonus_BonusListComponent__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/bonus/BonusListComponent */ "./resources/js/components/bonus/BonusListComponent.vue");
-/* harmony import */ var _components_account_AccountMenuComponent__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/account/AccountMenuComponent */ "./resources/js/components/account/AccountMenuComponent.vue");
-/* harmony import */ var _components_account_AccountListComponent__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/account/AccountListComponent */ "./resources/js/components/account/AccountListComponent.vue");
-/* harmony import */ var _components_account_AccountRecordComponent__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/account/AccountRecordComponent */ "./resources/js/components/account/AccountRecordComponent.vue");
-/* harmony import */ var _components_account_AccountRecordDoneComponent__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/account/AccountRecordDoneComponent */ "./resources/js/components/account/AccountRecordDoneComponent.vue");
-/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
-/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
+/* harmony import */ var _components_salary_SalaryEditDoneComponent__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/salary/SalaryEditDoneComponent */ "./resources/js/components/salary/SalaryEditDoneComponent.vue");
+/* harmony import */ var _components_salary_SalaryDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/salary/SalaryDeleteDoneComponent */ "./resources/js/components/salary/SalaryDeleteDoneComponent.vue");
+/* harmony import */ var _components_bonus_BonusMenuComponent__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/bonus/BonusMenuComponent */ "./resources/js/components/bonus/BonusMenuComponent.vue");
+/* harmony import */ var _components_bonus_SelectYearBonusComponent__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/bonus/SelectYearBonusComponent */ "./resources/js/components/bonus/SelectYearBonusComponent.vue");
+/* harmony import */ var _components_bonus_BonusListComponent__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/bonus/BonusListComponent */ "./resources/js/components/bonus/BonusListComponent.vue");
+/* harmony import */ var _components_account_AccountMenuComponent__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/account/AccountMenuComponent */ "./resources/js/components/account/AccountMenuComponent.vue");
+/* harmony import */ var _components_account_AccountListComponent__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/account/AccountListComponent */ "./resources/js/components/account/AccountListComponent.vue");
+/* harmony import */ var _components_account_AccountRecordComponent__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/account/AccountRecordComponent */ "./resources/js/components/account/AccountRecordComponent.vue");
+/* harmony import */ var _components_account_AccountRecordDoneComponent__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/account/AccountRecordDoneComponent */ "./resources/js/components/account/AccountRecordDoneComponent.vue");
+/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
+/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
 /**
  * 独自で実装したComponentを下記にて取り込む
  */
@@ -59749,6 +59847,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // 収入関係
+
 
 
 
@@ -59935,7 +60034,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* 収入計上明細の修正完了 */
     path: '/salary/edit-done/:salaryId/',
     name: 'salary.edit-done',
-    component: _components_salary_SalaryEditDoneComponent__WEBPACK_IMPORTED_MODULE_34__["default"],
+    component: _components_salary_SalaryEditDoneComponent__WEBPACK_IMPORTED_MODULE_24__["default"],
+    props: true
+  }, {
+    /* 収入計上明細の削除完了 */
+    path: '/salary/delete-done/:salaryId/',
+    name: 'salary.delete-done',
+    component: _components_salary_SalaryDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_25__["default"],
     props: true
   },
   /*
@@ -59947,17 +60052,17 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* 賞与トップ */
     path: '/bonus/',
     name: 'saisan.bonus',
-    component: _components_bonus_BonusMenuComponent__WEBPACK_IMPORTED_MODULE_25__["default"]
+    component: _components_bonus_BonusMenuComponent__WEBPACK_IMPORTED_MODULE_26__["default"]
   }, {
     /* 賞与計上年の取得 */
     path: '/bonus/list/select-y/',
     name: 'bonus.list.selecty',
-    component: _components_bonus_SelectYearBonusComponent__WEBPACK_IMPORTED_MODULE_26__["default"]
+    component: _components_bonus_SelectYearBonusComponent__WEBPACK_IMPORTED_MODULE_27__["default"]
   }, {
     /* 賞与計上リスト（年次） */
     path: '/bonus/list/:year/',
     name: 'bonus.list',
-    component: _components_bonus_BonusListComponent__WEBPACK_IMPORTED_MODULE_27__["default"],
+    component: _components_bonus_BonusListComponent__WEBPACK_IMPORTED_MODULE_28__["default"],
     props: true
   },
   /*
@@ -59969,22 +60074,22 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* 勘定科目トップ */
     path: '/account/',
     name: 'saisan.account',
-    component: _components_account_AccountMenuComponent__WEBPACK_IMPORTED_MODULE_28__["default"]
+    component: _components_account_AccountMenuComponent__WEBPACK_IMPORTED_MODULE_29__["default"]
   }, {
     /* 勘定科目リスト出力 */
     path: '/account/list/',
     name: 'account.list',
-    component: _components_account_AccountListComponent__WEBPACK_IMPORTED_MODULE_29__["default"]
+    component: _components_account_AccountListComponent__WEBPACK_IMPORTED_MODULE_30__["default"]
   }, {
     /* 勘定科目新規登録 */
     path: '/account/rec/',
     name: 'account.rec',
-    component: _components_account_AccountRecordComponent__WEBPACK_IMPORTED_MODULE_30__["default"]
+    component: _components_account_AccountRecordComponent__WEBPACK_IMPORTED_MODULE_31__["default"]
   }, {
     /* 勘定科目新規登録完了画面 */
     path: '/account/rec-done/',
     name: 'account.rec-done',
-    component: _components_account_AccountRecordDoneComponent__WEBPACK_IMPORTED_MODULE_31__["default"],
+    component: _components_account_AccountRecordDoneComponent__WEBPACK_IMPORTED_MODULE_32__["default"],
     props: true
   },
   /*
@@ -59996,12 +60101,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* その他トップ */
     path: '/other/',
     name: 'saisan.other',
-    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_32__["default"]
+    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_33__["default"]
   }, {
     /* データベースのダンプコマンド出力 */
     path: '/other/dump/',
     name: 'other.dump',
-    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_33__["default"]
+    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_34__["default"]
   }]
 });
 /**
@@ -61793,6 +61898,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OtherMenuComponent_vue_vue_type_template_id_06f17f78___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OtherMenuComponent_vue_vue_type_template_id_06f17f78___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/salary/SalaryDeleteDoneComponent.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/salary/SalaryDeleteDoneComponent.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SalaryDeleteDoneComponent_vue_vue_type_template_id_329365a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SalaryDeleteDoneComponent.vue?vue&type=template&id=329365a8& */ "./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=template&id=329365a8&");
+/* harmony import */ var _SalaryDeleteDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SalaryDeleteDoneComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SalaryDeleteDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SalaryDeleteDoneComponent_vue_vue_type_template_id_329365a8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SalaryDeleteDoneComponent_vue_vue_type_template_id_329365a8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/salary/SalaryDeleteDoneComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalaryDeleteDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SalaryDeleteDoneComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalaryDeleteDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=template&id=329365a8&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=template&id=329365a8& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SalaryDeleteDoneComponent_vue_vue_type_template_id_329365a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./SalaryDeleteDoneComponent.vue?vue&type=template&id=329365a8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/salary/SalaryDeleteDoneComponent.vue?vue&type=template&id=329365a8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SalaryDeleteDoneComponent_vue_vue_type_template_id_329365a8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SalaryDeleteDoneComponent_vue_vue_type_template_id_329365a8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

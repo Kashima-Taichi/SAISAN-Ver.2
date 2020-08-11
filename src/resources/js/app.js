@@ -30,6 +30,7 @@ import SalaryListComponent from "./components/salary/SalaryListComponent";
 import SalaryDetailComponent from "./components/salary/SalaryDetailComponent";
 import SalaryEditComponent from "./components/salary/SalaryEditComponent";
 import SalaryEditDoneComponent from "./components/salary/SalaryEditDoneComponent";
+import SalaryDeleteDoneComponent from "./components/salary/SalaryDeleteDoneComponent";
 // 賞与関係
 import BonusMenuComponent from "./components/bonus/BonusMenuComponent";
 import SelectYearBonusComponent from "./components/bonus/SelectYearBonusComponent";
@@ -102,6 +103,7 @@ const router = new VueRouter({
         { /* 収入計上明細(個別id) */ path: '/salary/detail/:salaryId/', name: 'salary.detail', component: SalaryDetailComponent, props: true },
         { /* 収入計上明細の修正 */ path: '/salary/edit/:salaryId/', name: 'salary.edit', component: SalaryEditComponent, props: true },
         { /* 収入計上明細の修正完了 */ path: '/salary/edit-done/:salaryId/', name: 'salary.edit-done', component: SalaryEditDoneComponent, props: true },
+        { /* 収入計上明細の削除完了 */ path: '/salary/delete-done/:salaryId/', name: 'salary.delete-done', component: SalaryDeleteDoneComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Bonus routes

@@ -17,6 +17,7 @@
           <th scope="col">total Deduction</th>
           <th scope="col">net Income</th>
           <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -38,6 +39,9 @@
               <button class="btn btn-success">Edit</button>
             </router-link>
           </td>
+          <td>
+            <button v-on:click="deleteSalary(salary.id)" class="btn btn-danger">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -54,6 +58,11 @@ export default {
     };
   },
   methods: {
+    deleteSalary(id) {
+      axios.delete("/api/salary/delete/" + id + "/").then((res) => {
+        this.$router.push({ name: "salary.delete-done" });
+      });
+    },
     getSalaryIndividualData() {
       axios.get("/api/salary/detail/" + this.salaryId + "/").then((res) => {
         this.salary = res.data;
