@@ -66,6 +66,9 @@ Route::get('/hour/list/{year}/', 'HourController@getHourListYear');
 // 時間計上年月の取得
 Route::get('/hour/year/', 'HourController@getHourYear');
 
+// 個別の時間計上データを取得
+Route::get('/hour/detail/{id}/', 'HourController@getIndividualHourData');
+
 /*
 |--------------------------------------------------------------------------
 | 収入関係

@@ -33,4 +33,8 @@ class HourController extends Controller
         return Hour::groupBy('year')->get('year');
     }
 
+    // APIで個別の稼働時間計上データを取得
+    public function getIndividualHourData($id) {
+        return Hour::find($id);
+    }
 }
