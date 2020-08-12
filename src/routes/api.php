@@ -123,6 +123,9 @@ Route::get('/account/list/', 'AccountController@getAccountList');
 // 勘定科目のリストを取得 (勘定科目ページ参照用)
 Route::get('/account/all/', 'AccountController@getAccountsData');
 
+// 個別の勘定科目データの参照
+Route::get('/account/detail/{id}/', 'AccountController@getIndividualAccountData');
+
 /*
 |--------------------------------------------------------------------------
 | 賞与関係

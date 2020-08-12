@@ -29,4 +29,9 @@ class AccountController extends Controller
     public function getAccountsData() {
         return Account::all();
     }
+
+    // 個別の勘定科目のデータを取得
+    public function getIndividualAccountData($id) {
+        return Account::find($id);
+    }
 }
