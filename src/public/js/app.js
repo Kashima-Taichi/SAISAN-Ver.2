@@ -3585,6 +3585,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hour/HourDetailComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/hour/HourDetailComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    hourId: Number
+  },
+  data: function data() {
+    return {
+      hour: {}
+    };
+  },
+  methods: {
+    getHourIndividualData: function getHourIndividualData() {
+      var _this = this;
+
+      axios.get("/api/hour/detail/" + this.hourId + "/").then(function (res) {
+        _this.hour = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getHourIndividualData();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hour/HourListComponent.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/hour/HourListComponent.vue?vue&type=script&lang=js& ***!
@@ -3594,6 +3652,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43743,6 +43807,67 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hour/HourDetailComponent.vue?vue&type=template&id=2f4d1db0&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/hour/HourDetailComponent.vue?vue&type=template&id=2f4d1db0& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("table", { staticClass: "table table-hover" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", [
+          _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(_vm.hour.id))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.hour.year))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.hour.month))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.hour.fixedTime))]),
+          _vm._v(" "),
+          _c("td", [_vm._v(_vm._s(_vm.hour.overTime))])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-light" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("id")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("year")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("month")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("fixed time")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("over time")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hour/HourListComponent.vue?vue&type=template&id=99bd320a&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/hour/HourListComponent.vue?vue&type=template&id=99bd320a& ***!
@@ -43801,7 +43926,30 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(hour.fixedTime))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(hour.overTime))])
+                _c("td", [_vm._v(_vm._s(hour.overTime))]),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "hour.detail",
+                            params: { hourId: hour.id }
+                          }
+                        }
+                      },
+                      [
+                        _c("button", { staticClass: "btn btn-primary" }, [
+                          _vm._v("Watch")
+                        ])
+                      ]
+                    )
+                  ],
+                  1
+                )
               ])
             }),
             0
@@ -43826,7 +43974,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("fixed time")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("over time")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("over time")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Watch")])
       ])
     ])
   }
@@ -61519,30 +61669,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_hour_HourRecordDoneComponent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/hour/HourRecordDoneComponent */ "./resources/js/components/hour/HourRecordDoneComponent.vue");
 /* harmony import */ var _components_hour_SelectYearHourComponent__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/hour/SelectYearHourComponent */ "./resources/js/components/hour/SelectYearHourComponent.vue");
 /* harmony import */ var _components_hour_HourListComponent__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/hour/HourListComponent */ "./resources/js/components/hour/HourListComponent.vue");
-/* harmony import */ var _components_salary_SalaryMenuComponent__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/salary/SalaryMenuComponent */ "./resources/js/components/salary/SalaryMenuComponent.vue");
-/* harmony import */ var _components_salary_SalaryRecordComponent__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/salary/SalaryRecordComponent */ "./resources/js/components/salary/SalaryRecordComponent.vue");
-/* harmony import */ var _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/salary/SalaryRecordDoneComponent */ "./resources/js/components/salary/SalaryRecordDoneComponent.vue");
-/* harmony import */ var _components_salary_SelectYearComponent__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/salary/SelectYearComponent */ "./resources/js/components/salary/SelectYearComponent.vue");
-/* harmony import */ var _components_salary_SalaryListComponent__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/salary/SalaryListComponent */ "./resources/js/components/salary/SalaryListComponent.vue");
-/* harmony import */ var _components_salary_SalaryDetailComponent__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/salary/SalaryDetailComponent */ "./resources/js/components/salary/SalaryDetailComponent.vue");
-/* harmony import */ var _components_salary_SalaryEditComponent__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/salary/SalaryEditComponent */ "./resources/js/components/salary/SalaryEditComponent.vue");
-/* harmony import */ var _components_salary_SalaryEditDoneComponent__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/salary/SalaryEditDoneComponent */ "./resources/js/components/salary/SalaryEditDoneComponent.vue");
-/* harmony import */ var _components_salary_SalaryDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/salary/SalaryDeleteDoneComponent */ "./resources/js/components/salary/SalaryDeleteDoneComponent.vue");
-/* harmony import */ var _components_bonus_BonusRecordComponent__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/bonus/BonusRecordComponent */ "./resources/js/components/bonus/BonusRecordComponent.vue");
-/* harmony import */ var _components_bonus_BonusRecordDoneComponent__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/bonus/BonusRecordDoneComponent */ "./resources/js/components/bonus/BonusRecordDoneComponent.vue");
-/* harmony import */ var _components_bonus_BonusMenuComponent__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/bonus/BonusMenuComponent */ "./resources/js/components/bonus/BonusMenuComponent.vue");
-/* harmony import */ var _components_bonus_SelectYearBonusComponent__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/bonus/SelectYearBonusComponent */ "./resources/js/components/bonus/SelectYearBonusComponent.vue");
-/* harmony import */ var _components_bonus_BonusListComponent__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/bonus/BonusListComponent */ "./resources/js/components/bonus/BonusListComponent.vue");
-/* harmony import */ var _components_bonus_BonusDetailComponent__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/bonus/BonusDetailComponent */ "./resources/js/components/bonus/BonusDetailComponent.vue");
-/* harmony import */ var _components_bonus_BonusEditComponent__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/bonus/BonusEditComponent */ "./resources/js/components/bonus/BonusEditComponent.vue");
-/* harmony import */ var _components_bonus_BonusEditDoneComponent__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/bonus/BonusEditDoneComponent */ "./resources/js/components/bonus/BonusEditDoneComponent.vue");
-/* harmony import */ var _components_bonus_BonusDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/bonus/BonusDeleteDoneComponent */ "./resources/js/components/bonus/BonusDeleteDoneComponent.vue");
-/* harmony import */ var _components_account_AccountMenuComponent__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/account/AccountMenuComponent */ "./resources/js/components/account/AccountMenuComponent.vue");
-/* harmony import */ var _components_account_AccountListComponent__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/account/AccountListComponent */ "./resources/js/components/account/AccountListComponent.vue");
-/* harmony import */ var _components_account_AccountRecordComponent__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/account/AccountRecordComponent */ "./resources/js/components/account/AccountRecordComponent.vue");
-/* harmony import */ var _components_account_AccountRecordDoneComponent__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/account/AccountRecordDoneComponent */ "./resources/js/components/account/AccountRecordDoneComponent.vue");
-/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
-/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
+/* harmony import */ var _components_hour_HourDetailComponent__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/hour/HourDetailComponent */ "./resources/js/components/hour/HourDetailComponent.vue");
+/* harmony import */ var _components_salary_SalaryMenuComponent__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/salary/SalaryMenuComponent */ "./resources/js/components/salary/SalaryMenuComponent.vue");
+/* harmony import */ var _components_salary_SalaryRecordComponent__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/salary/SalaryRecordComponent */ "./resources/js/components/salary/SalaryRecordComponent.vue");
+/* harmony import */ var _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/salary/SalaryRecordDoneComponent */ "./resources/js/components/salary/SalaryRecordDoneComponent.vue");
+/* harmony import */ var _components_salary_SelectYearComponent__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/salary/SelectYearComponent */ "./resources/js/components/salary/SelectYearComponent.vue");
+/* harmony import */ var _components_salary_SalaryListComponent__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/salary/SalaryListComponent */ "./resources/js/components/salary/SalaryListComponent.vue");
+/* harmony import */ var _components_salary_SalaryDetailComponent__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/salary/SalaryDetailComponent */ "./resources/js/components/salary/SalaryDetailComponent.vue");
+/* harmony import */ var _components_salary_SalaryEditComponent__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/salary/SalaryEditComponent */ "./resources/js/components/salary/SalaryEditComponent.vue");
+/* harmony import */ var _components_salary_SalaryEditDoneComponent__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/salary/SalaryEditDoneComponent */ "./resources/js/components/salary/SalaryEditDoneComponent.vue");
+/* harmony import */ var _components_salary_SalaryDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/salary/SalaryDeleteDoneComponent */ "./resources/js/components/salary/SalaryDeleteDoneComponent.vue");
+/* harmony import */ var _components_bonus_BonusRecordComponent__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/bonus/BonusRecordComponent */ "./resources/js/components/bonus/BonusRecordComponent.vue");
+/* harmony import */ var _components_bonus_BonusRecordDoneComponent__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/bonus/BonusRecordDoneComponent */ "./resources/js/components/bonus/BonusRecordDoneComponent.vue");
+/* harmony import */ var _components_bonus_BonusMenuComponent__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/bonus/BonusMenuComponent */ "./resources/js/components/bonus/BonusMenuComponent.vue");
+/* harmony import */ var _components_bonus_SelectYearBonusComponent__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/bonus/SelectYearBonusComponent */ "./resources/js/components/bonus/SelectYearBonusComponent.vue");
+/* harmony import */ var _components_bonus_BonusListComponent__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/bonus/BonusListComponent */ "./resources/js/components/bonus/BonusListComponent.vue");
+/* harmony import */ var _components_bonus_BonusDetailComponent__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/bonus/BonusDetailComponent */ "./resources/js/components/bonus/BonusDetailComponent.vue");
+/* harmony import */ var _components_bonus_BonusEditComponent__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/bonus/BonusEditComponent */ "./resources/js/components/bonus/BonusEditComponent.vue");
+/* harmony import */ var _components_bonus_BonusEditDoneComponent__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/bonus/BonusEditDoneComponent */ "./resources/js/components/bonus/BonusEditDoneComponent.vue");
+/* harmony import */ var _components_bonus_BonusDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/bonus/BonusDeleteDoneComponent */ "./resources/js/components/bonus/BonusDeleteDoneComponent.vue");
+/* harmony import */ var _components_account_AccountMenuComponent__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/account/AccountMenuComponent */ "./resources/js/components/account/AccountMenuComponent.vue");
+/* harmony import */ var _components_account_AccountListComponent__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/account/AccountListComponent */ "./resources/js/components/account/AccountListComponent.vue");
+/* harmony import */ var _components_account_AccountRecordComponent__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/account/AccountRecordComponent */ "./resources/js/components/account/AccountRecordComponent.vue");
+/* harmony import */ var _components_account_AccountRecordDoneComponent__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/account/AccountRecordDoneComponent */ "./resources/js/components/account/AccountRecordDoneComponent.vue");
+/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
+/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
 /**
  * 独自で実装したComponentを下記にて取り込む
  */
@@ -61560,6 +61711,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // 時間関係
+
 
 
 
@@ -61711,6 +61863,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     name: 'hour.list',
     component: _components_hour_HourListComponent__WEBPACK_IMPORTED_MODULE_16__["default"],
     props: true
+  }, {
+    /* 時間計上個別データの参照 */
+    path: '/hour/detail/:hourId/',
+    name: 'hour.detail',
+    component: _components_hour_HourDetailComponent__WEBPACK_IMPORTED_MODULE_42__["default"],
+    props: true
   },
   /*
   |--------------------------------------------------------------------------
@@ -61721,51 +61879,51 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* 収入トップ */
     path: '/salary/',
     name: 'saisan.salary',
-    component: _components_salary_SalaryMenuComponent__WEBPACK_IMPORTED_MODULE_17__["default"]
+    component: _components_salary_SalaryMenuComponent__WEBPACK_IMPORTED_MODULE_18__["default"]
   }, {
     /* 収入計上 */
     path: '/salary/rec/',
     name: 'salary.rec',
-    component: _components_salary_SalaryRecordComponent__WEBPACK_IMPORTED_MODULE_18__["default"]
+    component: _components_salary_SalaryRecordComponent__WEBPACK_IMPORTED_MODULE_19__["default"]
   }, {
     /* 収入計上完了 */
     path: '/salary/rec-done/',
     name: 'salary.rec-done',
-    component: _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_19__["default"]
+    component: _components_salary_SalaryRecordDoneComponent__WEBPACK_IMPORTED_MODULE_20__["default"]
   }, {
     /* 収入計上年の取得 */
     path: '/salary/list/select-y/',
     name: 'salary.list.selecty',
-    component: _components_salary_SelectYearComponent__WEBPACK_IMPORTED_MODULE_20__["default"]
+    component: _components_salary_SelectYearComponent__WEBPACK_IMPORTED_MODULE_21__["default"]
   }, {
     /* 収入計上リスト（年次） */
     path: '/salary/list/:year/',
     name: 'salary.list',
-    component: _components_salary_SalaryListComponent__WEBPACK_IMPORTED_MODULE_21__["default"],
+    component: _components_salary_SalaryListComponent__WEBPACK_IMPORTED_MODULE_22__["default"],
     props: true
   }, {
     /* 収入計上明細(個別id) */
     path: '/salary/detail/:salaryId/',
     name: 'salary.detail',
-    component: _components_salary_SalaryDetailComponent__WEBPACK_IMPORTED_MODULE_22__["default"],
+    component: _components_salary_SalaryDetailComponent__WEBPACK_IMPORTED_MODULE_23__["default"],
     props: true
   }, {
     /* 収入計上明細の修正 */
     path: '/salary/edit/:salaryId/',
     name: 'salary.edit',
-    component: _components_salary_SalaryEditComponent__WEBPACK_IMPORTED_MODULE_23__["default"],
+    component: _components_salary_SalaryEditComponent__WEBPACK_IMPORTED_MODULE_24__["default"],
     props: true
   }, {
     /* 収入計上明細の修正完了 */
     path: '/salary/edit-done/:salaryId/',
     name: 'salary.edit-done',
-    component: _components_salary_SalaryEditDoneComponent__WEBPACK_IMPORTED_MODULE_24__["default"],
+    component: _components_salary_SalaryEditDoneComponent__WEBPACK_IMPORTED_MODULE_25__["default"],
     props: true
   }, {
     /* 収入計上明細の削除完了 */
     path: '/salary/delete-done/:salaryId/',
     name: 'salary.delete-done',
-    component: _components_salary_SalaryDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_25__["default"],
+    component: _components_salary_SalaryDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_26__["default"],
     props: true
   },
   /*
@@ -61777,51 +61935,51 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* 賞与トップ */
     path: '/bonus/',
     name: 'saisan.bonus',
-    component: _components_bonus_BonusMenuComponent__WEBPACK_IMPORTED_MODULE_28__["default"]
+    component: _components_bonus_BonusMenuComponent__WEBPACK_IMPORTED_MODULE_29__["default"]
   }, {
     /* 賞与計上 */
     path: '/bonus/rec/',
     name: 'bonus.rec',
-    component: _components_bonus_BonusRecordComponent__WEBPACK_IMPORTED_MODULE_26__["default"]
+    component: _components_bonus_BonusRecordComponent__WEBPACK_IMPORTED_MODULE_27__["default"]
   }, {
     /* 賞与計上完了 */
     path: '/bonus/rec-done/',
     name: 'bonus.rec-done',
-    component: _components_bonus_BonusRecordDoneComponent__WEBPACK_IMPORTED_MODULE_27__["default"]
+    component: _components_bonus_BonusRecordDoneComponent__WEBPACK_IMPORTED_MODULE_28__["default"]
   }, {
     /* 賞与計上年の取得 */
     path: '/bonus/list/select-y/',
     name: 'bonus.list.selecty',
-    component: _components_bonus_SelectYearBonusComponent__WEBPACK_IMPORTED_MODULE_29__["default"]
+    component: _components_bonus_SelectYearBonusComponent__WEBPACK_IMPORTED_MODULE_30__["default"]
   }, {
     /* 賞与計上リスト（年次） */
     path: '/bonus/list/:year/',
     name: 'bonus.list',
-    component: _components_bonus_BonusListComponent__WEBPACK_IMPORTED_MODULE_30__["default"],
+    component: _components_bonus_BonusListComponent__WEBPACK_IMPORTED_MODULE_31__["default"],
     props: true
   }, {
     /* 賞与計上明細(個別id) */
     path: '/bonus/detail/:bonusId/',
     name: 'bonus.detail',
-    component: _components_bonus_BonusDetailComponent__WEBPACK_IMPORTED_MODULE_31__["default"],
+    component: _components_bonus_BonusDetailComponent__WEBPACK_IMPORTED_MODULE_32__["default"],
     props: true
   }, {
     /* 賞与計上明細の修正 */
     path: '/bonus/edit/:bonusId/',
     name: 'bonus.edit',
-    component: _components_bonus_BonusEditComponent__WEBPACK_IMPORTED_MODULE_32__["default"],
+    component: _components_bonus_BonusEditComponent__WEBPACK_IMPORTED_MODULE_33__["default"],
     props: true
   }, {
     /* 賞与計上明細の修正完了 */
     path: '/bonus/edit-done/:bonusId/',
     name: 'bonus.edit-done',
-    component: _components_bonus_BonusEditDoneComponent__WEBPACK_IMPORTED_MODULE_33__["default"],
+    component: _components_bonus_BonusEditDoneComponent__WEBPACK_IMPORTED_MODULE_34__["default"],
     props: true
   }, {
     /* 賞与計上明細の削除完了 */
     path: '/bonus/delete-done/:bonusId/',
     name: 'bonus.delete-done',
-    component: _components_bonus_BonusDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_34__["default"],
+    component: _components_bonus_BonusDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_35__["default"],
     props: true
   },
   /*
@@ -61833,22 +61991,22 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* 勘定科目トップ */
     path: '/account/',
     name: 'saisan.account',
-    component: _components_account_AccountMenuComponent__WEBPACK_IMPORTED_MODULE_35__["default"]
+    component: _components_account_AccountMenuComponent__WEBPACK_IMPORTED_MODULE_36__["default"]
   }, {
     /* 勘定科目リスト出力 */
     path: '/account/list/',
     name: 'account.list',
-    component: _components_account_AccountListComponent__WEBPACK_IMPORTED_MODULE_36__["default"]
+    component: _components_account_AccountListComponent__WEBPACK_IMPORTED_MODULE_37__["default"]
   }, {
     /* 勘定科目新規登録 */
     path: '/account/rec/',
     name: 'account.rec',
-    component: _components_account_AccountRecordComponent__WEBPACK_IMPORTED_MODULE_37__["default"]
+    component: _components_account_AccountRecordComponent__WEBPACK_IMPORTED_MODULE_38__["default"]
   }, {
     /* 勘定科目新規登録完了画面 */
     path: '/account/rec-done/',
     name: 'account.rec-done',
-    component: _components_account_AccountRecordDoneComponent__WEBPACK_IMPORTED_MODULE_38__["default"],
+    component: _components_account_AccountRecordDoneComponent__WEBPACK_IMPORTED_MODULE_39__["default"],
     props: true
   },
   /*
@@ -61860,12 +62018,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* その他トップ */
     path: '/other/',
     name: 'saisan.other',
-    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_39__["default"]
+    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_40__["default"]
   }, {
     /* データベースのダンプコマンド出力 */
     path: '/other/dump/',
     name: 'other.dump',
-    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_40__["default"]
+    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_41__["default"]
   }]
 });
 /**
@@ -63588,6 +63746,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectYearMonthComponent_vue_vue_type_template_id_78cfc7fd___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SelectYearMonthComponent_vue_vue_type_template_id_78cfc7fd___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/hour/HourDetailComponent.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/hour/HourDetailComponent.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _HourDetailComponent_vue_vue_type_template_id_2f4d1db0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HourDetailComponent.vue?vue&type=template&id=2f4d1db0& */ "./resources/js/components/hour/HourDetailComponent.vue?vue&type=template&id=2f4d1db0&");
+/* harmony import */ var _HourDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HourDetailComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/hour/HourDetailComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _HourDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _HourDetailComponent_vue_vue_type_template_id_2f4d1db0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _HourDetailComponent_vue_vue_type_template_id_2f4d1db0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/hour/HourDetailComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/hour/HourDetailComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/hour/HourDetailComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HourDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./HourDetailComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hour/HourDetailComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HourDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/hour/HourDetailComponent.vue?vue&type=template&id=2f4d1db0&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/hour/HourDetailComponent.vue?vue&type=template&id=2f4d1db0& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HourDetailComponent_vue_vue_type_template_id_2f4d1db0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./HourDetailComponent.vue?vue&type=template&id=2f4d1db0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hour/HourDetailComponent.vue?vue&type=template&id=2f4d1db0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HourDetailComponent_vue_vue_type_template_id_2f4d1db0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HourDetailComponent_vue_vue_type_template_id_2f4d1db0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

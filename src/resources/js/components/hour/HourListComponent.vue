@@ -10,6 +10,7 @@
             <th scope="col">month</th>
             <th scope="col">fixed time</th>
             <th scope="col">over time</th>
+            <th scope="col">Watch</th>
           </tr>
         </thead>
         <tbody>
@@ -19,6 +20,11 @@
             <td>{{ hour.month }}</td>
             <td>{{ hour.fixedTime }}</td>
             <td>{{ hour.overTime }}</td>
+            <td>
+              <router-link v-bind:to="{name: 'hour.detail', params: { hourId: hour.id } }">
+                <button class="btn btn-primary">Watch</button>
+              </router-link>
+            </td>
           </tr>
         </tbody>
       </table>
