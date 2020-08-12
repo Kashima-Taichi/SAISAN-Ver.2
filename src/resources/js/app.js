@@ -53,6 +53,7 @@ import AccountRecordDoneComponent from "./components/account/AccountRecordDoneCo
 import AccountDetailComponent from "./components/account/AccountDetailComponent";
 import AccountEditComponent from "./components/account/AccountEditComponent";
 import AccountEditDoneComponent from "./components/account/AccountEditDoneComponent";
+import AccountDeleteDoneComponent from "./components/account/AccountDeleteDoneComponent";
 // その他の機能
 import OtherMenuComponent from "./components/other/OtherMenuComponent";
 import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";
@@ -147,6 +148,7 @@ const router = new VueRouter({
         { /* 勘定科目明細(個別id) */ path: '/account/detail/:accountId/', name: 'account.detail', component: AccountDetailComponent, props: true },
         { /* 勘定科目明細の修正 */ path: '/account/edit/:accountId/', name: 'account.edit', component: AccountEditComponent, props: true },
         { /* 勘定科目明細の修正完了 */ path: '/account/edit-done/:accountId/', name: 'account.edit-done', component: AccountEditDoneComponent, props: true },
+        { /* 勘定科目明細の削除完了 */ path: '/account/delete-done/:accountId/', name: 'account.delete-done', component: AccountDeleteDoneComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Others routes

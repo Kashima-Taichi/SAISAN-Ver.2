@@ -2004,6 +2004,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    accountId: Number
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/account/AccountDetailComponent.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/account/AccountDetailComponent.vue?vue&type=script&lang=js& ***!
@@ -2013,6 +2038,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -2049,11 +2078,20 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    getAccountIndividualData: function getAccountIndividualData() {
+    deleteAccount: function deleteAccount(id) {
       var _this = this;
 
+      axios["delete"]("/api/account/delete/" + id + "/").then(function (res) {
+        _this.$router.push({
+          name: "account.delete-done"
+        });
+      });
+    },
+    getAccountIndividualData: function getAccountIndividualData() {
+      var _this2 = this;
+
       axios.get("/api/account/detail/" + this.accountId + "/").then(function (res) {
-        _this.account = res.data;
+        _this2.account = res.data;
       });
     }
   },
@@ -40989,6 +41027,48 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=template&id=eb7e22e0&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=template&id=eb7e22e0& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("h2", [_vm._v("勘定科目明細削除完了 id : " + _vm._s(_vm.accountId))]),
+      _vm._v(" "),
+      _c("router-link", { attrs: { to: { name: "saisan.account" } } }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-success mt-5",
+            staticStyle: { width: "190px" }
+          },
+          [_vm._v("勘定科目ノ部メニューへ")]
+        )
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/account/AccountDetailComponent.vue?vue&type=template&id=189cfee8&":
 /*!*********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/account/AccountDetailComponent.vue?vue&type=template&id=189cfee8& ***!
@@ -41039,7 +41119,22 @@ var render = function() {
               )
             ],
             1
-          )
+          ),
+          _vm._v(" "),
+          _c("td", [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger",
+                on: {
+                  click: function($event) {
+                    return _vm.deleteAccount(_vm.account.id)
+                  }
+                }
+              },
+              [_vm._v("Delete")]
+            )
+          ])
         ])
       ])
     ])
@@ -41058,7 +41153,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("accountKanji")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Edit")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Edit")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Delete")])
       ])
     ])
   }
@@ -62789,10 +62886,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_account_AccountRecordComponent__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/account/AccountRecordComponent */ "./resources/js/components/account/AccountRecordComponent.vue");
 /* harmony import */ var _components_account_AccountRecordDoneComponent__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/account/AccountRecordDoneComponent */ "./resources/js/components/account/AccountRecordDoneComponent.vue");
 /* harmony import */ var _components_account_AccountDetailComponent__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./components/account/AccountDetailComponent */ "./resources/js/components/account/AccountDetailComponent.vue");
-/* harmony import */ var _components_account_AccountEditComponent__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./components/account/AccountEditComponent */ "./resources/js/components/account/AccountEditComponent.vue");
-/* harmony import */ var _components_account_AccountEditDoneComponent__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./components/account/AccountEditDoneComponent */ "./resources/js/components/account/AccountEditDoneComponent.vue");
-/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
-/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
+/* harmony import */ var _components_account_AccountEditComponent__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./components/account/AccountEditComponent */ "./resources/js/components/account/AccountEditComponent.vue");
+/* harmony import */ var _components_account_AccountEditDoneComponent__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./components/account/AccountEditDoneComponent */ "./resources/js/components/account/AccountEditDoneComponent.vue");
+/* harmony import */ var _components_account_AccountDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./components/account/AccountDeleteDoneComponent */ "./resources/js/components/account/AccountDeleteDoneComponent.vue");
+/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
+/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
 /**
  * 独自で実装したComponentを下記にて取り込む
  */
@@ -62840,6 +62938,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // 勘定科目関係
+
 
 
 
@@ -63141,13 +63240,19 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* 勘定科目明細の修正 */
     path: '/account/edit/:accountId/',
     name: 'account.edit',
-    component: _components_account_AccountEditComponent__WEBPACK_IMPORTED_MODULE_47__["default"],
+    component: _components_account_AccountEditComponent__WEBPACK_IMPORTED_MODULE_44__["default"],
     props: true
   }, {
     /* 勘定科目明細の修正完了 */
     path: '/account/edit-done/:accountId/',
     name: 'account.edit-done',
-    component: _components_account_AccountEditDoneComponent__WEBPACK_IMPORTED_MODULE_48__["default"],
+    component: _components_account_AccountEditDoneComponent__WEBPACK_IMPORTED_MODULE_45__["default"],
+    props: true
+  }, {
+    /* 勘定科目明細の削除完了 */
+    path: '/account/delete-done/:accountId/',
+    name: 'account.delete-done',
+    component: _components_account_AccountDeleteDoneComponent__WEBPACK_IMPORTED_MODULE_49__["default"],
     props: true
   },
   /*
@@ -63159,12 +63264,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* その他トップ */
     path: '/other/',
     name: 'saisan.other',
-    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_45__["default"]
+    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_47__["default"]
   }, {
     /* データベースのダンプコマンド出力 */
     path: '/other/dump/',
     name: 'other.dump',
-    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_46__["default"]
+    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_48__["default"]
   }]
 });
 /**
@@ -63369,6 +63474,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MenuComponent_vue_vue_type_template_id_98f701fa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MenuComponent_vue_vue_type_template_id_98f701fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/account/AccountDeleteDoneComponent.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/account/AccountDeleteDoneComponent.vue ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AccountDeleteDoneComponent_vue_vue_type_template_id_eb7e22e0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AccountDeleteDoneComponent.vue?vue&type=template&id=eb7e22e0& */ "./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=template&id=eb7e22e0&");
+/* harmony import */ var _AccountDeleteDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AccountDeleteDoneComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AccountDeleteDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AccountDeleteDoneComponent_vue_vue_type_template_id_eb7e22e0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AccountDeleteDoneComponent_vue_vue_type_template_id_eb7e22e0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/account/AccountDeleteDoneComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountDeleteDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AccountDeleteDoneComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountDeleteDoneComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=template&id=eb7e22e0&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=template&id=eb7e22e0& ***!
+  \*******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountDeleteDoneComponent_vue_vue_type_template_id_eb7e22e0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AccountDeleteDoneComponent.vue?vue&type=template&id=eb7e22e0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/account/AccountDeleteDoneComponent.vue?vue&type=template&id=eb7e22e0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountDeleteDoneComponent_vue_vue_type_template_id_eb7e22e0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AccountDeleteDoneComponent_vue_vue_type_template_id_eb7e22e0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

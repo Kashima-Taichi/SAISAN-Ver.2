@@ -7,6 +7,7 @@
           <th scope="col">accountAlpha</th>
           <th scope="col">accountKanji</th>
           <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -18,6 +19,9 @@
             <router-link v-bind:to="{name: 'account.edit', params: { accountId: account.id } }">
               <button class="btn btn-success">Edit</button>
             </router-link>
+          </td>
+          <td>
+            <button v-on:click="deleteAccount(account.id)" class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -35,6 +39,11 @@ export default {
     };
   },
   methods: {
+    deleteAccount(id) {
+      axios.delete("/api/account/delete/" + id + "/").then((res) => {
+        this.$router.push({ name: "account.delete-done" });
+      });
+    },
     getAccountIndividualData() {
       axios.get("/api/account/detail/" + this.accountId + "/").then((res) => {
         this.account = res.data;
