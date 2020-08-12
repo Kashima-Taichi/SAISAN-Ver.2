@@ -22,6 +22,8 @@ import HourRecordDoneComponent from "./components/hour/HourRecordDoneComponent";
 import SelectYearHourComponent from "./components/hour/SelectYearHourComponent";
 import HourListComponent from "./components/hour/HourListComponent";
 import HourDetailComponent from "./components/hour/HourDetailComponent";
+import HourEditComponent from "./components/hour/HourEditComponent";
+import HourEditDoneComponent from "./components/hour/HourEditDoneComponent";
 // 収入関係
 import SalaryMenuComponent from "./components/salary/SalaryMenuComponent";
 import SalaryRecordComponent from "./components/salary/SalaryRecordComponent";
@@ -98,6 +100,8 @@ const router = new VueRouter({
         { /* 時間計上年の取得 */ path: '/hour/list/select-y/', name: 'hour.list.selecty', component: SelectYearHourComponent },
         { /* 時間計上リスト（年次） */ path: '/hour/list/:year/', name: 'hour.list', component: HourListComponent, props: true },
         { /* 時間計上個別データの参照 */ path: '/hour/detail/:hourId/', name: 'hour.detail', component: HourDetailComponent, props: true },
+        { /* 時間計上明細の修正 */ path: '/hour/edit/:hourId/', name: 'hour.edit', component: HourEditComponent, props: true },
+        { /* 時間計上明細の修正完了 */ path: '/hour/edit-done/:hourId/', name: 'hour.edit-done', component: HourEditDoneComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Salary routes
