@@ -50,4 +50,11 @@ class HourController extends Controller
         $toBeEditedData->fill($formContents)->save();
         return;
     }
+
+    // APIで稼働時間明細の削除
+    public function delete($id) {
+        $hourData = Hour::find($id);
+        $hourData->delete();
+        return;
+    }
 }
