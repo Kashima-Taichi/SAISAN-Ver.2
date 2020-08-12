@@ -129,6 +129,9 @@ Route::get('/account/detail/{id}/', 'AccountController@getIndividualAccountData'
 // 勘定科目情報の修正
 Route::put('/account/edit/', 'AccountController@edit');
 
+// 勘定科目明細の削除
+Route::delete('/account/delete/{id}/', 'AccountController@delete');
+
 /*
 |--------------------------------------------------------------------------
 | 賞与関係

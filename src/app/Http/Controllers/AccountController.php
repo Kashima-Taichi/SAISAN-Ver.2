@@ -43,4 +43,11 @@ class AccountController extends Controller
         $toBeEditedData->fill($formContents)->save();
         return;
     }
+
+    // 勘定科目データの削除
+    public function delete($id) {
+        $accountData = Account::find($id);
+        $accountData->delete();
+        return;
+    }
 }
