@@ -9,6 +9,7 @@
           <th scope="col">fixed time</th>
           <th scope="col">over time</th>
           <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +23,9 @@
             <router-link v-bind:to="{name: 'hour.edit', params: { hourId: hour.id } }">
               <button class="btn btn-success">Edit</button>
             </router-link>
+          </td>
+          <td>
+            <button v-on:click="deleteHour(hour.id)" class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -39,6 +43,11 @@ export default {
     };
   },
   methods: {
+    deleteHour(id) {
+      axios.delete("/api/hour/delete/" + id + "/").then((res) => {
+        this.$router.push({ name: "hour.delete-done" });
+      });
+    },
     getHourIndividualData() {
       axios.get("/api/hour/detail/" + this.hourId + "/").then((res) => {
         this.hour = res.data;
