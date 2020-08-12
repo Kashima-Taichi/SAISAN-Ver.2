@@ -34,4 +34,13 @@ class AccountController extends Controller
     public function getIndividualAccountData($id) {
         return Account::find($id);
     }
+
+    // 勘定科目データの修正
+    public function edit(Request $request) {
+        $formContents = $request->all();
+        unset($formContents['_token']);
+        $toBeEditedData = Account::find($request->id);
+        $toBeEditedData->fill($formContents)->save();
+        return;
+    }
 }

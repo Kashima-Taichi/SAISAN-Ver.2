@@ -126,6 +126,9 @@ Route::get('/account/all/', 'AccountController@getAccountsData');
 // 個別の勘定科目データの参照
 Route::get('/account/detail/{id}/', 'AccountController@getIndividualAccountData');
 
+// 勘定科目情報の修正
+Route::put('/account/edit/', 'AccountController@edit');
+
 /*
 |--------------------------------------------------------------------------
 | 賞与関係
