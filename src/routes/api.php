@@ -69,6 +69,9 @@ Route::get('/hour/year/', 'HourController@getHourYear');
 // 個別の時間計上データを取得
 Route::get('/hour/detail/{id}/', 'HourController@getIndividualHourData');
 
+// 経費明細修正
+Route::put('/hour/edit/', 'HourController@edit');
+
 /*
 |--------------------------------------------------------------------------
 | 収入関係

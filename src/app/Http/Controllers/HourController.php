@@ -18,6 +18,7 @@ class HourController extends Controller
         $hour->fill($hours)->save();
         return;
     }
+
     // 時間計上後のデータ取得
     public function getLatestHourData() {
         return Hour::orderBy('id', 'desc')->first();
@@ -36,5 +37,17 @@ class HourController extends Controller
     // APIで個別の稼働時間計上データを取得
     public function getIndividualHourData($id) {
         return Hour::find($id);
+    }
+
+    // APIで稼働時間計上明細の修正
+    public function edit(Request $request) {
+        $formContents = $request->all();
+        $fixedMonth = strlen($request->month) === 1 ? '0' . $request->month : $request->month;
+        $concatYearMonth = $request->year . $fixedMonth;
+        $formContents['yearMonth'] = $concatYearMonth;
+        unset($formContents['_token']);
+        $toBeEditedData = Hour::find($request->id);
+        $toBeEditedData->fill($formContents)->save();
+        return;
     }
 }
