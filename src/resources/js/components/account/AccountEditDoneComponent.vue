@@ -1,12 +1,12 @@
 <template>
   <div class="container">
+    <h2>勘定科目明細修正完了</h2>
     <table class="table table-hover">
       <thead class="thead-light">
         <tr>
           <th scope="col">id</th>
           <th scope="col">accountAlpha</th>
           <th scope="col">accountKanji</th>
-          <th scope="col">Edit</th>
         </tr>
       </thead>
       <tbody>
@@ -14,20 +14,18 @@
           <th scope="row">{{ account.id }}</th>
           <td>{{ account.accountAlpha }}</td>
           <td>{{ account.accountKanji }}</td>
-          <td>
-            <router-link v-bind:to="{name: 'account.edit', params: { accountId: account.id } }">
-              <button class="btn btn-success">Edit</button>
-            </router-link>
-          </td>
         </tr>
       </tbody>
     </table>
+    <router-link v-bind:to="{name: 'saisan.account'}">
+      <button class="btn btn-success mt-5" style="width:190px">勘定科目ノ部メニューへ</button>
+    </router-link>
   </div>
 </template>
 <script>
 export default {
   props: {
-    accountId: String,
+    accountId: Number,
   },
   data: function () {
     return {
