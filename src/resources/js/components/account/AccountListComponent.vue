@@ -8,13 +8,19 @@
             <th scope="col">id</th>
             <th scope="col">accountAlpha</th>
             <th scope="col">accountKanji</th>
+            <th scope="col">Watch</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(accounts, index) in accounts" :key="index">
-            <th scope="row">{{ accounts.id }}</th>
-            <td>{{ accounts.accountAlpha }}</td>
-            <td>{{ accounts.accountKanji }}</td>
+          <tr v-for="(account, index) in accounts" :key="index">
+            <th scope="row">{{ account.id }}</th>
+            <td>{{ account.accountAlpha }}</td>
+            <td>{{ account.accountKanji }}</td>
+            <td>
+              <router-link v-bind:to="{name: 'account.detail', params: { accountId: account.id } }">
+                <button class="btn btn-primary">Watch</button>
+              </router-link>
+            </td>
           </tr>
         </tbody>
       </table>
