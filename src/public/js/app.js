@@ -5356,9 +5356,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      loading: true,
       salary: []
     };
   },
@@ -5368,6 +5372,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/salary/latest/").then(function (res) {
         _this.salary = res.data;
+        _this.loading = false;
       });
     }
   },
@@ -48224,71 +48229,126 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("h3", [_vm._v("収入計上完了")]),
-      _vm._v(" "),
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [
-              _vm._v(_vm._s(_vm.salary.year))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.month))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.totalSalary.toLocaleString()))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.basicSalary.toLocaleString()))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.overtimePay.toLocaleString()))]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(_vm._s(_vm.salary.healthInsurance.toLocaleString()))
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(_vm._s(_vm.salary.employeePension.toLocaleString()))
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(_vm._s(_vm.salary.employmentInsurance.toLocaleString()))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.incomeTax.toLocaleString()))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.residentTax.toLocaleString()))]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(_vm._s(_vm.salary.otherDeduction.toLocaleString()))
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(_vm._s(_vm.salary.totalDeduction.toLocaleString()))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.salary.netIncome.toLocaleString()))])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "saisan.salary" } } }, [
-        _c(
-          "button",
+  return _c("div", { staticClass: "container" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
           {
-            staticClass: "btn btn-success mt-5",
-            staticStyle: { width: "170px" }
-          },
-          [_vm._v("収入ノ部メニューへ")]
-        )
-      ])
-    ],
-    1
-  )
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("h3", [_vm._v("収入計上完了")]),
+        _vm._v(" "),
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(_vm.salary.year))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.salary.month))]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.totalSalary).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.basicSalary).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.overtimePay).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.healthInsurance).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.employeePension).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(
+                    parseInt(_vm.salary.employmentInsurance).toLocaleString()
+                  )
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(_vm._s(parseInt(_vm.salary.incomeTax).toLocaleString()))
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.residentTax).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.otherDeduction).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.totalDeduction).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(_vm._s(parseInt(_vm.salary.netIncome).toLocaleString()))
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.salary" } } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success mt-5",
+              staticStyle: { width: "170px" }
+            },
+            [_vm._v("収入ノ部メニューへ")]
+          )
+        ])
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
