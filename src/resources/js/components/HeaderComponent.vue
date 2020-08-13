@@ -7,7 +7,7 @@
         </router-link>
         <div>
           <router-link v-bind:to="{name: 'saisan.top'}">
-            <button class="btn btn-success">TOP</button>
+            <button class="btn btn-success mr-3">TOP</button>
           </router-link>
           <router-link v-bind:to="{name: 'saisan.menus'}">
             <button class="btn btn-success">Menu</button>

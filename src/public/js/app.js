@@ -41057,7 +41057,7 @@ var render = function() {
             "div",
             [
               _c("router-link", { attrs: { to: { name: "saisan.top" } } }, [
-                _c("button", { staticClass: "btn btn-success" }, [
+                _c("button", { staticClass: "btn btn-success mr-3" }, [
                   _vm._v("TOP")
                 ])
               ]),
