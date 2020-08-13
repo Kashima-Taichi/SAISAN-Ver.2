@@ -3362,12 +3362,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     costId: Number
   },
   data: function data() {
     return {
+      loading: true,
       cost: {}
     };
   },
@@ -3386,6 +3393,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/cost/detail/" + this.costId + "/").then(function (res) {
         _this2.cost = res.data;
+        _this2.loading = false;
       });
     }
   },
@@ -43864,62 +43872,108 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("table", { staticClass: "table table-hover" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("tbody", [
-        _c("tr", [
-          _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(_vm.cost.id))]),
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.accountName))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.price.toLocaleString()))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.journal))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.year))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.month))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.day))]),
-          _vm._v(" "),
-          _c(
-            "td",
-            [
+          _c("tbody", [
+            _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(_vm.cost.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.accountName))]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(_vm._s(parseInt(_vm.cost.price).toLocaleString()))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.journal))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.year))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.month))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.day))]),
+              _vm._v(" "),
               _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: { name: "cost.edit", params: { costId: _vm.cost.id } }
-                  }
-                },
+                "td",
                 [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("Edit")
-                  ])
-                ]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("td", [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-danger",
-                on: {
-                  click: function($event) {
-                    return _vm.deleteCost(_vm.cost.id)
-                  }
-                }
-              },
-              [_vm._v("Delete")]
-            )
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "cost.edit",
+                          params: { costId: _vm.cost.id }
+                        }
+                      }
+                    },
+                    [
+                      _c("button", { staticClass: "btn btn-success" }, [
+                        _vm._v("Edit")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteCost(_vm.cost.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ])
+            ])
           ])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.cost" } } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success mt-5",
+              staticStyle: { width: "170px" }
+            },
+            [_vm._v("経費ノ部メニューへ")]
+          )
         ])
-      ])
-    ])
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = [
