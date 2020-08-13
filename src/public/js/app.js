@@ -4050,12 +4050,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     hourId: Number
   },
   data: function data() {
     return {
+      loading: true,
       hour: {}
     };
   },
@@ -4074,6 +4081,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/hour/detail/" + this.hourId + "/").then(function (res) {
         _this2.hour = res.data;
+        _this2.loading = false;
       });
     }
   },
@@ -45313,58 +45321,102 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("table", { staticClass: "table table-hover" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("tbody", [
-        _c("tr", [
-          _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(_vm.hour.id))]),
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.hour.year))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.hour.month))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.hour.fixedTime))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.hour.overTime))]),
-          _vm._v(" "),
-          _c(
-            "td",
-            [
+          _c("tbody", [
+            _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(_vm.hour.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.hour.year))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.hour.month))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.hour.fixedTime))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.hour.overTime))]),
+              _vm._v(" "),
               _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: { name: "hour.edit", params: { hourId: _vm.hour.id } }
-                  }
-                },
+                "td",
                 [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("Edit")
-                  ])
-                ]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("td", [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-danger",
-                on: {
-                  click: function($event) {
-                    return _vm.deleteHour(_vm.hour.id)
-                  }
-                }
-              },
-              [_vm._v("Delete")]
-            )
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "hour.edit",
+                          params: { hourId: _vm.hour.id }
+                        }
+                      }
+                    },
+                    [
+                      _c("button", { staticClass: "btn btn-success" }, [
+                        _vm._v("Edit")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteHour(_vm.hour.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ])
+            ])
           ])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.hour" } } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success mt-5",
+              staticStyle: { width: "170px" }
+            },
+            [_vm._v("時間ノ部メニューへ")]
+          )
         ])
-      ])
-    ])
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = [
