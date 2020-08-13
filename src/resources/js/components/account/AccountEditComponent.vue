@@ -35,7 +35,7 @@
 <script>
 export default {
   props: {
-    accountId: String,
+    accountId: Number,
   },
   data: function () {
     return {
