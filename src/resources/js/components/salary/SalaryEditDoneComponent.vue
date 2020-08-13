@@ -23,17 +23,17 @@
         <tbody>
           <tr>
             <th scope="row">{{ salary.id }}</th>
-            <td>{{ salary.totalSalary.toLocaleString() }}</td>
-            <td>{{ salary.basicSalary.toLocaleString() }}</td>
-            <td>{{ salary.overtimePay.toLocaleString() }}</td>
-            <td>{{ salary.healthInsurance.toLocaleString() }}</td>
-            <td>{{ salary.employeePension.toLocaleString() }}</td>
-            <td>{{ salary.employmentInsurance.toLocaleString() }}</td>
-            <td>{{ salary.incomeTax.toLocaleString() }}</td>
-            <td>{{ salary.residentTax.toLocaleString() }}</td>
-            <td>{{ salary.otherDeduction.toLocaleString() }}</td>
-            <td>{{ salary.totalDeduction.toLocaleString() }}</td>
-            <td>{{ salary.netIncome.toLocaleString() }}</td>
+            <td>{{ parseInt(salary.totalSalary).toLocaleString() }}</td>
+            <td>{{ parseInt(salary.basicSalary).toLocaleString() }}</td>
+            <td>{{ parseInt(salary.overtimePay).toLocaleString() }}</td>
+            <td>{{ parseInt(salary.healthInsurance).toLocaleString() }}</td>
+            <td>{{ parseInt(salary.employeePension).toLocaleString() }}</td>
+            <td>{{ parseInt(salary.employmentInsurance).toLocaleString() }}</td>
+            <td>{{ parseInt(salary.incomeTax).toLocaleString() }}</td>
+            <td>{{ parseInt(salary.residentTax).toLocaleString() }}</td>
+            <td>{{ parseInt(salary.otherDeduction).toLocaleString() }}</td>
+            <td>{{ parseInt(salary.totalDeduction).toLocaleString() }}</td>
+            <td>{{ parseInt(salary.netIncome).toLocaleString() }}</td>
           </tr>
         </tbody>
       </table>
@@ -46,7 +46,7 @@
 <script>
 export default {
   props: {
-    salaryId: String,
+    salaryId: Number,
   },
   data: function () {
     return {

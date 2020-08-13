@@ -4996,7 +4996,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    salaryId: String
+    salaryId: Number
   },
   data: function data() {
     return {
@@ -47356,44 +47356,68 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v(_vm._s(_vm.salary.totalSalary.toLocaleString()))
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.totalSalary).toLocaleString())
+                )
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v(_vm._s(_vm.salary.basicSalary.toLocaleString()))
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.basicSalary).toLocaleString())
+                )
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v(_vm._s(_vm.salary.overtimePay.toLocaleString()))
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.overtimePay).toLocaleString())
+                )
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v(_vm._s(_vm.salary.healthInsurance.toLocaleString()))
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.healthInsurance).toLocaleString())
+                )
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v(_vm._s(_vm.salary.employeePension.toLocaleString()))
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.employeePension).toLocaleString())
+                )
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v(_vm._s(_vm.salary.employmentInsurance.toLocaleString()))
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.salary.incomeTax.toLocaleString()))]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(_vm._s(_vm.salary.residentTax.toLocaleString()))
-              ]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(_vm._s(_vm.salary.otherDeduction.toLocaleString()))
+                _vm._v(
+                  _vm._s(
+                    parseInt(_vm.salary.employmentInsurance).toLocaleString()
+                  )
+                )
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v(_vm._s(_vm.salary.totalDeduction.toLocaleString()))
+                _vm._v(_vm._s(parseInt(_vm.salary.incomeTax).toLocaleString()))
               ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.salary.netIncome.toLocaleString()))])
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.residentTax).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.otherDeduction).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.salary.totalDeduction).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(_vm._s(parseInt(_vm.salary.netIncome).toLocaleString()))
+              ])
             ])
           ])
         ]),
