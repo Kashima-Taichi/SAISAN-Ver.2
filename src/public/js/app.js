@@ -2179,13 +2179,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    accountId: String
+    accountId: Number
   },
   data: function data() {
     return {
-      account: {}
+      account: {},
+      loading: true
     };
   },
   methods: {
@@ -2203,6 +2207,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/account/detail/" + this.accountId + "/").then(function (res) {
         _this2.account = res.data;
+        _this2.loading = false;
       });
     }
   },
@@ -41341,59 +41346,86 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("table", { staticClass: "table table-hover" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("tbody", [
-        _c("tr", [
-          _c("th", { attrs: { scope: "row" } }, [
-            _vm._v(_vm._s(_vm.account.id))
-          ]),
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.account.accountAlpha))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.account.accountKanji))]),
-          _vm._v(" "),
-          _c(
-            "td",
-            [
+          _c("tbody", [
+            _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(_vm.account.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.account.accountAlpha))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.account.accountKanji))]),
+              _vm._v(" "),
               _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: {
-                      name: "account.edit",
-                      params: { accountId: _vm.account.id }
-                    }
-                  }
-                },
+                "td",
                 [
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("Edit")
-                  ])
-                ]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("td", [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-danger",
-                on: {
-                  click: function($event) {
-                    return _vm.deleteAccount(_vm.account.id)
-                  }
-                }
-              },
-              [_vm._v("Delete")]
-            )
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "account.edit",
+                          params: { accountId: _vm.account.id }
+                        }
+                      }
+                    },
+                    [
+                      _c("button", { staticClass: "btn btn-success" }, [
+                        _vm._v("Edit")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteAccount(_vm.account.id)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ])
+            ])
           ])
         ])
-      ])
-    ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -63525,7 +63557,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     props: true
   }, {
     /* 勘定科目明細の修正 */
-    path: '/account/edit/:accountId/',
+    path: '/account/edit/:accountId?/',
     name: 'account.edit',
     component: _components_account_AccountEditComponent__WEBPACK_IMPORTED_MODULE_45__["default"],
     props: true
