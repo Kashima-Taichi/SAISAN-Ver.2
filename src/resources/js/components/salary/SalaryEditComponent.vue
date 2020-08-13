@@ -124,7 +124,7 @@
 <script>
 export default {
   props: {
-    salaryId: String,
+    salaryId: Number,
   },
   data: function () {
     return {
