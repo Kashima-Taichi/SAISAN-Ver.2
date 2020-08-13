@@ -21,13 +21,13 @@
           <tr>
             <th scope="row">{{ bonus.year }}</th>
             <td>{{ bonus.month }}</td>
-            <td>{{ bonus.totalBonus.toLocaleString() }}</td>
-            <td>{{ bonus.healthInsurance.toLocaleString() }}</td>
-            <td>{{ bonus.employeePension.toLocaleString() }}</td>
-            <td>{{ bonus.employmentInsurance.toLocaleString() }}</td>
-            <td>{{ bonus.incomeTax.toLocaleString() }}</td>
-            <td>{{ bonus.totalDeduction.toLocaleString() }}</td>
-            <td>{{ bonus.netIncome.toLocaleString() }}</td>
+            <td>{{ parseInt(bonus.totalBonus).toLocaleString() }}</td>
+            <td>{{ parseInt(bonus.healthInsurance).toLocaleString() }}</td>
+            <td>{{ parseInt(bonus.employeePension).toLocaleString() }}</td>
+            <td>{{ parseInt(bonus.employmentInsurance).toLocaleString() }}</td>
+            <td>{{ parseInt(bonus.incomeTax).toLocaleString() }}</td>
+            <td>{{ parseInt(bonus.totalDeduction).toLocaleString() }}</td>
+            <td>{{ parseInt(bonus.netIncome).toLocaleString() }}</td>
           </tr>
         </tbody>
       </table>

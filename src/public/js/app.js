@@ -42866,27 +42866,43 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(_vm.bonus.month))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.bonus.totalBonus.toLocaleString()))]),
-              _vm._v(" "),
               _c("td", [
-                _vm._v(_vm._s(_vm.bonus.healthInsurance.toLocaleString()))
+                _vm._v(_vm._s(parseInt(_vm.bonus.totalBonus).toLocaleString()))
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v(_vm._s(_vm.bonus.employeePension.toLocaleString()))
+                _vm._v(
+                  _vm._s(parseInt(_vm.bonus.healthInsurance).toLocaleString())
+                )
               ]),
               _vm._v(" "),
               _c("td", [
-                _vm._v(_vm._s(_vm.bonus.employmentInsurance.toLocaleString()))
+                _vm._v(
+                  _vm._s(parseInt(_vm.bonus.employeePension).toLocaleString())
+                )
               ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.bonus.incomeTax.toLocaleString()))]),
               _vm._v(" "),
               _c("td", [
-                _vm._v(_vm._s(_vm.bonus.totalDeduction.toLocaleString()))
+                _vm._v(
+                  _vm._s(
+                    parseInt(_vm.bonus.employmentInsurance).toLocaleString()
+                  )
+                )
               ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(_vm.bonus.netIncome.toLocaleString()))])
+              _c("td", [
+                _vm._v(_vm._s(parseInt(_vm.bonus.incomeTax).toLocaleString()))
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.bonus.totalDeduction).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(_vm._s(parseInt(_vm.bonus.netIncome).toLocaleString()))
+              ])
             ])
           ])
         ]),
