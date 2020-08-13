@@ -3541,12 +3541,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    costId: String
+    costId: Number
   },
   data: function data() {
     return {
+      loading: true,
       cost: {}
     };
   },
@@ -3556,6 +3563,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/cost/detail/" + this.costId + "/").then(function (res) {
         _this.cost = res.data;
+        _this.loading = false;
       });
     }
   },
@@ -44322,29 +44330,72 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("h2", [_vm._v("経費明細修正完了")]),
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
     _vm._v(" "),
-    _c("table", { staticClass: "table table-hover" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("tbody", [
-        _c("tr", [
-          _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(_vm.cost.id))]),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("h2", [_vm._v("経費明細修正完了")]),
+        _vm._v(" "),
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
           _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.accountName))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.price.toLocaleString()))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.journal))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.year))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.month))]),
-          _vm._v(" "),
-          _c("td", [_vm._v(_vm._s(_vm.cost.day))])
+          _c("tbody", [
+            _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(_vm.cost.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.accountName))]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(_vm._s(parseInt(_vm.cost.price).toLocaleString()))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.journal))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.year))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.month))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.day))])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.cost" } } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success mt-5",
+              staticStyle: { width: "170px" }
+            },
+            [_vm._v("経費ノ部メニューへ")]
+          )
         ])
-      ])
-    ])
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = [
