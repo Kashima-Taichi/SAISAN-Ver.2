@@ -2330,13 +2330,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     accountId: Number
   },
   data: function data() {
     return {
-      account: {}
+      account: {},
+      loading: true
     };
   },
   methods: {
@@ -2345,6 +2349,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/account/detail/" + this.accountId + "/").then(function (res) {
         _this.account = res.data;
+        _this.loading = false;
       });
     }
   },
@@ -41621,41 +41626,64 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("h2", [_vm._v("勘定科目明細修正完了")]),
-      _vm._v(" "),
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [
-              _vm._v(_vm._s(_vm.account.id))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.account.accountAlpha))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.account.accountKanji))])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "saisan.account" } } }, [
-        _c(
-          "button",
+  return _c("div", { staticClass: "container" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
           {
-            staticClass: "btn btn-success mt-5",
-            staticStyle: { width: "190px" }
-          },
-          [_vm._v("勘定科目ノ部メニューへ")]
-        )
-      ])
-    ],
-    1
-  )
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("h2", [_vm._v("勘定科目明細修正完了")]),
+        _vm._v(" "),
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(_vm.account.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.account.accountAlpha))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.account.accountKanji))])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.account" } } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success mt-5",
+              staticStyle: { width: "190px" }
+            },
+            [_vm._v("勘定科目ノ部メニューへ")]
+          )
+        ])
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
