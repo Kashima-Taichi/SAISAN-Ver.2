@@ -46,7 +46,7 @@
 <script>
 export default {
   props: {
-    costId: String,
+    costId: Number,
   },
   data: function () {
     return {

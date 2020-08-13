@@ -3460,7 +3460,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    costId: String
+    costId: Number
   },
   data: function data() {
     return {
