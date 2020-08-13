@@ -42,7 +42,7 @@
 <script>
 export default {
   props: {
-    hourId: String,
+    hourId: Number,
   },
   data: function () {
     return {
