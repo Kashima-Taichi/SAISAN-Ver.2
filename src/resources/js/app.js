@@ -2,6 +2,8 @@
  * 独自で実装したComponentを下記にて取り込む
  */
 import VueRouter from 'vue-router';
+// サイトトップ
+import TopComponent from "./components/TopComponent";
 // メニュー関係
 import HeaderComponent from "./components/HeaderComponent";
 import MenuComponent from "./components/MenuComponent";
@@ -78,6 +80,7 @@ const router = new VueRouter({
         | Menu routes
         |--------------------------------------------------------------------------
         | メニュー関係のルーティングは下記にて実装 */
+        { /* サイトトップ */ path: '/', name: 'saisan.top', component: TopComponent },
         { /* メニュー */ path: '/menus/', name: 'saisan.menus', component: MenuComponent },
         /*
         |--------------------------------------------------------------------------
