@@ -2,7 +2,9 @@
   <div class="container-fluid bg-dark mb-3">
     <div class="container">
       <nav class="navbar navbar-dark">
-        <span class="navbar-brand mb-0 h1">SAISAN Ver.2</span>
+        <router-link v-bind:to="{name: 'saisan.top'}">
+          <span class="navbar-brand mb-0 h1">SAISAN</span>
+        </router-link>
         <div>
           <router-link v-bind:to="{name: 'saisan.top'}">
             <button class="btn btn-success">TOP</button>

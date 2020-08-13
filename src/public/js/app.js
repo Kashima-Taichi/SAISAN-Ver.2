@@ -1926,6 +1926,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -40970,25 +40972,36 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid bg-dark mb-3" }, [
     _c("div", { staticClass: "container" }, [
-      _c("nav", { staticClass: "navbar navbar-dark" }, [
-        _c("span", { staticClass: "navbar-brand mb-0 h1" }, [
-          _vm._v("SAISAN Ver.2")
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("router-link", { attrs: { to: { name: "saisan.top" } } }, [
-              _c("button", { staticClass: "btn btn-success" }, [_vm._v("TOP")])
-            ]),
-            _vm._v(" "),
-            _c("router-link", { attrs: { to: { name: "saisan.menus" } } }, [
-              _c("button", { staticClass: "btn btn-success" }, [_vm._v("Menu")])
+      _c(
+        "nav",
+        { staticClass: "navbar navbar-dark" },
+        [
+          _c("router-link", { attrs: { to: { name: "saisan.top" } } }, [
+            _c("span", { staticClass: "navbar-brand mb-0 h1" }, [
+              _vm._v("SAISAN")
             ])
-          ],
-          1
-        )
-      ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _c("router-link", { attrs: { to: { name: "saisan.top" } } }, [
+                _c("button", { staticClass: "btn btn-success" }, [
+                  _vm._v("TOP")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("router-link", { attrs: { to: { name: "saisan.menus" } } }, [
+                _c("button", { staticClass: "btn btn-success" }, [
+                  _vm._v("Menu")
+                ])
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
     ])
   ])
 }
