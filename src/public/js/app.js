@@ -3623,9 +3623,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    year: String,
-    month: String,
-    day: String
+    year: Number,
+    month: Number,
+    day: Number
   },
   data: function data() {
     return {
@@ -3641,24 +3641,23 @@ __webpack_require__.r(__webpack_exports__);
       if (this.day === undefined) {
         axios.get("/api/cost/list/" + this.year + "/" + this.month + "/").then(function (res) {
           _this.costs = res.data;
-
-          for (var item in _this.costs) {
-            _this.totalAmount += _this.costs[item]["price"];
-          }
-
           _this.loading = false;
         });
       } else {
         axios.get("/api/cost/list/" + this.year + "/" + this.month + "/" + this.day + "/").then(function (res) {
           _this.costs = res.data;
-
-          for (var item in _this.costs) {
-            _this.totalAmount += _this.costs[item]["price"];
-          }
-
           _this.loading = false;
         });
       }
+    }
+  },
+  computed: {
+    calcTotal: function calcTotal() {
+      for (var item in this.costs) {
+        this.totalAmount += this.costs[item]["price"];
+      }
+
+      return parseInt(this.totalAmount).toLocaleString();
     }
   },
   mounted: function mounted() {
@@ -44469,13 +44468,7 @@ var render = function() {
         ]
       },
       [
-        _c("h2", [
-          _vm._v(
-            "経費計上合計金額：" +
-              _vm._s(_vm.totalAmount.toLocaleString()) +
-              "円"
-          )
-        ]),
+        _c("h2", [_vm._v("経費計上合計金額：" + _vm._s(_vm.calcTotal) + "円")]),
         _vm._v(" "),
         _c("table", { staticClass: "table table-hover" }, [
           _vm._m(0),
@@ -44490,7 +44483,9 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(cost.accountName))]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(cost.price.toLocaleString()))]),
+                _c("td", [
+                  _vm._v(_vm._s(parseInt(cost.price).toLocaleString()))
+                ]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(cost.journal))]),
                 _vm._v(" "),

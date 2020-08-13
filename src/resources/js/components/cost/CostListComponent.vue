@@ -2,7 +2,7 @@
   <div class="container">
     <div v-show="loading" class="loader"></div>
     <div v-show="!loading">
-      <h2>経費計上合計金額：{{ totalAmount.toLocaleString() }}円</h2>
+      <h2>経費計上合計金額：{{ calcTotal }}円</h2>
       <table class="table table-hover">
         <thead class="thead-light">
           <tr>
@@ -20,7 +20,7 @@
           <tr v-for="(cost, index) in costs" :key="index">
             <th scope="row">{{ cost.id }}</th>
             <td>{{ cost.accountName }}</td>
-            <td>{{ cost.price.toLocaleString() }}</td>
+            <td>{{ parseInt(cost.price).toLocaleString() }}</td>
             <td>{{ cost.journal }}</td>
             <td>{{ cost.year }}</td>
             <td>{{ cost.month }}</td>
@@ -39,9 +39,9 @@
 <script>
 export default {
   props: {
-    year: String,
-    month: String,
-    day: String,
+    year: Number,
+    month: Number,
+    day: Number,
   },
   data: function () {
     return {
@@ -57,9 +57,6 @@ export default {
           .get("/api/cost/list/" + this.year + "/" + this.month + "/")
           .then((res) => {
             this.costs = res.data;
-            for (var item in this.costs) {
-              this.totalAmount += this.costs[item]["price"];
-            }
             this.loading = false;
           });
       } else {
@@ -75,12 +72,17 @@ export default {
           )
           .then((res) => {
             this.costs = res.data;
-            for (var item in this.costs) {
-              this.totalAmount += this.costs[item]["price"];
-            }
             this.loading = false;
           });
       }
+    },
+  },
+  computed: {
+    calcTotal: function () {
+      for (var item in this.costs) {
+        this.totalAmount += this.costs[item]["price"];
+      }
+      return parseInt(this.totalAmount).toLocaleString();
     },
   },
   mounted() {
