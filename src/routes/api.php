@@ -24,14 +24,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 | 経費関係のAPIルーティングは下記にて実装する。
 */
 
+// サイトトップで使用する当月のPLデータの取得
+Route::get('/cost/pl/{year}/{month}/', 'CostController@getPlCostData');
+
 // 経費計上
 Route::post('/cost/store/', 'CostController@store');
 
 // 経費計上後のデータ取得
 Route::get('/cost/latest/', 'CostController@getLatestCostData');
 
-// 経費計上リスト
+// 経費計上リスト(年月)
 Route::get('/cost/list/{year}/{month}/', 'CostController@getCostListMonth');
+
+// 経費計上リスト(年月日)
 Route::get('/cost/list/{year}/{month}/{day}/', 'CostController@getCostListDay');
 
 // 経費計上詳細データ
@@ -53,6 +58,9 @@ Route::delete('/cost/delete/{id}/', 'CostController@delete');
 |--------------------------------------------------------------------------
 | 時間関係のAPIルーティングは下記にて実装する。
 */
+
+// サイトトップで使用する当月のPLデータの取得
+Route::get('/hour/pl/{year}/{month}/', 'HourController@getPlHourData');
 
 // 稼働時間計上
 Route::post('/hour/store/', 'HourController@store');
@@ -82,6 +90,9 @@ Route::delete('/hour/delete/{id}/', 'HourController@delete');
 |--------------------------------------------------------------------------
 | 収入関係のAPIルーティングは下記にて実装する。
 */
+
+// サイトトップで使用する当月のPLデータの取得
+Route::get('/salary/pl/{year}/{month}/', 'SalaryController@getPlSalaryData');
 
 // 収入計上
 Route::post('/salary/store/', 'SalaryController@store');

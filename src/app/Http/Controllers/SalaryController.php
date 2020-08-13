@@ -58,4 +58,8 @@ class SalaryController extends Controller
         return;
     }
 
+    // サイトトップで使用する当月の所得情報の取得
+    public function getPlSalaryData($year, $month) {
+        return Salary::select(['totalSalary','netIncome'])->whereRaw('year = ? and month = ?', [$year, $month])->first();
+    }
 }

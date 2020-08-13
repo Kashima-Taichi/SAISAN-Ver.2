@@ -57,4 +57,9 @@ class HourController extends Controller
         $hourData->delete();
         return;
     }
+
+    // サイトトップで使用する稼働時間データの取得
+    public function getPlHourData($year, $month) {
+        return Hour::select(['fixedTime','overTime'])->whereRaw('year = ? and month = ?', [$year, $month])->first();
+    }
 }

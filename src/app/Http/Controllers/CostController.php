@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cost;
 use Illuminate\Http\Request;
+use DB;
 
 class CostController extends Controller
 {
@@ -60,5 +61,9 @@ class CostController extends Controller
 
     public function getCostMonth() {
         return Cost::groupBy('month')->get('month');
+    }
+
+    public function getPlCostData($year, $month) {
+        return DB::select('SELECT accountName, sum(price) accountAmount FROM costs WHERE year = :year AND month = :month GROUP BY accountName', ['year' => $year, 'month' => $month]);
     }
 }
