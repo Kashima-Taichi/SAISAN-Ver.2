@@ -3813,9 +3813,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      loading: true,
       cost: []
     };
   },
@@ -3825,7 +3829,13 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/cost/latest/").then(function (res) {
         _this.cost = res.data;
+        _this.loading = false;
       });
+    }
+  },
+  computed: {
+    numberFormat: function numberFormat() {
+      return parseInt(this.cost.price).toLocaleString();
     }
   },
   mounted: function mounted() {
@@ -44591,44 +44601,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("h3", [_vm._v("経費計上完了")]),
-      _vm._v(" "),
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(0),
+  return _c("div", { staticClass: "container" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("h3", [_vm._v("経費計上完了")]),
         _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [
-              _vm._v(_vm._s(_vm.cost.id))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.cost.accountName))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.cost.price.toLocaleString()))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.cost.journal))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.cost.year))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.cost.month))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.cost.day))])
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(_vm.cost.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.accountName))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.numberFormat))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.journal))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.year))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.month))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.cost.day))])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "cost.rec" } } }, [
+          _c("button", { staticClass: "btn btn-success mt-5" }, [
+            _vm._v("続けて経費計上")
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "cost.rec" } } }, [
-        _c("button", { staticClass: "btn btn-success mt-5" }, [
-          _vm._v("続けて経費計上")
-        ])
-      ])
-    ],
-    1
-  )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
