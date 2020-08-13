@@ -2,7 +2,7 @@
   <div class="container">
     <div v-show="loading" class="loader"></div>
     <div v-show="!loading">
-      <h2>{{ year }}年{{ month }}度 PL</h2>
+      <h2>{{ year }}年{{ month }}月度 PL</h2>
       <table class="table table-hover">
         <thead class="thead-light">
           <tr>

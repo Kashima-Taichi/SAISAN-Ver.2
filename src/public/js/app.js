@@ -41213,7 +41213,7 @@ var render = function() {
       },
       [
         _c("h2", [
-          _vm._v(_vm._s(_vm.year) + "年" + _vm._s(_vm.month) + "度 PL")
+          _vm._v(_vm._s(_vm.year) + "年" + _vm._s(_vm.month) + "月度 PL")
         ]),
         _vm._v(" "),
         _c("table", { staticClass: "table table-hover" }, [
