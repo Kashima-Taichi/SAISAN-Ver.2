@@ -41222,49 +41222,132 @@ var render = function() {
           _c(
             "tbody",
             [
-              _c("tr", [
-                _c("th", { attrs: { scope: "row" } }, [_vm._v("給与(総支給)")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm.salary.totalSalary))])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("th", { attrs: { scope: "row" } }, [_vm._v("給与(手取り)")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm.salary.netIncome))])
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.costs, function(cost, index) {
-                return _c("tr", { key: index }, [
+              _c(
+                "tr",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.salary,
+                      expression: "salary"
+                    }
+                  ]
+                },
+                [
                   _c("th", { attrs: { scope: "row" } }, [
-                    _vm._v(_vm._s(cost.accountName))
+                    _vm._v("給与(総支給)")
                   ]),
                   _vm._v(" "),
-                  _c("td", [
-                    _vm._v(
-                      _vm._s(parseInt(cost.accountAmount).toLocaleString())
-                    )
-                  ])
-                ])
+                  _c("td", [_vm._v(_vm._s(_vm.salary.totalSalary))])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "tr",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.salary,
+                      expression: "salary"
+                    }
+                  ]
+                },
+                [
+                  _c("th", { attrs: { scope: "row" } }, [
+                    _vm._v("給与(手取り)")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm.salary.netIncome))])
+                ]
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.costs, function(cost, index) {
+                return _c(
+                  "tr",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.costs,
+                        expression: "costs"
+                      }
+                    ],
+                    key: index
+                  },
+                  [
+                    _c("th", { attrs: { scope: "row" } }, [
+                      _vm._v(_vm._s(cost.accountName))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        _vm._s(parseInt(cost.accountAmount).toLocaleString())
+                      )
+                    ])
+                  ]
+                )
               }),
               _vm._v(" "),
-              _c("tr", [
-                _c("th", { attrs: { scope: "row" } }, [_vm._v("経費合計")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm.costAmount))])
-              ]),
+              _c(
+                "tr",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.costs,
+                      expression: "costs"
+                    }
+                  ]
+                },
+                [
+                  _c("th", { attrs: { scope: "row" } }, [_vm._v("経費合計")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm.costAmount))])
+                ]
+              ),
               _vm._v(" "),
-              _c("tr", [
-                _c("th", { attrs: { scope: "row" } }, [_vm._v("定時間")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm.hour.fixedTime))])
-              ]),
+              _c(
+                "tr",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.hour,
+                      expression: "hour"
+                    }
+                  ]
+                },
+                [
+                  _c("th", { attrs: { scope: "row" } }, [_vm._v("定時間")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm.hour.fixedTime))])
+                ]
+              ),
               _vm._v(" "),
-              _c("tr", [
-                _c("th", { attrs: { scope: "row" } }, [_vm._v("残業時間")]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(_vm.hour.overTime))])
-              ])
+              _c(
+                "tr",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.hour,
+                      expression: "hour"
+                    }
+                  ]
+                },
+                [
+                  _c("th", { attrs: { scope: "row" } }, [_vm._v("残業時間")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm.hour.overTime))])
+                ]
+              )
             ],
             2
           )

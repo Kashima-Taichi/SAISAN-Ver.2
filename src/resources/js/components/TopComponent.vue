@@ -11,27 +11,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-show="salary">
             <th scope="row">給与(総支給)</th>
             <td>{{ salary.totalSalary }}</td>
           </tr>
-          <tr>
+          <tr v-show="salary">
             <th scope="row">給与(手取り)</th>
             <td>{{ salary.netIncome }}</td>
           </tr>
-          <tr v-for="(cost, index) in costs" :key="index">
+          <tr v-for="(cost, index) in costs" :key="index" v-show="costs">
             <th scope="row">{{ cost.accountName }}</th>
             <td>{{ parseInt(cost.accountAmount).toLocaleString() }}</td>
           </tr>
-          <tr>
+          <tr v-show="costs">
             <th scope="row">経費合計</th>
             <td>{{ costAmount }}</td>
           </tr>
-          <tr>
+          <tr v-show="hour">
             <th scope="row">定時間</th>
             <td>{{ hour.fixedTime }}</td>
           </tr>
-          <tr>
+          <tr v-show="hour">
             <th scope="row">残業時間</th>
             <td>{{ hour.overTime }}</td>
           </tr>
