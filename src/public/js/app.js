@@ -2668,13 +2668,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     bonusId: Number
   },
   data: function data() {
     return {
-      bonus: []
+      bonus: [],
+      loading: true
     };
   },
   methods: {
@@ -2692,6 +2696,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/bonus/detail/" + this.bonusId + "/").then(function (res) {
         _this2.bonus = res.data;
+        _this2.loading = false;
       });
     }
   },
@@ -42249,97 +42254,136 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [
-              _vm._v(_vm._s(_vm.bonus.year))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.bonus.month))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.bonus.totalBonus.toLocaleString()))]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(_vm._s(_vm.bonus.healthInsurance.toLocaleString()))
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(_vm._s(_vm.bonus.employeePension.toLocaleString()))
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(_vm._s(_vm.bonus.employmentInsurance.toLocaleString()))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.bonus.incomeTax.toLocaleString()))]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(_vm._s(_vm.bonus.totalDeduction.toLocaleString()))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.bonus.netIncome.toLocaleString()))]),
-            _vm._v(" "),
-            _c(
-              "td",
-              [
+  return _c("div", { staticClass: "container" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(_vm.bonus.year))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.bonus.month))]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(_vm._s(parseInt(_vm.bonus.totalBonus).toLocaleString()))
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.bonus.healthInsurance).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.bonus.employeePension).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(
+                    parseInt(_vm.bonus.employmentInsurance).toLocaleString()
+                  )
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(_vm._s(parseInt(_vm.bonus.incomeTax).toLocaleString()))
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(parseInt(_vm.bonus.totalDeduction).toLocaleString())
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(_vm._s(parseInt(_vm.bonus.netIncome).toLocaleString()))
+              ]),
+              _vm._v(" "),
+              _c(
+                "td",
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "bonus.edit",
+                          params: { bonusId: _vm.bonus.id }
+                        }
+                      }
+                    },
+                    [
+                      _c("button", { staticClass: "btn btn-success" }, [
+                        _vm._v("Edit")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("td", [
                 _c(
-                  "router-link",
+                  "button",
                   {
-                    attrs: {
-                      to: {
-                        name: "bonus.edit",
-                        params: { bonusId: _vm.bonus.id }
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteBonus(_vm.bonus.id)
                       }
                     }
                   },
-                  [
-                    _c("button", { staticClass: "btn btn-success" }, [
-                      _vm._v("Edit")
-                    ])
-                  ]
+                  [_vm._v("Delete")]
                 )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("td", [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-danger",
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteBonus(_vm.bonus.id)
-                    }
-                  }
-                },
-                [_vm._v("Delete")]
-              )
+              ])
             ])
           ])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.bonus" } } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success mt-5",
+              staticStyle: { width: "170px" }
+            },
+            [_vm._v("賞与ノ部メニューへ")]
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "saisan.bonus" } } }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-success mt-5",
-            staticStyle: { width: "170px" }
-          },
-          [_vm._v("賞与ノ部メニューへ")]
-        )
-      ])
-    ],
-    1
-  )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
