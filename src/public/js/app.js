@@ -4215,12 +4215,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     hourId: Number
   },
   data: function data() {
     return {
+      loading: true,
       hour: {}
     };
   },
@@ -4230,6 +4234,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get("/api/hour/detail/" + this.hourId + "/").then(function (res) {
         _this.hour = res.data;
+        _this.loading = false;
       });
     }
   },
@@ -45670,45 +45675,68 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
-      _c("h2", [_vm._v("稼働時間明細修正完了")]),
-      _vm._v(" "),
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("tbody", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "row" } }, [
-              _vm._v(_vm._s(_vm.hour.id))
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.hour.year))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.hour.month))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.hour.fixedTime))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm.hour.overTime))])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "saisan.hour" } } }, [
-        _c(
-          "button",
+  return _c("div", { staticClass: "container" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
           {
-            staticClass: "btn btn-success mt-5",
-            staticStyle: { width: "170px" }
-          },
-          [_vm._v("時間ノ部メニューへ")]
-        )
-      ])
-    ],
-    1
-  )
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("h2", [_vm._v("稼働時間明細修正完了")]),
+        _vm._v(" "),
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("tbody", [
+            _c("tr", [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(_vm.hour.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.hour.year))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.hour.month))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.hour.fixedTime))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.hour.overTime))])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.hour" } } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success mt-5",
+              staticStyle: { width: "170px" }
+            },
+            [_vm._v("時間ノ部メニューへ")]
+          )
+        ])
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
