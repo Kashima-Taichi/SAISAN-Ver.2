@@ -56,6 +56,10 @@ import AccountDetailComponent from "./components/account/AccountDetailComponent"
 import AccountEditComponent from "./components/account/AccountEditComponent";
 import AccountEditDoneComponent from "./components/account/AccountEditDoneComponent";
 import AccountDeleteDoneComponent from "./components/account/AccountDeleteDoneComponent";
+// PL参照
+import PlMenuComponent from "./components/pl/PlMenuComponent";
+import SelectYearMonthPlComponent from "./components/pl/SelectYearMonthPlComponent";
+import MonthlyPlComponent from "./components/pl/MonthlyPlComponent";
 // その他の機能
 import OtherMenuComponent from "./components/other/OtherMenuComponent";
 import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";
@@ -152,6 +156,14 @@ const router = new VueRouter({
         { /* 勘定科目明細の修正 */ path: '/account/edit/:accountId?/', name: 'account.edit', component: AccountEditComponent, props: true },
         { /* 勘定科目明細の修正完了 */ path: '/account/edit-done/:accountId/', name: 'account.edit-done', component: AccountEditDoneComponent, props: true },
         { /* 勘定科目明細の削除完了 */ path: '/account/delete-done/:accountId/', name: 'account.delete-done', component: AccountDeleteDoneComponent, props: true },
+        /*
+        |--------------------------------------------------------------------------
+        | PL routes
+        |--------------------------------------------------------------------------
+        | PLノ部のルーティングは下記にて実装 */
+        { /* PLトップ */ path: '/pl/', name: 'saisan.pl', component: PlMenuComponent },
+        { /* PL(月次)参照前の年月選択 */ path: '/pl/select-ym/', name: 'pl.select-ym', component: SelectYearMonthPlComponent },
+        { /* PL参照(月次) */ path: '/pl/:year/:month/', name: 'pl.monthly', component: MonthlyPlComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Others routes
