@@ -2076,56 +2076,94 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     var now = new Date();
     return {
       loading: true,
       salary: {},
+      bonus: {},
       costs: [],
       hour: {},
-      totalAmount: 0,
+      totalExpense: 0,
+      totalCost: 0,
       year: now.getFullYear(),
       month: now.getMonth() + 1
     };
   },
   methods: {
-    getCurrentSalaryData: function getCurrentSalaryData() {
+    getPlData: function getPlData() {
       var _this = this;
 
       axios.get("/api/salary/pl/" + this.year + "/" + this.month + "/").then(function (res) {
         _this.salary = res.data;
       });
-    },
-    getCurrentCostData: function getCurrentCostData() {
-      var _this2 = this;
-
-      axios.get("/api/cost/pl/" + this.year + "/" + this.month + "/").then(function (res) {
-        _this2.costs = res.data;
-        _this2.loading = false;
+      axios.get("/api/bonus/pl/" + this.year + "/" + this.month + "/").then(function (res) {
+        _this.bonus = res.data;
       });
-    },
-    getCurrentHourData: function getCurrentHourData() {
-      var _this3 = this;
-
       axios.get("/api/hour/pl/" + this.year + "/" + this.month + "/").then(function (res) {
-        _this3.hour = res.data;
+        _this.hour = res.data;
+      });
+      axios.get("/api/cost/pl/" + this.year + "/" + this.month + "/").then(function (res) {
+        _this.costs = res.data;
+        _this.loading = false;
       });
     }
   },
   computed: {
     costAmount: function costAmount() {
       for (var item in this.costs) {
-        this.totalAmount += parseInt(this.costs[item]["accountAmount"]);
+        this.totalExpense += parseInt(this.costs[item]["accountAmount"]);
       }
 
-      return this.totalAmount.toLocaleString();
+      return this.totalExpense.toLocaleString();
+    },
+    timeAmount: function timeAmount() {
+      return this.hour.fixedTime + this.hour.overTime;
+    },
+    incomeAmount: function incomeAmount() {
+      if (this.bonus === "") {
+        return parseInt(this.salary.netIncome).toLocaleString();
+      } else {
+        return parseInt(this.salary.netIncome + this.bonus.netIncome).toLocaleString();
+      }
+    },
+    netSaving: function netSaving() {
+      // 経費合計額の算出
+      for (var item in this.costs) {
+        this.totalCost += parseInt(this.costs[item]["accountAmount"]);
+      } // 差引貯蓄額の計算
+
+
+      if (this.bonus === "") {
+        return parseInt(this.salary.netIncome - this.totalCost).toLocaleString();
+      } else {
+        return parseInt(this.salary.netIncome + this.bonus.netIncome - this.totalCost).toLocaleString();
+      }
     }
   },
   mounted: function mounted() {
-    this.getCurrentSalaryData();
-    this.getCurrentHourData();
-    this.getCurrentCostData();
+    this.getPlData();
   }
 });
 
@@ -41603,7 +41641,11 @@ var render = function() {
                     _vm._v("給与(総支給)")
                   ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(_vm.salary.totalSalary))])
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(parseInt(_vm.salary.totalSalary).toLocaleString())
+                    )
+                  ])
                 ]
               ),
               _vm._v(" "),
@@ -41624,7 +41666,80 @@ var render = function() {
                     _vm._v("給与(手取り)")
                   ]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(_vm.salary.netIncome))])
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(parseInt(_vm.salary.netIncome).toLocaleString())
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "tr",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.bonus,
+                      expression: "bonus"
+                    }
+                  ]
+                },
+                [
+                  _c("th", { attrs: { scope: "row" } }, [
+                    _vm._v("賞与(総支給)")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(parseInt(_vm.bonus.totalBonus).toLocaleString())
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "tr",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.bonus,
+                      expression: "bonus"
+                    }
+                  ]
+                },
+                [
+                  _c("th", { attrs: { scope: "row" } }, [
+                    _vm._v("賞与(手取り)")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(parseInt(_vm.bonus.netIncome).toLocaleString())
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "tr",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.salary,
+                      expression: "salary"
+                    }
+                  ]
+                },
+                [
+                  _c("th", { attrs: { scope: "row" } }, [_vm._v("収入合計")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm.incomeAmount))])
                 ]
               ),
               _vm._v(" "),
@@ -41682,6 +41797,27 @@ var render = function() {
                     {
                       name: "show",
                       rawName: "v-show",
+                      value: _vm.salary,
+                      expression: "salary"
+                    }
+                  ]
+                },
+                [
+                  _c("th", { attrs: { scope: "row" } }, [
+                    _vm._v("差引貯蓄可能額")
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm.netSaving))])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "tr",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
                       value: _vm.hour,
                       expression: "hour"
                     }
@@ -41710,6 +41846,25 @@ var render = function() {
                   _c("th", { attrs: { scope: "row" } }, [_vm._v("残業時間")]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(_vm.hour.overTime))])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "tr",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.hour,
+                      expression: "hour"
+                    }
+                  ]
+                },
+                [
+                  _c("th", { attrs: { scope: "row" } }, [_vm._v("総労働時間")]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(_vm.timeAmount))])
                 ]
               )
             ],
