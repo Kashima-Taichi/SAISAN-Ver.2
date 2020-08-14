@@ -50,4 +50,9 @@ class BonusController extends Controller
         $bonusData->delete();
         return;
     }
+
+    // APIでPL用の賞与情報を取得
+    public function getPlBonusData($year, $month) {
+        return Bonus::select(['totalBonus', 'netIncome'])->whereRaw('year = ? and month = ?', [$year, $month])->first();
+    }
 }

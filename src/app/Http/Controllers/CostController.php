@@ -54,15 +54,17 @@ class CostController extends Controller
         return;
     }
 
-    // APIで経費計上実績のある年月情報を取得
+    // APIで経費計上実績のある年情報を取得
     public function getCostYear() {
         return Cost::groupBy('year')->get('year');
     }
 
+    // APIで経費計上実績のある月情報を取得
     public function getCostMonth() {
         return Cost::groupBy('month')->get('month');
     }
 
+    // APIでPL用の経費計上データを取得
     public function getPlCostData($year, $month) {
         return DB::select('SELECT accountName, sum(price) accountAmount FROM costs WHERE year = :year AND month = :month GROUP BY accountName', ['year' => $year, 'month' => $month]);
     }
