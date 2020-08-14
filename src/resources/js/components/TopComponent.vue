@@ -11,47 +11,47 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-show="salary">
+          <tr class="txt-lg" v-show="salary">
             <th scope="row">給与(総支給)</th>
             <td>{{ parseInt(salary.totalSalary).toLocaleString() }}</td>
           </tr>
-          <tr v-show="salary">
+          <tr class="txt-lg" v-show="salary">
             <th scope="row">給与(手取り)</th>
             <td>{{ parseInt(salary.netIncome).toLocaleString() }}</td>
           </tr>
-          <tr v-show="bonus">
+          <tr class="txt-lg" v-show="bonus">
             <th scope="row">賞与(総支給)</th>
             <td>{{ parseInt(bonus.totalBonus).toLocaleString() }}</td>
           </tr>
-          <tr v-show="bonus">
+          <tr class="txt-lg" v-show="bonus">
             <th scope="row">賞与(手取り)</th>
             <td>{{ parseInt(bonus.netIncome).toLocaleString() }}</td>
           </tr>
-          <tr v-show="salary">
+          <tr class="txt-g" v-show="salary">
             <th scope="row">収入合計</th>
             <td>{{ incomeAmount }}</td>
           </tr>
-          <tr v-for="(cost, index) in costs" :key="index" v-show="costs">
+          <tr class="txt-lr" v-for="(cost, index) in costs" :key="index" v-show="costs">
             <th scope="row">{{ cost.accountName }}</th>
             <td>{{ parseInt(cost.accountAmount).toLocaleString() }}</td>
           </tr>
-          <tr v-show="costs">
+          <tr class="txt-r" v-show="costs">
             <th scope="row">経費合計</th>
             <td>{{ costAmount }}</td>
           </tr>
-          <tr v-show="salary">
+          <tr class="txt-y" v-show="salary">
             <th scope="row">差引貯蓄可能額</th>
             <td>{{ netSaving }}</td>
           </tr>
-          <tr v-show="hour">
+          <tr class="txt-lb" v-show="hour">
             <th scope="row">定時間</th>
             <td>{{ hour.fixedTime }}</td>
           </tr>
-          <tr v-show="hour">
+          <tr class="txt-lb" v-show="hour">
             <th scope="row">残業時間</th>
             <td>{{ hour.overTime }}</td>
           </tr>
-          <tr v-show="hour">
+          <tr class="txt-b" v-show="hour">
             <th scope="row">総労働時間</th>
             <td>{{ timeAmount }}</td>
           </tr>

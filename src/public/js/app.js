@@ -41634,7 +41634,8 @@ var render = function() {
                       value: _vm.salary,
                       expression: "salary"
                     }
-                  ]
+                  ],
+                  staticClass: "txt-lg"
                 },
                 [
                   _c("th", { attrs: { scope: "row" } }, [
@@ -41659,7 +41660,8 @@ var render = function() {
                       value: _vm.salary,
                       expression: "salary"
                     }
-                  ]
+                  ],
+                  staticClass: "txt-lg"
                 },
                 [
                   _c("th", { attrs: { scope: "row" } }, [
@@ -41684,7 +41686,8 @@ var render = function() {
                       value: _vm.bonus,
                       expression: "bonus"
                     }
-                  ]
+                  ],
+                  staticClass: "txt-lg"
                 },
                 [
                   _c("th", { attrs: { scope: "row" } }, [
@@ -41709,7 +41712,8 @@ var render = function() {
                       value: _vm.bonus,
                       expression: "bonus"
                     }
-                  ]
+                  ],
+                  staticClass: "txt-lg"
                 },
                 [
                   _c("th", { attrs: { scope: "row" } }, [
@@ -41734,7 +41738,8 @@ var render = function() {
                       value: _vm.salary,
                       expression: "salary"
                     }
-                  ]
+                  ],
+                  staticClass: "txt-g"
                 },
                 [
                   _c("th", { attrs: { scope: "row" } }, [_vm._v("収入合計")]),
@@ -41755,7 +41760,8 @@ var render = function() {
                         expression: "costs"
                       }
                     ],
-                    key: index
+                    key: index,
+                    staticClass: "txt-lr"
                   },
                   [
                     _c("th", { attrs: { scope: "row" } }, [
@@ -41781,7 +41787,8 @@ var render = function() {
                       value: _vm.costs,
                       expression: "costs"
                     }
-                  ]
+                  ],
+                  staticClass: "txt-r"
                 },
                 [
                   _c("th", { attrs: { scope: "row" } }, [_vm._v("経費合計")]),
@@ -41800,7 +41807,8 @@ var render = function() {
                       value: _vm.salary,
                       expression: "salary"
                     }
-                  ]
+                  ],
+                  staticClass: "txt-y"
                 },
                 [
                   _c("th", { attrs: { scope: "row" } }, [
@@ -41821,7 +41829,8 @@ var render = function() {
                       value: _vm.hour,
                       expression: "hour"
                     }
-                  ]
+                  ],
+                  staticClass: "txt-lb"
                 },
                 [
                   _c("th", { attrs: { scope: "row" } }, [_vm._v("定時間")]),
@@ -41840,7 +41849,8 @@ var render = function() {
                       value: _vm.hour,
                       expression: "hour"
                     }
-                  ]
+                  ],
+                  staticClass: "txt-lb"
                 },
                 [
                   _c("th", { attrs: { scope: "row" } }, [_vm._v("残業時間")]),
@@ -41859,7 +41869,8 @@ var render = function() {
                       value: _vm.hour,
                       expression: "hour"
                     }
-                  ]
+                  ],
+                  staticClass: "txt-b"
                 },
                 [
                   _c("th", { attrs: { scope: "row" } }, [_vm._v("総労働時間")]),
