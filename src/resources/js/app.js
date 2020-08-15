@@ -60,6 +60,7 @@ import AccountDeleteDoneComponent from "./components/account/AccountDeleteDoneCo
 import PlMenuComponent from "./components/pl/PlMenuComponent";
 import SelectYearMonthPlComponent from "./components/pl/SelectYearMonthPlComponent";
 import MonthlyPlComponent from "./components/pl/MonthlyPlComponent";
+import MonthlyPlCostDetailComponent from "./components/pl/MonthlyPlCostDetailComponent";
 // その他の機能
 import OtherMenuComponent from "./components/other/OtherMenuComponent";
 import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";
@@ -164,6 +165,7 @@ const router = new VueRouter({
         { /* PLトップ */ path: '/pl/', name: 'saisan.pl', component: PlMenuComponent },
         { /* PL(月次)参照前の年月選択 */ path: '/pl/select-ym/', name: 'pl.select-ym', component: SelectYearMonthPlComponent },
         { /* PL参照(月次) */ path: '/pl/:year/:month/', name: 'pl.monthly', component: MonthlyPlComponent, props: true },
+        { /* PL科目別経費計上明細(月次) */ path: '/pl/:year/:month/:account/', name: 'pl.monthly-account', component: MonthlyPlCostDetailComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Others routes

@@ -4773,6 +4773,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     year: Number,
@@ -4842,6 +4847,84 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getPlData();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    year: Number,
+    month: Number,
+    account: String,
+    accountName: String
+  },
+  data: function data() {
+    return {
+      loading: true,
+      costs: [],
+      totalAmount: 0
+    };
+  },
+  methods: {
+    getCostAccountData: function getCostAccountData() {
+      var _this = this;
+
+      axios.get("/api/cost/" + this.year + "/" + this.month + "/" + this.account + "/").then(function (res) {
+        _this.costs = res.data;
+        _this.loading = false;
+      });
+    }
+  },
+  computed: {
+    calcTotal: function calcTotal() {
+      for (var item in this.costs) {
+        this.totalAmount += this.costs[item]["price"];
+      }
+
+      return parseInt(this.totalAmount).toLocaleString();
+    }
+  },
+  mounted: function mounted() {
+    this.getCostAccountData();
   }
 });
 
@@ -47181,9 +47264,31 @@ var render = function() {
                     staticClass: "txt-lr"
                   },
                   [
-                    _c("th", { attrs: { scope: "row" } }, [
-                      _vm._v(_vm._s(cost.accountName))
-                    ]),
+                    _c(
+                      "th",
+                      { attrs: { scope: "row" } },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "txt-lr",
+                            attrs: {
+                              to: {
+                                name: "pl.monthly-account",
+                                params: {
+                                  year: _vm.year,
+                                  month: _vm.month,
+                                  account: cost.accountAlpha,
+                                  accountName: cost.accountName
+                                }
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._s(cost.accountName))]
+                        )
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
                     _c("td", [
                       _vm._v(
@@ -47313,6 +47418,123 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("項目")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("金額")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=template&id=40fa67ce&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=template&id=40fa67ce& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("h2", [
+          _vm._v(
+            _vm._s(_vm.year) +
+              "年 " +
+              _vm._s(_vm.month) +
+              "月 " +
+              _vm._s(_vm.accountName) +
+              " : " +
+              _vm._s(_vm.calcTotal) +
+              "円の内訳"
+          )
+        ]),
+        _vm._v(" "),
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.costs, function(cost, index) {
+              return _c("tr", { key: index }, [
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(cost.id))
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(_vm._s(parseInt(cost.price).toLocaleString()))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(cost.journal))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(cost.day))])
+              ])
+            }),
+            0
+          )
+        ]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "saisan.pl" } } }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success mt-5",
+              staticStyle: { width: "170px" }
+            },
+            [_vm._v("PLノ部メニューへ")]
+          )
+        ])
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-light" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("id")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("price")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("journal")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("day")])
       ])
     ])
   }
@@ -64801,8 +65023,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pl_PlMenuComponent__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./components/pl/PlMenuComponent */ "./resources/js/components/pl/PlMenuComponent.vue");
 /* harmony import */ var _components_pl_SelectYearMonthPlComponent__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./components/pl/SelectYearMonthPlComponent */ "./resources/js/components/pl/SelectYearMonthPlComponent.vue");
 /* harmony import */ var _components_pl_MonthlyPlComponent__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./components/pl/MonthlyPlComponent */ "./resources/js/components/pl/MonthlyPlComponent.vue");
-/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
-/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
+/* harmony import */ var _components_pl_MonthlyPlCostDetailComponent__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/pl/MonthlyPlCostDetailComponent */ "./resources/js/components/pl/MonthlyPlCostDetailComponent.vue");
+/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
+/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
 /**
  * 独自で実装したComponentを下記にて取り込む
  */
@@ -64861,6 +65084,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // PL参照
+
 
 
 
@@ -65199,6 +65423,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     name: 'pl.monthly',
     component: _components_pl_MonthlyPlComponent__WEBPACK_IMPORTED_MODULE_50__["default"],
     props: true
+  }, {
+    /* PL科目別経費計上明細(月次) */
+    path: '/pl/:year/:month/:account/',
+    name: 'pl.monthly-account',
+    component: _components_pl_MonthlyPlCostDetailComponent__WEBPACK_IMPORTED_MODULE_54__["default"],
+    props: true
   },
   /*
   |--------------------------------------------------------------------------
@@ -65209,12 +65439,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* その他トップ */
     path: '/other/',
     name: 'saisan.other',
-    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_51__["default"]
+    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_52__["default"]
   }, {
     /* データベースのダンプコマンド出力 */
     path: '/other/dump/',
     name: 'other.dump',
-    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_52__["default"]
+    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_53__["default"]
   }]
 });
 /**
@@ -68110,6 +68340,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MonthlyPlComponent_vue_vue_type_template_id_033aa26c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MonthlyPlComponent_vue_vue_type_template_id_033aa26c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pl/MonthlyPlCostDetailComponent.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/pl/MonthlyPlCostDetailComponent.vue ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MonthlyPlCostDetailComponent_vue_vue_type_template_id_40fa67ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MonthlyPlCostDetailComponent.vue?vue&type=template&id=40fa67ce& */ "./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=template&id=40fa67ce&");
+/* harmony import */ var _MonthlyPlCostDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MonthlyPlCostDetailComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MonthlyPlCostDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MonthlyPlCostDetailComponent_vue_vue_type_template_id_40fa67ce___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MonthlyPlCostDetailComponent_vue_vue_type_template_id_40fa67ce___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pl/MonthlyPlCostDetailComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MonthlyPlCostDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MonthlyPlCostDetailComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MonthlyPlCostDetailComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=template&id=40fa67ce&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=template&id=40fa67ce& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MonthlyPlCostDetailComponent_vue_vue_type_template_id_40fa67ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MonthlyPlCostDetailComponent.vue?vue&type=template&id=40fa67ce& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pl/MonthlyPlCostDetailComponent.vue?vue&type=template&id=40fa67ce&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MonthlyPlCostDetailComponent_vue_vue_type_template_id_40fa67ce___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MonthlyPlCostDetailComponent_vue_vue_type_template_id_40fa67ce___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

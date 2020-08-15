@@ -32,7 +32,12 @@
             <td>{{ incomeAmount }}</td>
           </tr>
           <tr class="txt-lr" v-for="(cost, index) in costs" :key="index" v-show="costs">
-            <th scope="row">{{ cost.accountName }}</th>
+            <th scope="row">
+              <router-link
+                v-bind:to="{name: 'pl.monthly-account', params: { year: year, month: month, account: cost.accountAlpha, accountName: cost.accountName} }"
+                class="txt-lr"
+              >{{ cost.accountName }}</router-link>
+            </th>
             <td>{{ parseInt(cost.accountAmount).toLocaleString() }}</td>
           </tr>
           <tr class="txt-r" v-show="costs">
