@@ -66,6 +66,11 @@ class CostController extends Controller
 
     // APIでPL用の経費計上データを取得
     public function getPlCostData($year, $month) {
-        return DB::select('SELECT accountName, sum(price) accountAmount FROM costs WHERE year = :year AND month = :month GROUP BY accountName', ['year' => $year, 'month' => $month]);
+        return DB::select('SELECT accountName, sum(price) accountAmount, accountAlpha FROM costs WHERE year = :year AND month = :month GROUP BY accountName, accountAlpha', ['year' => $year, 'month' => $month]);
+    }
+
+    // APIで勘定科目別の経費計上データの取得
+    public function getAccountCostData($year, $month, $account) {
+        return Cost::select(['id', 'accountName', 'price', 'journal', 'day'])->whereRaw('year = ? and month = ? and accountAlpha =?', array($year, $month, $account))->get();
     }
 }

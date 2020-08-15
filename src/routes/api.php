@@ -52,6 +52,9 @@ Route::put('/cost/edit/', 'CostController@edit');
 // 経費明細削除
 Route::delete('/cost/delete/{id}/', 'CostController@delete');
 
+// 年別月別科目別経費計上データの取得
+Route::get('/cost/{year}/{month}/{account}/', 'CostController@getAccountCostData');
+
 /*
 |--------------------------------------------------------------------------
 | 時間関係
