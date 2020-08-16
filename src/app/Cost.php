@@ -12,6 +12,7 @@ class Cost extends Model
     // ホワイトリストの設定
     protected $fillable = [
         'accountName',
+        'accountAlpha',
         'price',
         'journal',
         'year',

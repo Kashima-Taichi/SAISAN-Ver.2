@@ -65023,7 +65023,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pl_PlMenuComponent__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./components/pl/PlMenuComponent */ "./resources/js/components/pl/PlMenuComponent.vue");
 /* harmony import */ var _components_pl_SelectYearMonthPlComponent__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./components/pl/SelectYearMonthPlComponent */ "./resources/js/components/pl/SelectYearMonthPlComponent.vue");
 /* harmony import */ var _components_pl_MonthlyPlComponent__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./components/pl/MonthlyPlComponent */ "./resources/js/components/pl/MonthlyPlComponent.vue");
-/* harmony import */ var _components_pl_MonthlyPlCostDetailComponent__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/pl/MonthlyPlCostDetailComponent */ "./resources/js/components/pl/MonthlyPlCostDetailComponent.vue");
+/* harmony import */ var _components_pl_MonthlyPlCostDetailComponent__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/pl/MonthlyPlCostDetailComponent */ "./resources/js/components/pl/MonthlyPlCostDetailComponent.vue");
 /* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
 /* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
 /**
@@ -65427,7 +65427,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* PL科目別経費計上明細(月次) */
     path: '/pl/:year/:month/:account/',
     name: 'pl.monthly-account',
-    component: _components_pl_MonthlyPlCostDetailComponent__WEBPACK_IMPORTED_MODULE_54__["default"],
+    component: _components_pl_MonthlyPlCostDetailComponent__WEBPACK_IMPORTED_MODULE_51__["default"],
     props: true
   },
   /*

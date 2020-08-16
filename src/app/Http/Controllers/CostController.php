@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cost;
+use App\Account;
 use Illuminate\Http\Request;
 use DB;
 
@@ -10,7 +11,11 @@ class CostController extends Controller
 {
     // APIで経費計上
     public function store(Request $request) {
+        // date情報の設定
         $request['date'] = $request['year'] . '-' . (strlen($request['month']) === 1 ? '0' . $request['month'] : $request['month']) . '-' . (strlen($request['day']) === 1 ? '0' . $request['day'] : $request['day']);
+        // アルファベットの科目名の設定
+        $accountAlpha = Account::select('accountAlpha')->whereRaw('accountKanji = ?', $request['accountName'])->first();
+        $request['accountAlpha'] = $accountAlpha->accountAlpha;
         // 経費データの登録
         $costs = new Cost;
         unset($request['_token']);
@@ -40,7 +45,11 @@ class CostController extends Controller
 
     // 経費明細の修正を実行
     public function edit(Request $request) {
+        // date情報の設定
         $request['date'] = $request['year'] . '-' . (strlen($request['month']) === 1 ? '0' . $request['month'] : $request['month']) . '-' . (strlen($request['day']) === 1 ? '0' . $request['day'] : $request['day']);
+        // アルファベットの科目名の設定
+        $accountAlpha = Account::select('accountAlpha')->whereRaw('accountKanji = ?', $request['accountName'])->first();
+        $request['accountAlpha'] = $accountAlpha->accountAlpha;
         $toBeEditedData = Cost::find($request->id);
         unset($request['_token']);
         $toBeEditedData->fill($request->all())->save();

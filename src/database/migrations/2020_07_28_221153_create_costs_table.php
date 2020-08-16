@@ -16,6 +16,7 @@ class CreateCostsTable extends Migration
         Schema::create('costs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('accountName', 45);
+            $table->string('accountAlpha', 45);
             $table->integer('price');
             $table->string('journal', 45);
             $table->integer('year');
