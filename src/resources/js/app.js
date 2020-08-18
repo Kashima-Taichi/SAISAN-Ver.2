@@ -61,6 +61,10 @@ import PlMenuComponent from "./components/pl/PlMenuComponent";
 import SelectYearMonthPlComponent from "./components/pl/SelectYearMonthPlComponent";
 import MonthlyPlComponent from "./components/pl/MonthlyPlComponent";
 import MonthlyPlCostDetailComponent from "./components/pl/MonthlyPlCostDetailComponent";
+// グラフ参照
+import GraphMenuComponent from "./components/graph/GraphMenuComponent";
+import GraphCostSelectYearMonth from "./components/graph/GraphCostSelectYearMonth";
+import DailyCostsAmountComponent from "./components/graph/DailyCostsAmountComponent";
 // その他の機能
 import OtherMenuComponent from "./components/other/OtherMenuComponent";
 import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";
@@ -166,6 +170,14 @@ const router = new VueRouter({
         { /* PL(月次)参照前の年月選択 */ path: '/pl/select-ym/', name: 'pl.select-ym', component: SelectYearMonthPlComponent },
         { /* PL参照(月次) */ path: '/pl/:year/:month/', name: 'pl.monthly', component: MonthlyPlComponent, props: true },
         { /* PL科目別経費計上明細(月次) */ path: '/pl/:year/:month/:account/', name: 'pl.monthly-account', component: MonthlyPlCostDetailComponent, props: true },
+        /*
+        |--------------------------------------------------------------------------
+        | Graph routes
+        |--------------------------------------------------------------------------
+        | Graphノ部のルーティングは下記にて実装 */
+        { /* グラフトップ */ path: '/graph/', name: 'saisan.graph', component: GraphMenuComponent },
+        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)年月選択 */ path: '/grap/cost/daily/amount/select-ym/', name: 'graph.graph.cost.daily-amount-select', component: GraphCostSelectYearMonth },
+        { /* 経費計上折れ線グラフ(日別の計上合計金額推移) */ path: '/grap/cost/daily/amount/:year/:month/', name: 'graph.cost.daily-amount', component: DailyCostsAmountComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Others routes
