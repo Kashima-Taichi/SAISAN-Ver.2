@@ -83781,7 +83781,7 @@ var render = function() {
         _vm._v(" "),
         _c("line-chart", {
           ref: "chart",
-          attrs: { chartData: _vm.lineChartData }
+          attrs: { chartData: _vm.lineChartData, height: 295 }
         })
       ],
       1

@@ -3,7 +3,7 @@
     <div v-show="loading" class="loader"></div>
     <div v-show="!loading">
       <h2>{{ year }}年 {{ month }}月 経費計上合計金額推移</h2>
-      <line-chart :chartData="lineChartData" ref="chart"></line-chart>
+      <line-chart :chartData="lineChartData" :height="295" ref="chart"></line-chart>
     </div>
   </div>
 </template>
