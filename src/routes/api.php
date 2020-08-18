@@ -24,7 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 | 経費関係のAPIルーティングは下記にて実装する。
 */
 
-// PL用データの取得
+// PL用データの取得(単月)
 Route::get('/cost/pl/{year}/{month}/', 'CostController@getPlCostData');
 
 // 経費計上
@@ -42,8 +42,10 @@ Route::get('/cost/list/{year}/{month}/{day}/', 'CostController@getCostListDay');
 // 経費計上詳細データ
 Route::get('/cost/detail/{id}/', 'CostController@getIndividualCostData');
 
-// 経費計上年月の取得
+// 経費計上年の取得
 Route::get('/cost/year/', 'CostController@getCostYear');
+
+// 経費計上月の取得
 Route::get('/cost/month/', 'CostController@getCostMonth');
 
 // 経費明細修正
@@ -54,6 +56,10 @@ Route::delete('/cost/delete/{id}/', 'CostController@delete');
 
 // 年別月別科目別経費計上データの取得
 Route::get('/cost/{year}/{month}/{account}/', 'CostController@getAccountCostData');
+
+// 日別の経費計上合計金額のデータを取得
+Route::get('cost/amounts/daily/{year}/{month}/', 'CostController@getDailyAmountCostData');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -118,6 +124,7 @@ Route::put('/salary/edit/', 'SalaryController@edit');
 // 所得明細削除
 Route::delete('/salary/delete/{id}/', 'SalaryController@delete');
 
+
 /*
 |--------------------------------------------------------------------------
 | 勘定科目関係
@@ -145,6 +152,7 @@ Route::put('/account/edit/', 'AccountController@edit');
 
 // 勘定科目明細の削除
 Route::delete('/account/delete/{id}/', 'AccountController@delete');
+
 
 /*
 |--------------------------------------------------------------------------

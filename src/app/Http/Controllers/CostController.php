@@ -9,7 +9,7 @@ use DB;
 
 class CostController extends Controller
 {
-    // APIで経費計上
+    // 経費計上
     public function store(Request $request) {
         // date情報の設定
         $request['date'] = $request['year'] . '-' . (strlen($request['month']) === 1 ? '0' . $request['month'] : $request['month']) . '-' . (strlen($request['day']) === 1 ? '0' . $request['day'] : $request['day']);
@@ -28,12 +28,12 @@ class CostController extends Controller
         return Cost::orderBy('id', 'desc')->first();
     }
 
-    // APIで月次の経費リストを取得
+    // 月次の経費リストを取得
     public function getCostListMonth($year, $month) {
         return Cost::whereRaw('year = ? and month = ?', array($year, $month))->get();
     }
 
-    // APIで日次の経費リストを取得
+    // 日次の経費リストを取得
     public function getCostListDay($year, $month, $day) {
         return Cost::whereRaw('year = ? and month = ? and day =?', array($year, $month, $day))->get();
     }
@@ -63,23 +63,35 @@ class CostController extends Controller
         return;
     }
 
-    // APIで経費計上実績のある年情報を取得
+    // 経費計上実績のある年情報を取得
     public function getCostYear() {
         return Cost::groupBy('year')->get('year');
     }
 
-    // APIで経費計上実績のある月情報を取得
+    // 経費計上実績のある月情報を取得
     public function getCostMonth() {
         return Cost::groupBy('month')->get('month');
     }
 
-    // APIでPL用の経費計上データを取得
+    // PL用の経費計上データを取得
     public function getPlCostData($year, $month) {
         return DB::select('SELECT accountName, sum(price) accountAmount, accountAlpha FROM costs WHERE year = :year AND month = :month GROUP BY accountName, accountAlpha', ['year' => $year, 'month' => $month]);
     }
 
-    // APIで勘定科目別の経費計上データの取得
+    // 勘定科目別の経費計上データの取得
     public function getAccountCostData($year, $month, $account) {
         return Cost::select(['id', 'accountName', 'price', 'journal', 'day'])->whereRaw('year = ? and month = ? and accountAlpha =?', array($year, $month, $account))->get();
+    }
+
+    // 日別の経費計上合計金額を取得
+    public function getDailyAmountCostData($year, $month) {
+        $param = ['year' => $year, 'month' => $month];
+        $lineGraphData = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
+        foreach ($lineGraphData as $key => $value) {
+            if ($key !== 0) {
+                $lineGraphData[$key]->dayAmount = $lineGraphData[$key-1]->dayAmount + $lineGraphData[$key]->dayAmount;
+            }
+        }
+        return $lineGraphData;
     }
 }
