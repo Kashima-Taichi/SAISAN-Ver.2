@@ -63,8 +63,10 @@ import MonthlyPlComponent from "./components/pl/MonthlyPlComponent";
 import MonthlyPlCostDetailComponent from "./components/pl/MonthlyPlCostDetailComponent";
 // グラフ参照
 import GraphMenuComponent from "./components/graph/GraphMenuComponent";
-import GraphCostSelectYearMonth from "./components/graph/cost/sub/GraphCostSelectYearMonth";
+import GraphCostAmountSelectYearMonth from "./components/graph/cost/dailyAmount/GraphCostAmountSelectYearMonth";
 import DailyCostsAmountComponent from "./components/graph/cost/dailyAmount/DailyCostsAmountComponent";
+import GraphCostSelectYearMonth from "./components/graph/cost/daily/GraphCostSelectYearMonth";
+import DailyCostsComponent from "./components/graph/cost/daily/DailyCostsComponent";
 // その他の機能
 import OtherMenuComponent from "./components/other/OtherMenuComponent";
 import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";
@@ -176,8 +178,10 @@ const router = new VueRouter({
         |--------------------------------------------------------------------------
         | Graphノ部のルーティングは下記にて実装 */
         { /* グラフトップ */ path: '/graph/', name: 'saisan.graph', component: GraphMenuComponent },
-        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)年月選択 */ path: '/grap/cost/daily/amount/select-ym/', name: 'graph.graph.cost.daily-amount-select', component: GraphCostSelectYearMonth },
+        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)年月選択 */ path: '/grap/cost/daily/amount/select-ym/', name: 'graph.graph.cost.daily-amount-select', component: GraphCostAmountSelectYearMonth },
         { /* 経費計上折れ線グラフ(日別の計上合計金額推移) */ path: '/grap/cost/daily/amount/:year/:month/', name: 'graph.cost.daily-amount', component: DailyCostsAmountComponent, props: true },
+        { /* 経費計上折れ線グラフ(日別の計上金額推移)年月選択 */ path: '/grap/cost/daily/select-ym/', name: 'graph.graph.cost.daily-select', component: GraphCostSelectYearMonth },
+        { /* 経費計上折れ線グラフ(日別の計上金額推移) */ path: '/grap/cost/daily/:year/:month/', name: 'graph.cost.daily', component: DailyCostsComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Others routes
