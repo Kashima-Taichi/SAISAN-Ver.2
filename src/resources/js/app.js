@@ -63,8 +63,8 @@ import MonthlyPlComponent from "./components/pl/MonthlyPlComponent";
 import MonthlyPlCostDetailComponent from "./components/pl/MonthlyPlCostDetailComponent";
 // グラフ参照
 import GraphMenuComponent from "./components/graph/GraphMenuComponent";
-import GraphCostSelectYearMonth from "./components/graph/GraphCostSelectYearMonth";
-import DailyCostsAmountComponent from "./components/graph/DailyCostsAmountComponent";
+import GraphCostSelectYearMonth from "./components/graph/cost/sub/GraphCostSelectYearMonth";
+import DailyCostsAmountComponent from "./components/graph/cost/dailyAmount/DailyCostsAmountComponent";
 // その他の機能
 import OtherMenuComponent from "./components/other/OtherMenuComponent";
 import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";

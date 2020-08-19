@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import LineChart from "../module/LineChart";
+import LineChart from "../../../module/LineChart";
 export default {
   props: {
     year: Number,
