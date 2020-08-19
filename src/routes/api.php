@@ -48,17 +48,20 @@ Route::get('/cost/year/', 'CostController@getCostYear');
 // 経費計上月の取得
 Route::get('/cost/month/', 'CostController@getCostMonth');
 
-// 経費明細修正
-Route::put('/cost/edit/', 'CostController@edit');
-
-// 経費明細削除
-Route::delete('/cost/delete/{id}/', 'CostController@delete');
+// 日別に経費計上金額の推移データを取得
+Route::get('/cost/daily/{year}/{month}/', 'CostController@getDailyCostData');
 
 // 年別月別科目別経費計上データの取得
 Route::get('/cost/{year}/{month}/{account}/', 'CostController@getAccountCostData');
 
 // 日別の経費計上合計金額のデータを取得
-Route::get('cost/amounts/daily/{year}/{month}/', 'CostController@getDailyAmountCostData');
+Route::get('/cost/amounts/daily/{year}/{month}/', 'CostController@getDailyAmountCostData');
+
+// 経費明細修正
+Route::put('/cost/edit/', 'CostController@edit');
+
+// 経費明細削除
+Route::delete('/cost/delete/{id}/', 'CostController@delete');
 
 
 /*

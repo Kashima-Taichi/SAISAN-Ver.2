@@ -94,4 +94,11 @@ class CostController extends Controller
         }
         return $lineGraphData;
     }
+
+    // 日別の経費計上金額の推移データの取得
+    public function getDailyCostData($year, $month) {
+        $param = ['year' => $year, 'month' => $month];
+        $lineGraphData = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
+        return $lineGraphData;
+    }
 }
