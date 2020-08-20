@@ -4279,7 +4279,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     // APIでのデータ取得を実行して、チャートの描画を実行する
-    axios.get("/api/cost/amounts/daily/" + this.year + "/" + this.month + "/").then(function (res) {
+    axios.get("/api/cost/amount/daily/" + this.year + "/" + this.month + "/").then(function (res) {
       _this.dailyCostsAmount = res.data;
       _this.lineChartData = Object.assign({}, _this.lineChartData, {
         labels: _this.dailyCostsAmount.map(function (item) {

@@ -28,7 +28,7 @@ export default {
   mounted() {
     // APIでのデータ取得を実行して、チャートの描画を実行する
     axios
-      .get("/api/cost/amounts/daily/" + this.year + "/" + this.month + "/")
+      .get("/api/cost/amount/daily/" + this.year + "/" + this.month + "/")
       .then((res) => {
         this.dailyCostsAmount = res.data;
         this.lineChartData = Object.assign({}, this.lineChartData, {
