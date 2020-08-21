@@ -3,13 +3,13 @@
     <div v-show="loading" class="loader"></div>
     <div v-show="!loading">
       <h2>{{ year }}年 {{ month }}月, {{ month - 1 }}月 経費計上合計金額推移</h2>
-      <line-chart :chartData="lineChartData" :height="295" ref="chart"></line-chart>
+      <cost-line-chart :chartData="lineChartData" :height="295" ref="chart"></cost-line-chart>
     </div>
   </div>
 </template>
 
 <script>
-import LineChart from "../../../module/LineChart";
+import CostLineChart from "../../../module/CostLineChart";
 export default {
   props: {
     year: Number,
@@ -23,7 +23,7 @@ export default {
     };
   },
   components: {
-    LineChart,
+    CostLineChart,
   },
   mounted() {
     // APIでのデータ取得を実行して、チャートの描画を実行する
@@ -31,7 +31,6 @@ export default {
       .get("/api/cost/amounts/daily/" + this.year + "/" + this.month + "/")
       .then((res) => {
         this.dailyCostsAmounts = res.data;
-        //console.log(this.dailyCostsAmounts);
         this.lineChartData = Object.assign({}, this.lineChartData, {
           labels: this.dailyCostsAmounts.selected.map((item) => item.day),
           datasets: [

@@ -3,13 +3,13 @@
     <div v-show="loading" class="loader"></div>
     <div v-show="!loading">
       <h2>{{ year }}年 {{ month }}月 経費計上金額推移</h2>
-      <line-chart :chartData="lineChartData" :height="295" ref="chart"></line-chart>
+      <cost-line-chart :chartData="lineChartData" :height="295" ref="chart"></cost-line-chart>
     </div>
   </div>
 </template>
 
 <script>
-import LineChart from "../../../module/LineChart";
+import CostLineChart from "../../../module/CostLineChart";
 export default {
   props: {
     year: Number,
@@ -23,7 +23,7 @@ export default {
     };
   },
   components: {
-    LineChart,
+    CostLineChart,
   },
   mounted() {
     // APIでのデータ取得を実行して、チャートの描画を実行する
