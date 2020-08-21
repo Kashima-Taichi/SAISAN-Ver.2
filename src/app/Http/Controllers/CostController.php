@@ -83,13 +83,33 @@ class CostController extends Controller
         return Cost::select(['id', 'accountName', 'price', 'journal', 'day'])->whereRaw('year = ? and month = ? and accountAlpha =?', array($year, $month, $account))->get();
     }
 
-    // 日別の経費計上合計金額を取得
+    // 日別の経費計上合計金額を取得(単月)
     public function getDailyAmountCostData($year, $month) {
         $param = ['year' => $year, 'month' => $month];
         $lineGraphData = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
         foreach ($lineGraphData as $key => $value) {
             if ($key !== 0) {
                 $lineGraphData[$key]->dayAmount = $lineGraphData[$key-1]->dayAmount + $lineGraphData[$key]->dayAmount;
+            }
+        }
+        return $lineGraphData;
+    }
+
+    // 日別の経費計上合計金額を取得(複数月)
+    public function getDailyAmountsCostData($year, $month) {
+        $param = ['year' => $year, 'month' => $month];
+        // 選択月
+        $lineGraphData['selected'] = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month GROUP BY day', $param);
+        foreach ($lineGraphData['selected'] as $key => $value) {
+            if ($key !== 0) {
+                $lineGraphData['selected'][$key]->dayAmount = $lineGraphData['selected'][$key-1]->dayAmount + $lineGraphData['selected'][$key]->dayAmount;
+            }
+        }
+        // 選択月マイナス1月
+        $lineGraphData['minus'] = DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE year = :year AND month = :month - 1 GROUP BY day', $param);
+        foreach ($lineGraphData['minus'] as $key => $value) {
+            if ($key !== 0) {
+                $lineGraphData['minus'][$key]->dayAmount = $lineGraphData['minus'][$key-1]->dayAmount + $lineGraphData['minus'][$key]->dayAmount;
             }
         }
         return $lineGraphData;
