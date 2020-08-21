@@ -32,6 +32,14 @@
             </router-link>
           </td>
         </tr>
+        <tr>
+          <th scope="row">貯蓄可能額推移(全期間)</th>
+          <td>
+            <router-link v-bind:to="{name: 'graph.salary.saving'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>

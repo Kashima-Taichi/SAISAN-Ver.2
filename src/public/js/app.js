@@ -4092,6 +4092,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -4105,7 +4113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _module_LineChart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../module/LineChart */ "./resources/js/components/module/LineChart.vue");
+/* harmony import */ var _module_CostLineChart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../module/CostLineChart */ "./resources/js/components/module/CostLineChart.vue");
 //
 //
 //
@@ -4130,7 +4138,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    LineChart: _module_LineChart__WEBPACK_IMPORTED_MODULE_0__["default"]
+    CostLineChart: _module_CostLineChart__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   mounted: function mounted() {
     var _this = this;
@@ -4256,7 +4264,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _module_LineChart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../module/LineChart */ "./resources/js/components/module/LineChart.vue");
+/* harmony import */ var _module_CostLineChart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../module/CostLineChart */ "./resources/js/components/module/CostLineChart.vue");
 //
 //
 //
@@ -4281,7 +4289,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    LineChart: _module_LineChart__WEBPACK_IMPORTED_MODULE_0__["default"]
+    CostLineChart: _module_CostLineChart__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   mounted: function mounted() {
     var _this = this;
@@ -4407,7 +4415,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _module_LineChart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../module/LineChart */ "./resources/js/components/module/LineChart.vue");
+/* harmony import */ var _module_CostLineChart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../module/CostLineChart */ "./resources/js/components/module/CostLineChart.vue");
 //
 //
 //
@@ -4432,15 +4440,14 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    LineChart: _module_LineChart__WEBPACK_IMPORTED_MODULE_0__["default"]
+    CostLineChart: _module_CostLineChart__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   mounted: function mounted() {
     var _this = this;
 
     // APIでのデータ取得を実行して、チャートの描画を実行する
     axios.get("/api/cost/amounts/daily/" + this.year + "/" + this.month + "/").then(function (res) {
-      _this.dailyCostsAmounts = res.data; //console.log(this.dailyCostsAmounts);
-
+      _this.dailyCostsAmounts = res.data;
       _this.lineChartData = Object.assign({}, _this.lineChartData, {
         labels: _this.dailyCostsAmounts.selected.map(function (item) {
           return item.day;
@@ -4553,6 +4560,82 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getCostYearMonth();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _module_SalaryLineChart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../module/SalaryLineChart */ "./resources/js/components/module/SalaryLineChart.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    year: Number,
+    month: Number
+  },
+  data: function data() {
+    return {
+      loading: true,
+      salaryData: [],
+      lineChartData: {}
+    };
+  },
+  components: {
+    SalaryLineChart: _module_SalaryLineChart__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    // APIでのデータ取得を実行して、チャートの描画を実行する
+    axios.get("/api/salary/all/").then(function (res) {
+      _this.salaryData = res.data;
+      _this.lineChartData = Object.assign({}, _this.lineChartData, {
+        labels: _this.salaryData.map(function (item) {
+          return item.yearMonth;
+        }),
+        datasets: [{
+          label: ["総支給額"],
+          fill: false,
+          borderColor: "#FF6928",
+          data: _this.salaryData.map(function (item) {
+            return item.totalSalary;
+          }),
+          hoverRadius: 10
+        }, {
+          label: ["手取額"],
+          fill: false,
+          borderColor: "#4DF9B9",
+          data: _this.salaryData.map(function (item) {
+            return item.netIncome;
+          }),
+          hoverRadius: 10
+        }]
+      });
+
+      _this.$nextTick(function () {
+        _this.$refs.chart.renderLineChart();
+      });
+
+      _this.loading = false;
+    });
   }
 });
 
@@ -5127,10 +5210,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/LineChart.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/module/LineChart.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/CostLineChart.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/module/CostLineChart.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5155,6 +5238,44 @@ __webpack_require__.r(__webpack_exports__);
               min: -100000,
               max: 100000,
               stepSize: 2000
+            }
+          }]
+        }
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/SalaryLineChart.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/module/SalaryLineChart.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Line"],
+  props: {
+    chartData: {
+      type: Object
+    }
+  },
+  methods: {
+    renderLineChart: function renderLineChart() {
+      this.renderChart(this.chartData, {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              min: 0,
+              max: 400000,
+              stepSize: 40000
             }
           }]
         }
@@ -84148,6 +84269,28 @@ var render = function() {
             ],
             1
           )
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("th", { attrs: { scope: "row" } }, [
+            _vm._v("貯蓄可能額推移(全期間)")
+          ]),
+          _vm._v(" "),
+          _c(
+            "td",
+            [
+              _c(
+                "router-link",
+                { attrs: { to: { name: "graph.salary.saving" } } },
+                [
+                  _c("button", { staticClass: "btn btn-primary" }, [
+                    _vm._v("GO!")
+                  ])
+                ]
+              )
+            ],
+            1
+          )
         ])
       ])
     ])
@@ -84220,7 +84363,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("line-chart", {
+        _c("cost-line-chart", {
           ref: "chart",
           attrs: { chartData: _vm.lineChartData, height: 295 }
         })
@@ -84454,7 +84597,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("line-chart", {
+        _c("cost-line-chart", {
           ref: "chart",
           attrs: { chartData: _vm.lineChartData, height: 295 }
         })
@@ -84690,7 +84833,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("line-chart", {
+        _c("cost-line-chart", {
           ref: "chart",
           attrs: { chartData: _vm.lineChartData, height: 295 }
         })
@@ -84864,6 +85007,65 @@ var render = function() {
           ]
         )
       ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=template&id=6e8105d7&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=template&id=6e8105d7& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.loading,
+          expression: "loading"
+        }
+      ],
+      staticClass: "loader"
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: !_vm.loading,
+            expression: "!loading"
+          }
+        ]
+      },
+      [
+        _c("h2", [_vm._v("総支給給与と手取り額の推移")]),
+        _vm._v(" "),
+        _c("salary-line-chart", {
+          ref: "chart",
+          attrs: { chartData: _vm.lineChartData, height: 295 }
+        })
+      ],
+      1
     )
   ])
 }
@@ -104062,8 +104264,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_graph_cost_dailyAmounts_DailyCostsAmountsComponent__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./components/graph/cost/dailyAmounts/DailyCostsAmountsComponent */ "./resources/js/components/graph/cost/dailyAmounts/DailyCostsAmountsComponent.vue");
 /* harmony import */ var _components_graph_cost_daily_GraphCostSelectYearMonth__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./components/graph/cost/daily/GraphCostSelectYearMonth */ "./resources/js/components/graph/cost/daily/GraphCostSelectYearMonth.vue");
 /* harmony import */ var _components_graph_cost_daily_DailyCostsComponent__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./components/graph/cost/daily/DailyCostsComponent */ "./resources/js/components/graph/cost/daily/DailyCostsComponent.vue");
-/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
-/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
+/* harmony import */ var _components_graph_salary_saving_SavingComponent__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./components/graph/salary/saving/SavingComponent */ "./resources/js/components/graph/salary/saving/SavingComponent.vue");
+/* harmony import */ var _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./components/other/OtherMenuComponent */ "./resources/js/components/other/OtherMenuComponent.vue");
+/* harmony import */ var _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./components/other/DumpDatabaseComponent */ "./resources/js/components/other/DumpDatabaseComponent.vue");
 /**
  * 独自で実装したComponentを下記にて取り込む
  */
@@ -104127,6 +104330,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
  // グラフ参照
+
 
 
 
@@ -104488,36 +104692,42 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     component: _components_graph_GraphMenuComponent__WEBPACK_IMPORTED_MODULE_52__["default"]
   }, {
     /* 経費計上折れ線グラフ(日別の計上合計金額推移)(単月)年月選択 */
-    path: '/grap/cost/daily/amount/select-ym/',
+    path: '/graph/cost/daily/amount/select-ym/',
     name: 'graph.graph.cost.daily-amount-select',
     component: _components_graph_cost_dailyAmount_GraphCostAmountSelectYearMonth__WEBPACK_IMPORTED_MODULE_53__["default"]
   }, {
     /* 経費計上折れ線グラフ(日別の計上合計金額推移)(単月) */
-    path: '/grap/cost/daily/amount/:year/:month/',
+    path: '/graph/cost/daily/amount/:year/:month/',
     name: 'graph.cost.daily-amount',
     component: _components_graph_cost_dailyAmount_DailyCostsAmountComponent__WEBPACK_IMPORTED_MODULE_54__["default"],
     props: true
   }, {
     /* 経費計上折れ線グラフ(日別の計上合計金額推移)(複数月)年月選択 */
-    path: '/grap/cost/daily/amounts/select-ym/',
+    path: '/graph/cost/daily/amounts/select-ym/',
     name: 'graph.graph.cost.daily-amounts-select',
     component: _components_graph_cost_dailyAmounts_GraphCostAmountsSelectYearMonth__WEBPACK_IMPORTED_MODULE_55__["default"]
   }, {
     /* 経費計上折れ線グラフ(日別の計上合計金額推移)(複数月) */
-    path: '/grap/cost/daily/amounts/:year/:month/',
+    path: '/graph/cost/daily/amounts/:year/:month/',
     name: 'graph.cost.daily-amounts',
     component: _components_graph_cost_dailyAmounts_DailyCostsAmountsComponent__WEBPACK_IMPORTED_MODULE_56__["default"],
     props: true
   }, {
     /* 経費計上折れ線グラフ(日別の計上金額推移)年月選択 */
-    path: '/grap/cost/daily/select-ym/',
+    path: '/graph/cost/daily/select-ym/',
     name: 'graph.graph.cost.daily-select',
     component: _components_graph_cost_daily_GraphCostSelectYearMonth__WEBPACK_IMPORTED_MODULE_57__["default"]
   }, {
     /* 経費計上折れ線グラフ(日別の計上金額推移) */
-    path: '/grap/cost/daily/:year/:month/',
+    path: '/graph/cost/daily/:year/:month/',
     name: 'graph.cost.daily',
     component: _components_graph_cost_daily_DailyCostsComponent__WEBPACK_IMPORTED_MODULE_58__["default"],
+    props: true
+  }, {
+    /* 月次貯蓄可能額推移 */
+    path: '/graph/salary/saving/',
+    name: 'graph.salary.saving',
+    component: _components_graph_salary_saving_SavingComponent__WEBPACK_IMPORTED_MODULE_59__["default"],
     props: true
   },
   /*
@@ -104529,12 +104739,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
     /* その他トップ */
     path: '/other/',
     name: 'saisan.other',
-    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_59__["default"]
+    component: _components_other_OtherMenuComponent__WEBPACK_IMPORTED_MODULE_60__["default"]
   }, {
     /* データベースのダンプコマンド出力 */
     path: '/other/dump/',
     name: 'other.dump',
-    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_60__["default"]
+    component: _components_other_DumpDatabaseComponent__WEBPACK_IMPORTED_MODULE_61__["default"]
   }]
 });
 /**
@@ -107090,6 +107300,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/graph/salary/saving/SavingComponent.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/graph/salary/saving/SavingComponent.vue ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SavingComponent_vue_vue_type_template_id_6e8105d7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SavingComponent.vue?vue&type=template&id=6e8105d7& */ "./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=template&id=6e8105d7&");
+/* harmony import */ var _SavingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SavingComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SavingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SavingComponent_vue_vue_type_template_id_6e8105d7___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SavingComponent_vue_vue_type_template_id_6e8105d7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/graph/salary/saving/SavingComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SavingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./SavingComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SavingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=template&id=6e8105d7&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=template&id=6e8105d7& ***!
+  \********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SavingComponent_vue_vue_type_template_id_6e8105d7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./SavingComponent.vue?vue&type=template&id=6e8105d7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/graph/salary/saving/SavingComponent.vue?vue&type=template&id=6e8105d7&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SavingComponent_vue_vue_type_template_id_6e8105d7___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SavingComponent_vue_vue_type_template_id_6e8105d7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/hour/HourDeleteDoneComponent.vue":
 /*!******************************************************************!*\
   !*** ./resources/js/components/hour/HourDeleteDoneComponent.vue ***!
@@ -107711,16 +107990,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/module/LineChart.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/components/module/LineChart.vue ***!
-  \******************************************************/
+/***/ "./resources/js/components/module/CostLineChart.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/module/CostLineChart.vue ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _LineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LineChart.vue?vue&type=script&lang=js& */ "./resources/js/components/module/LineChart.vue?vue&type=script&lang=js&");
+/* harmony import */ var _CostLineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CostLineChart.vue?vue&type=script&lang=js& */ "./resources/js/components/module/CostLineChart.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 var render, staticRenderFns
 
@@ -107730,7 +108009,7 @@ var render, staticRenderFns
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  _LineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  _CostLineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
   render,
   staticRenderFns,
   false,
@@ -107742,22 +108021,72 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/module/LineChart.vue"
+component.options.__file = "resources/js/components/module/CostLineChart.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/module/LineChart.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/module/LineChart.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/components/module/CostLineChart.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/module/CostLineChart.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./LineChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/LineChart.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CostLineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CostLineChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/CostLineChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CostLineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/module/SalaryLineChart.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/module/SalaryLineChart.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SalaryLineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SalaryLineChart.vue?vue&type=script&lang=js& */ "./resources/js/components/module/SalaryLineChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _SalaryLineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/module/SalaryLineChart.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/module/SalaryLineChart.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/module/SalaryLineChart.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalaryLineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SalaryLineChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/SalaryLineChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SalaryLineChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

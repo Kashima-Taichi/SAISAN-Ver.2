@@ -69,6 +69,7 @@ import GraphCostAmountsSelectYearMonth from "./components/graph/cost/dailyAmount
 import DailyCostsAmountsComponent from "./components/graph/cost/dailyAmounts/DailyCostsAmountsComponent";
 import GraphCostSelectYearMonth from "./components/graph/cost/daily/GraphCostSelectYearMonth";
 import DailyCostsComponent from "./components/graph/cost/daily/DailyCostsComponent";
+import SavingComponent from "./components/graph/salary/saving/SavingComponent";
 // その他の機能
 import OtherMenuComponent from "./components/other/OtherMenuComponent";
 import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";
@@ -180,12 +181,13 @@ const router = new VueRouter({
         |--------------------------------------------------------------------------
         | Graphノ部のルーティングは下記にて実装 */
         { /* グラフトップ */ path: '/graph/', name: 'saisan.graph', component: GraphMenuComponent },
-        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(単月)年月選択 */ path: '/grap/cost/daily/amount/select-ym/', name: 'graph.graph.cost.daily-amount-select', component: GraphCostAmountSelectYearMonth },
-        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(単月) */ path: '/grap/cost/daily/amount/:year/:month/', name: 'graph.cost.daily-amount', component: DailyCostsAmountComponent, props: true },
-        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(複数月)年月選択 */ path: '/grap/cost/daily/amounts/select-ym/', name: 'graph.graph.cost.daily-amounts-select', component: GraphCostAmountsSelectYearMonth },
-        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(複数月) */ path: '/grap/cost/daily/amounts/:year/:month/', name: 'graph.cost.daily-amounts', component: DailyCostsAmountsComponent, props: true },
-        { /* 経費計上折れ線グラフ(日別の計上金額推移)年月選択 */ path: '/grap/cost/daily/select-ym/', name: 'graph.graph.cost.daily-select', component: GraphCostSelectYearMonth },
-        { /* 経費計上折れ線グラフ(日別の計上金額推移) */ path: '/grap/cost/daily/:year/:month/', name: 'graph.cost.daily', component: DailyCostsComponent, props: true },
+        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(単月)年月選択 */ path: '/graph/cost/daily/amount/select-ym/', name: 'graph.graph.cost.daily-amount-select', component: GraphCostAmountSelectYearMonth },
+        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(単月) */ path: '/graph/cost/daily/amount/:year/:month/', name: 'graph.cost.daily-amount', component: DailyCostsAmountComponent, props: true },
+        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(複数月)年月選択 */ path: '/graph/cost/daily/amounts/select-ym/', name: 'graph.graph.cost.daily-amounts-select', component: GraphCostAmountsSelectYearMonth },
+        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(複数月) */ path: '/graph/cost/daily/amounts/:year/:month/', name: 'graph.cost.daily-amounts', component: DailyCostsAmountsComponent, props: true },
+        { /* 経費計上折れ線グラフ(日別の計上金額推移)年月選択 */ path: '/graph/cost/daily/select-ym/', name: 'graph.graph.cost.daily-select', component: GraphCostSelectYearMonth },
+        { /* 経費計上折れ線グラフ(日別の計上金額推移) */ path: '/graph/cost/daily/:year/:month/', name: 'graph.cost.daily', component: DailyCostsComponent, props: true },
+        { /* 月次貯蓄可能額推移 */ path: '/graph/salary/saving/', name: 'graph.salary.saving', component: SavingComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Others routes
