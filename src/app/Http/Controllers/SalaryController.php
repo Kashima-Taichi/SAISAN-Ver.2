@@ -62,4 +62,9 @@ class SalaryController extends Controller
     public function getPlSalaryData($year, $month) {
         return Salary::select(['totalSalary','netIncome'])->whereRaw('year = ? and month = ?', [$year, $month])->first();
     }
+
+    // グラフ参照用の収入情報の取得
+    public function getAllSalaryData() {
+        return Salary::select(['totalSalary','netIncome', 'yearMonth'])->get();
+    }
 }

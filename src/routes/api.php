@@ -124,6 +124,9 @@ Route::get('/salary/year/', 'SalaryController@getSalaryYear');
 // 個別の収入情報を取得
 Route::get('/salary/detail/{id}/', 'SalaryController@getIndividualSalaryData');
 
+// グラフ参照機能用の総支給学と手取り額のデータを取得
+Route::get('/salary/all/', 'SalaryController@getAllSalaryData');
+
 // 所得明細修正
 Route::put('/salary/edit/', 'SalaryController@edit');
 
