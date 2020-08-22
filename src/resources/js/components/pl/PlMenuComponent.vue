@@ -16,6 +16,14 @@
             </router-link>
           </td>
         </tr>
+        <tr>
+          <th scope="row">PL参照(年次)</th>
+          <td>
+            <router-link v-bind:to="{name: 'pl.select-y'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
