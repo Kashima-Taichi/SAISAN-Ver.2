@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Hour;
 use Illuminate\Http\Request;
+use DB;
 
 class HourController extends Controller
 {
@@ -58,8 +59,13 @@ class HourController extends Controller
         return;
     }
 
-    // サイトトップで使用する稼働時間データの取得
-    public function getPlHourData($year, $month) {
+    // PL出力用のデータ取得(月次)
+    public function getMonthlyPlHourData($year, $month) {
         return Hour::select(['fixedTime','overTime'])->whereRaw('year = ? and month = ?', [$year, $month])->first();
+    }
+
+    // PL出力用のデータ取得(年次)
+    public function getYearlyPlHourData($year) {
+        return DB::select('SELECT sum(fixedTime) fixedTime, sum(overTime) overTime FROM hours WHERE year = :year GROUP BY year', ['year' => $year]);
     }
 }

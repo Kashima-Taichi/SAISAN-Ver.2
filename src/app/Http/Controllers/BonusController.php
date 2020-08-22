@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Bonus;
+use DB;
 
 class BonusController extends Controller
 {
@@ -51,8 +52,13 @@ class BonusController extends Controller
         return;
     }
 
-    // APIでPL用の賞与情報を取得
-    public function getPlBonusData($year, $month) {
+    // APIでPL用の賞与情報を取得(月次)
+    public function getMonthlyPlBonusData($year, $month) {
         return Bonus::select(['totalBonus', 'netIncome'])->whereRaw('year = ? and month = ?', [$year, $month])->first();
+    }
+
+    // APIでPL用の賞与情報を取得(年次)
+    public function getYearlyPlBonusData($year) {
+        return DB::select('SELECT sum(totalBonus) totalBonus, sum(netIncome) netIncome FROM bonuses WHERE year = :year GROUP BY year', ['year' => $year]);
     }
 }

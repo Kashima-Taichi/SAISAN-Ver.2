@@ -73,9 +73,14 @@ class CostController extends Controller
         return Cost::groupBy('month')->get('month');
     }
 
-    // PL用の経費計上データを取得
-    public function getPlCostData($year, $month) {
+    // PL用の経費計上データを取得(月次)
+    public function getMonthlyPlCostData($year, $month) {
         return DB::select('SELECT accountName, sum(price) accountAmount, accountAlpha FROM costs WHERE year = :year AND month = :month GROUP BY accountName, accountAlpha', ['year' => $year, 'month' => $month]);
+    }
+
+    // PL用の経費計上データを取得(年次)
+    public function getYearlyPlCostData($year) {
+        return DB::select('SELECT accountName, sum(price) accountAmount, accountAlpha FROM costs WHERE year = :year GROUP BY accountName, accountAlpha', ['year' => $year]);
     }
 
     // 勘定科目別の経費計上データの取得

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Salary;
+use DB;
 
 class SalaryController extends Controller
 {
@@ -58,9 +59,14 @@ class SalaryController extends Controller
         return;
     }
 
-    // サイトトップで使用する当月の所得情報の取得
-    public function getPlSalaryData($year, $month) {
+    // PL用のデータ取得(月次)
+    public function getMonthlyPlSalaryData($year, $month) {
         return Salary::select(['totalSalary','netIncome'])->whereRaw('year = ? and month = ?', [$year, $month])->first();
+    }
+
+    // PL用のデータ取得(年次)
+    public function getYearlyPlSalaryData($year) {
+        return DB::select('SELECT sum(totalSalary) totalSalary, sum(netIncome) netIncome FROM salaries WHERE year = :year GROUP BY year', ['year' => $year]);
     }
 
     // グラフ参照用の収入情報の取得

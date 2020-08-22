@@ -24,8 +24,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 | 経費関係のAPIルーティングは下記にて実装する。
 */
 
-// PL用データの取得(単月)
-Route::get('/cost/pl/{year}/{month}/', 'CostController@getPlCostData');
+// PL用データの取得(月次)
+Route::get('/cost/pl/{year}/{month}/', 'CostController@getMonthlyPlCostData');
+
+// PL用データの取得(年次)
+Route::get('/cost/pl/{year}/', 'CostController@getYearlyPlCostData');
 
 // 経費計上
 Route::post('/cost/store/', 'CostController@store');
@@ -74,8 +77,11 @@ Route::delete('/cost/delete/{id}/', 'CostController@delete');
 | 時間関係のAPIルーティングは下記にて実装する。
 */
 
-// PL用データの取得
-Route::get('/hour/pl/{year}/{month}/', 'HourController@getPlHourData');
+// PL用データの取得(月次)
+Route::get('/hour/pl/{year}/{month}/', 'HourController@getMonthlyPlHourData');
+
+// PL用データの取得(年次)
+Route::get('/hour/pl/{year}/', 'HourController@getYearlyPlHourData');
 
 // 稼働時間計上
 Route::post('/hour/store/', 'HourController@store');
@@ -106,8 +112,11 @@ Route::delete('/hour/delete/{id}/', 'HourController@delete');
 | 収入関係のAPIルーティングは下記にて実装する。
 */
 
-// PL用データの取得
-Route::get('/salary/pl/{year}/{month}/', 'SalaryController@getPlSalaryData');
+// PL用データの取得(月次)
+Route::get('/salary/pl/{year}/{month}/', 'SalaryController@getMonthlyPlSalaryData');
+
+// PL用データの取得(年次)
+Route::get('/salary/pl/{year}/', 'SalaryController@getYearlyPlSalaryData');
 
 // 収入計上
 Route::post('/salary/store/', 'SalaryController@store');
@@ -170,8 +179,11 @@ Route::delete('/account/delete/{id}/', 'AccountController@delete');
 | 賞与関係のAPIルーティングは下記にて実装する。
 */
 
-// PL用データの取得
-Route::get('/bonus/pl/{year}/{month}/', 'BonusController@getPlBonusData');
+// PL用データの取得(月次)
+Route::get('/bonus/pl/{year}/{month}/', 'BonusController@getMonthlyPlBonusData');
+
+// PL用データの取得(年次)
+Route::get('/bonus/pl/{year}/', 'BonusController@getYearlyPlBonusData');
 
 // 賞与計上
 Route::post('/bonus/store/', 'BonusController@store');
