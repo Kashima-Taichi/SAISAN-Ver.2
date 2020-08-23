@@ -139,6 +139,9 @@ Route::get('/salary/detail/{id}/', 'SalaryController@getIndividualSalaryData');
 // グラフ参照機能用の総支給学と手取り額のデータを取得
 Route::get('/salary/all/', 'SalaryController@getAllSalaryData');
 
+// グラフ参照機能用の純利益データの取得
+Route::get('/salary/profit/', 'SalaryController@getAllProfitData');
+
 // 所得明細修正
 Route::put('/salary/edit/', 'SalaryController@edit');
 

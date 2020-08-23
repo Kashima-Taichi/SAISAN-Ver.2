@@ -71,6 +71,18 @@ class SalaryController extends Controller
 
     // グラフ参照用の収入情報の取得
     public function getAllSalaryData() {
-        return Salary::select(['totalSalary','netIncome', 'yearMonth'])->get();
+        return Salary::select(['totalSalary', 'netIncome', 'yearMonth'])->get();
+    }
+
+    // グラフ参照用の収入情報の取得
+    public function getAllProfitData() {
+        $costData = DB::select('SELECT concat(year,month) timeStamp, sum(price) Amount FROM costs GROUP BY year, month');
+        $salaryData = Salary::select(['totalSalary', 'netIncome', 'yearMonth'])->get();
+        $cnt = 0;
+        foreach ($salaryData as $item) {
+            $chartData[$item->yearMonth] = $item->netIncome - $costData[$cnt]->Amount;
+            $cnt++;
+        }
+        return $chartData;
     }
 }
