@@ -41,6 +41,14 @@
           </td>
         </tr>
         <tr>
+          <th scope="row">月別利益(全期間)</th>
+          <td>
+            <router-link v-bind:to="{name: 'graph.salary.profit'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
+        <tr>
           <th scope="row">経費計上円グラフ(月別)</th>
           <td>
             <router-link v-bind:to="{name: 'graph.pie.cost-select'}">
