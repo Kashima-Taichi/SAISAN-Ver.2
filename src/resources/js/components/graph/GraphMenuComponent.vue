@@ -33,6 +33,14 @@
           </td>
         </tr>
         <tr>
+          <th scope="row">科目別月別経費計上金額推移</th>
+          <td>
+            <router-link v-bind:to="{name: 'graph.cost.monthly-account-select'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
+        <tr>
           <th scope="row">給与総額・手取額(全期間)</th>
           <td>
             <router-link v-bind:to="{name: 'graph.salary.saving'}">
@@ -51,7 +59,7 @@
         <tr>
           <th scope="row">経費計上円グラフ(月別)</th>
           <td>
-            <router-link v-bind:to="{name: 'graph.pie.cost-select'}">
+            <router-link v-bind:to="{name: 'graph.donut.cost-select'}">
               <button class="btn btn-primary">GO!</button>
             </router-link>
           </td>
