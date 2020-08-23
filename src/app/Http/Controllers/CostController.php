@@ -132,4 +132,10 @@ class CostController extends Controller
         $lineGraphData = DB::select('SELECT accountName, sum(price) accountAmount FROM costs WHERE year = :year AND month = :month GROUP BY accountName', $param);
         return $lineGraphData;
     }
+
+    public function getMonthlyAccountAmountCostData($account) {
+        $param = ['account' => $account];
+        $lineGraphData = DB::select('SELECT concat(year,month) timeStamp, sum(price) accountAmount FROM costs WHERE accountAlpha = :account group by year, month, accountAlpha', $param);
+        return $lineGraphData;
+    }
 }

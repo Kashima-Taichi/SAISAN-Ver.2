@@ -66,6 +66,9 @@ Route::get('/cost/amounts/daily/{year}/{month}/', 'CostController@getDailyAmount
 // 月別の経費計上合計金額のデータを取得
 Route::get('/cost/account/monthly/{year}/{month}/', 'CostController@getMonthlyAccountCostData');
 
+// 科目別月別の経費計上金額データの取得
+Route::get('/cost/monthly/{account}', 'CostController@getMonthlyAccountAmountCostData');
+
 // 経費明細修正
 Route::put('/cost/edit/', 'CostController@edit');
 
