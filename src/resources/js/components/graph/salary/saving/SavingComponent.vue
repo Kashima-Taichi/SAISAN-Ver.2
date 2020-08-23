@@ -11,10 +11,6 @@
 <script>
 import SalaryLineChart from "../../../module/SalaryLineChart";
 export default {
-  props: {
-    year: Number,
-    month: Number,
-  },
   data() {
     return {
       loading: true,
@@ -56,4 +52,3 @@ export default {
   },
 };
 </script>
-labels: this.dailyCostsAmount.map((item) => item.day),
