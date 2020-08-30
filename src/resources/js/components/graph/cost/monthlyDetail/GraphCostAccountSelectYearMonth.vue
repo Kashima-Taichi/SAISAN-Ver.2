@@ -56,7 +56,7 @@ export default {
     },
     submit() {
       this.$router.push({
-        name: "graph.pie.cost-account",
+        name: "graph.donut.cost-account",
         params: { year: this.year, month: this.month },
       });
     },
