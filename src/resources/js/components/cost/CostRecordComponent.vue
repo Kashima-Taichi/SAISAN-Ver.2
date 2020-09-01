@@ -5,19 +5,31 @@
       <div class="row justify-content-center">
         <div class="col-sm-6">
           <form v-on:submit.prevent="submit">
-            <div class="form-group row">
-              <label for="year" class="col-sm-3 col-form-label">Year</label>
-              <input type="text" class="col-sm-9 form-control" id="year" v-model="cost.year" />
-            </div>
-            <div class="form-group row">
-              <label for="month" class="col-sm-3 col-form-label">Month</label>
-              <input type="text" class="col-sm-9 form-control" id="month" v-model="cost.month" />
-            </div>
-            <div class="form-group row">
-              <label for="day" class="col-sm-3 col-form-label">Day</label>
-              <input type="text" class="col-sm-9 form-control" id="day" v-model="cost.day" />
-            </div>
-            <div class="form-group row">
+            <validation-provider rules="required" v-slot="{ errors }">
+              <div class="form-group row mb-5 mt-5">
+                <label for="year" class="col-sm-3 col-form-label">Year</label>
+                <input type="text" class="col-sm-9 form-control" id="year" v-model="cost.year" />
+                <span class="mt-2 txt-tm">{{ errors[0] }}</span>
+              </div>
+            </validation-provider>
+
+            <validation-provider rules="required" v-slot="{ errors }">
+              <div class="form-group row mb-5">
+                <label for="month" class="col-sm-3 col-form-label">Month</label>
+                <input type="text" class="col-sm-9 form-control" id="month" v-model="cost.month" />
+                <span class="mt-2 txt-tm">{{ errors[0] }}</span>
+              </div>
+            </validation-provider>
+
+            <validation-provider rules="required" v-slot="{ errors }">
+              <div class="form-group row mb-5">
+                <label for="day" class="col-sm-3 col-form-label">Day</label>
+                <input type="text" class="col-sm-9 form-control" id="day" v-model="cost.day" />
+                <span class="mt-2 txt-tm">{{ errors[0] }}</span>
+              </div>
+            </validation-provider>
+
+            <div class="form-group row mb-5">
               <label for="account-name" class="col-sm-3 col-form-label">Account</label>
               <select class="col-sm-9 form-control" id="account" v-model="cost.accountName">
                 <option
@@ -27,15 +39,29 @@
                 >{{ account.accountKanji }}</option>
               </select>
             </div>
-            <div class="form-group row">
-              <label for="price" class="col-sm-3 col-form-label">Price</label>
-              <input type="text" class="col-sm-9 form-control" id="price" v-model="cost.price" />
-            </div>
-            <div class="form-group row">
-              <label for="journal" class="col-sm-3 col-form-label">Journal</label>
-              <input type="text" class="col-sm-9 form-control" id="journal" v-model="cost.journal" />
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+
+            <validation-provider rules="required" v-slot="{ errors }">
+              <div class="form-group row mb-5">
+                <label for="price" class="col-sm-3 col-form-label">Price</label>
+                <input type="text" class="col-sm-9 form-control" id="price" v-model="cost.price" />
+                <span class="mt-2 txt-tm">{{ errors[0] }}</span>
+              </div>
+            </validation-provider>
+
+            <validation-provider rules="required" v-slot="{ errors }">
+              <div class="form-group row mb-5">
+                <label for="journal" class="col-sm-3 col-form-label">Journal</label>
+                <input
+                  type="text"
+                  class="col-sm-9 form-control"
+                  id="journal"
+                  v-model="cost.journal"
+                />
+                <span class="mt-2 txt-tm">{{ errors[0] }}</span>
+              </div>
+            </validation-provider>
+
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
           </form>
         </div>
       </div>
@@ -44,6 +70,14 @@
 </template>
 
 <script>
+import { ValidationProvider, extend } from "vee-validate";
+import { required } from "vee-validate/dist/rules";
+
+extend("required", {
+  ...required,
+  message: "This field is required",
+});
+
 export default {
   data: function () {
     return {
@@ -51,6 +85,9 @@ export default {
       accounts: [],
       loading: true,
     };
+  },
+  components: {
+    ValidationProvider,
   },
   methods: {
     submit() {
