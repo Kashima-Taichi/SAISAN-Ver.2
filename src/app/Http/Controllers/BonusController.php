@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Bonus;
+use App\Models\Bonus;
 use DB;
 
 class BonusController extends Controller

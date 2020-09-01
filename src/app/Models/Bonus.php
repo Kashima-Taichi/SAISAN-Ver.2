@@ -1,29 +1,24 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Salary extends Model
+class Bonus extends Model
 {
     // テーブル設定
-    protected $table = 'salaries';
+    protected $table = 'bonuses';
 
     // ホワイトリストの設定
     protected $fillable = [
-        'year',
-        'month',
-        'yearMonth',
-        'totalSalary',
-        'basicSalary',
-        'overtimePay',
+        'totalBonus',
         'healthInsurance',
         'employeePension',
         'employmentInsurance',
         'incomeTax',
-        'residentTax',
-        'otherDeduction',
         'totalDeduction',
         'netIncome',
+        'year',
+        'month',
     ];
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Hour;
+use App\Models\Hour;
 use Illuminate\Http\Request;
 use DB;
 

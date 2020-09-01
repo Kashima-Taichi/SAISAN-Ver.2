@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Cost;
-use App\Account;
+use App\Models\Cost;
+use App\Models\Account;
 use Illuminate\Http\Request;
 use DB;
 
