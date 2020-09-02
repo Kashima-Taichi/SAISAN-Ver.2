@@ -39,7 +39,7 @@
 <script>
 export default {
   props: {
-    year: Number,
+    year: String,
     month: Number,
     day: Number,
   },

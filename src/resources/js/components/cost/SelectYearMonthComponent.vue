@@ -3,17 +3,7 @@
     <div v-show="loading" class="loader"></div>
     <div v-show="!loading">
       <form v-on:submit.prevent="submit">
-        <div class="form-group">
-          <label for="year">please select year</label>
-          <select class="form-control" id="year" v-model="year">
-            <option value>select</option>
-            <option
-              v-for="(year, index) in years"
-              :key="index"
-              v-bind:value="year.year"
-            >{{ year.year }}</option>
-          </select>
-        </div>
+        <select-year-cost v-model="year" @parentMethod="updateFlg"></select-year-cost>
         <div class="form-group">
           <label for="month">please select month</label>
           <select class="form-control" id="month" v-model="month">
@@ -38,11 +28,12 @@
   </div>
 </template>
 <script>
+import SelectYearCost from "../module/SelectYearCost";
+
 export default {
   data: function () {
     return {
       // formで使用するデータ
-      years: [],
       months: [],
       // formから送信するデータ
       year: "",
@@ -51,12 +42,15 @@ export default {
       loading: true,
     };
   },
+  components: {
+    SelectYearCost,
+  },
   methods: {
+    updateFlg() {
+      this.loading = false;
+    },
     // 年月の情報を取得
-    getCostYearMonth() {
-      axios.get("/api/cost/year/").then((res) => {
-        this.years = res.data;
-      });
+    getCostMonth() {
       axios.get("/api/cost/month/").then((res) => {
         this.months = res.data;
         this.loading = false;
@@ -77,7 +71,7 @@ export default {
     },
   },
   mounted() {
-    this.getCostYearMonth();
+    this.getCostMonth();
   },
 };
 </script>
