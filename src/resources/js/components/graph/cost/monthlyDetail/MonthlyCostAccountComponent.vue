@@ -6,8 +6,8 @@ import * as palette from "google-palette";
 export default {
   extends: Doughnut,
   props: {
-    year: Number,
-    month: Number,
+    year: String,
+    month: String,
   },
   data() {
     return {
