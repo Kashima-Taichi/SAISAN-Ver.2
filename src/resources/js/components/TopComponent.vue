@@ -2,8 +2,8 @@
   <div class="container">
     <div v-show="loading" class="loader"></div>
     <div v-show="!loading">
-      <h2>{{ year }}年{{ month }}月度 PL</h2>
-      <table class="table table-hover">
+      <h2 align="center" class="mb-4">{{ year }}年{{ month }}月度 PL</h2>
+      <table class="table table-hover w-50" align="center">
         <thead class="thead-light">
           <tr>
             <th scope="col">項目</th>
