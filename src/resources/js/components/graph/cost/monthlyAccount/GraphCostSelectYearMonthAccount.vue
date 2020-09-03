@@ -30,7 +30,7 @@ export default {
     };
   },
   methods: {
-    // 年月の情報を取得
+    // 勘定科目の情報を取得
     getCostAccount() {
       axios.get("/api/account/list/").then((res) => {
         this.accounts = res.data;
