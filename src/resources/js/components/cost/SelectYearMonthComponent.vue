@@ -4,17 +4,7 @@
     <div v-show="!loading">
       <form v-on:submit.prevent="submit">
         <select-year-cost v-model="year" @parentMethod="updateFlg"></select-year-cost>
-        <div class="form-group">
-          <label for="month">please select month</label>
-          <select class="form-control" id="month" v-model="month">
-            <option value>select</option>
-            <option
-              v-for="(month, index) in months"
-              :key="index"
-              v-bind:value="month.month"
-            >{{ month.month }}</option>
-          </select>
-        </div>
+        <select-month-cost v-model="month" @parentMethod="updateFlg"></select-month-cost>
         <div class="form-group">
           <label for="day">please select day</label>
           <select class="form-control" id="day" v-model="day">
@@ -29,12 +19,11 @@
 </template>
 <script>
 import SelectYearCost from "../module/SelectYearCost";
+import SelectMonthCost from "../module/SelectMonthCost";
 
 export default {
   data: function () {
     return {
-      // formで使用するデータ
-      months: [],
       // formから送信するデータ
       year: "",
       month: "",
@@ -44,17 +33,11 @@ export default {
   },
   components: {
     SelectYearCost,
+    SelectMonthCost,
   },
   methods: {
     updateFlg() {
       this.loading = false;
-    },
-    // 年月の情報を取得
-    getCostMonth() {
-      axios.get("/api/cost/month/").then((res) => {
-        this.months = res.data;
-        this.loading = false;
-      });
     },
     submit() {
       if (this.day === "") {
@@ -69,9 +52,6 @@ export default {
         });
       }
     },
-  },
-  mounted() {
-    this.getCostMonth();
   },
 };
 </script>

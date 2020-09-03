@@ -40,7 +40,7 @@
 export default {
   props: {
     year: String,
-    month: Number,
+    month: String,
     day: Number,
   },
   data: function () {
