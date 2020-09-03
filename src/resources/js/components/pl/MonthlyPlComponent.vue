@@ -69,8 +69,8 @@
 <script>
 export default {
   props: {
-    year: Number,
-    month: Number,
+    year: String,
+    month: String,
   },
   data: function () {
     return {

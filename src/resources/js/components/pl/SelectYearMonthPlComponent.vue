@@ -3,56 +3,33 @@
     <div v-show="loading" class="loader"></div>
     <div v-show="!loading">
       <form v-on:submit.prevent="submit">
-        <div class="form-group">
-          <label for="year">please select year</label>
-          <select class="form-control" id="year" v-model="year">
-            <option value>select</option>
-            <option
-              v-for="(year, index) in years"
-              :key="index"
-              v-bind:value="year.year"
-            >{{ year.year }}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="month">please select month</label>
-          <select class="form-control" id="month" v-model="month">
-            <option value>select</option>
-            <option
-              v-for="(month, index) in months"
-              :key="index"
-              v-bind:value="month.month"
-            >{{ month.month }}</option>
-          </select>
-        </div>
+        <select-year-cost v-model="year" @parentMethod="updateFlg"></select-year-cost>
+        <select-month-cost v-model="month" @parentMethod="updateFlg"></select-month-cost>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>
 </template>
 <script>
+import SelectYearCost from "../module/SelectYearCost";
+import SelectMonthCost from "../module/SelectMonthCost";
+
 export default {
   data: function () {
     return {
-      // formで使用するデータ
-      years: [],
-      months: [],
       // formから送信するデータ
       year: "",
       month: "",
       loading: true,
     };
   },
+  components: {
+    SelectYearCost,
+    SelectMonthCost,
+  },
   methods: {
-    // 年月の情報を取得(経費計上実績準拠)
-    getCostYearMonth() {
-      axios.get("/api/cost/year/").then((res) => {
-        this.years = res.data;
-      });
-      axios.get("/api/cost/month/").then((res) => {
-        this.months = res.data;
-        this.loading = false;
-      });
+    updateFlg() {
+      this.loading = false;
     },
     submit() {
       this.$router.push({
@@ -60,9 +37,6 @@ export default {
         params: { year: this.year, month: this.month },
       });
     },
-  },
-  mounted() {
-    this.getCostYearMonth();
   },
 };
 </script>
