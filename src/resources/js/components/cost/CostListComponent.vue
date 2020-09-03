@@ -41,7 +41,7 @@ export default {
   props: {
     year: String,
     month: String,
-    day: Number,
+    day: String,
   },
   data: function () {
     return {

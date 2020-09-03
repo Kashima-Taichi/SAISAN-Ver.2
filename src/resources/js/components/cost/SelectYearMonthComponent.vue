@@ -5,13 +5,7 @@
       <form v-on:submit.prevent="submit">
         <select-year-cost v-model="year" @parentMethod="updateFlg"></select-year-cost>
         <select-month-cost v-model="month" @parentMethod="updateFlg"></select-month-cost>
-        <div class="form-group">
-          <label for="day">please select day</label>
-          <select class="form-control" id="day" v-model="day">
-            <option value>select</option>
-            <option v-for="i in 31" :key="i" :value="i">{{ i }}</option>
-          </select>
-        </div>
+        <select-day-cost v-model="day"></select-day-cost>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
@@ -20,6 +14,7 @@
 <script>
 import SelectYearCost from "../module/SelectYearCost";
 import SelectMonthCost from "../module/SelectMonthCost";
+import SelectDayCost from "../module/SelectDayCost";
 
 export default {
   data: function () {
@@ -34,6 +29,7 @@ export default {
   components: {
     SelectYearCost,
     SelectMonthCost,
+    SelectDayCost,
   },
   methods: {
     updateFlg() {
