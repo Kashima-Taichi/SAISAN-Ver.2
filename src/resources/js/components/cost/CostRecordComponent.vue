@@ -48,6 +48,14 @@
               </div>
             </validation-provider>
 
+            <div class="form-group row mb-5">
+              <label for="dependency" class="col-sm-3 col-form-label">Dependency</label>
+              <select class="col-sm-9 form-control" id="dependency" v-model="cost.dependency">
+                <option value="0">independent</option>
+                <option value="1">dependent</option>
+              </select>
+            </div>
+
             <validation-provider rules="required" v-slot="{ errors }">
               <div class="form-group row mb-5">
                 <label for="journal" class="col-sm-3 col-form-label">Journal</label>

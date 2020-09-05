@@ -18,6 +18,7 @@ class CreateCostsTable extends Migration
             $table->string('accountName', 45);
             $table->string('accountAlpha', 45);
             $table->integer('price');
+            $table->unsignedTinyInteger('dependency');
             $table->string('journal', 45);
             $table->integer('year');
             $table->integer('month');

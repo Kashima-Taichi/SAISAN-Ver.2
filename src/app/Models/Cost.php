@@ -14,6 +14,7 @@ class Cost extends Model
         'accountName',
         'accountAlpha',
         'price',
+        'dependency',
         'journal',
         'year',
         'month',
