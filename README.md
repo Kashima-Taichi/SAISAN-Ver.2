@@ -29,7 +29,7 @@ php artisan key:generate
 最後にマイグレーションしていったん終了!
 php artisan migrate
 
-# 開発していて不思議に感じたこと
+# Vue.jsに関して
 
 1 : 新しくVueコンポーネントを実装してもブラウザで反映されなかった
 　・DockerのNginxコンテナ上だとLaravelの内蔵サーバー起動時と異なり変更がリアルタイムで反映されなかった
