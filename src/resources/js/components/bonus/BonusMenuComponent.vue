@@ -9,7 +9,7 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">賞与計上</th>
+          <th scope="row">賞与を計上</th>
           <td>
             <router-link v-bind:to="{name: 'bonus.rec'}">
               <button class="btn btn-primary">GO!</button>
@@ -17,7 +17,7 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">賞与参照</th>
+          <th scope="row">賞与を参照</th>
           <td>
             <router-link v-bind:to="{name: 'bonus.list.selecty'}">
               <button class="btn btn-primary">GO!</button>

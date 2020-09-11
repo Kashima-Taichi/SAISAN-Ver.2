@@ -9,7 +9,7 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">収入計上</th>
+          <th scope="row">所得を計上</th>
           <td>
             <router-link v-bind:to="{name: 'salary.rec'}">
               <button class="btn btn-primary">GO!</button>
@@ -17,7 +17,7 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">収入参照</th>
+          <th scope="row">所得を参照</th>
           <td>
             <router-link v-bind:to="{name: 'salary.list.selecty'}">
               <button class="btn btn-primary">GO!</button>

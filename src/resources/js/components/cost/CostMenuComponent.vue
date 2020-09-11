@@ -9,7 +9,7 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">経費計上</th>
+          <th scope="row">経費を計上</th>
           <td>
             <router-link v-bind:to="{name: 'cost.rec'}">
               <button class="btn btn-primary">GO!</button>
@@ -17,7 +17,7 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">経費参照</th>
+          <th scope="row">経費を参照(月次・日次)</th>
           <td>
             <router-link v-bind:to="{name: 'cost.list.selectym'}">
               <button class="btn btn-primary">GO!</button>

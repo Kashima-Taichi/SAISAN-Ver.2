@@ -9,7 +9,7 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">勘定科目登録</th>
+          <th scope="row">勘定科目を登録</th>
           <td>
             <router-link v-bind:to="{name: 'account.rec'}">
               <button class="btn btn-primary">GO!</button>
@@ -17,7 +17,7 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">勘定科目参照</th>
+          <th scope="row">勘定科目を参照</th>
           <td>
             <router-link v-bind:to="{name: 'account.list'}">
               <button class="btn btn-primary">GO!</button>

@@ -9,7 +9,7 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">PL参照(月次)</th>
+          <th scope="row">PLを参照(月次)</th>
           <td>
             <router-link v-bind:to="{name: 'pl.select-ym'}">
               <button class="btn btn-primary">GO!</button>
@@ -17,7 +17,7 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">PL参照(年次)</th>
+          <th scope="row">PLを参照(年次)</th>
           <td>
             <router-link v-bind:to="{name: 'pl.select-y'}">
               <button class="btn btn-primary">GO!</button>
