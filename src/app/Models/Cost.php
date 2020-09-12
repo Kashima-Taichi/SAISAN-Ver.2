@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Cost extends Model
 {
@@ -21,4 +22,10 @@ class Cost extends Model
         'day',
         'date',
     ];
+
+    // グラフ参照用の経費計上データの取得
+    public static function getCostDataForGraph($year, $month) {
+        return DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE dependency = 0 AND year = :year AND month = :month GROUP BY day', ['year' => $year, 'month' => $month]);
+    }
+
 }
