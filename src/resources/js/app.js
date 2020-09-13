@@ -17,6 +17,8 @@ import SelectYearMonthComponent from "./components/cost/SelectYearMonthComponent
 import CostEditComponent from "./components/cost/CostEditComponent";
 import CostEditDoneComponent from "./components/cost/CostEditDoneComponent";
 import CostDeleteDoneComponent from "./components/cost/CostDeleteDoneComponent";
+import SelectYearMonthDependentComponent from "./components/cost/SelectYearMonthDependentComponent";
+import CostListDependentComponent from "./components/cost/CostListDependentComponent";
 // 時間関係
 import HourMenuComponent from "./components/hour/HourMenuComponent";
 import HourRecordComponent from "./components/hour/HourRecordComponent";
@@ -118,6 +120,8 @@ const router = new VueRouter({
         { /* 経費計上明細の修正 */ path: '/cost/edit/:costId/', name: 'cost.edit', component: CostEditComponent, props: true },
         { /* 経費計上明細の修正完了 */ path: '/cost/edit-done/:costId/', name: 'cost.edit-done', component: CostEditDoneComponent, props: true },
         { /* 経費計上明細の削除完了 */ path: '/cost/delete-done/:costId/', name: 'cost.delete-done', component: CostDeleteDoneComponent, props: true },
+        { /* 依存経費計上年月日の取得 */ path: '/cost/dependent/select-ym/', name: 'cost.dependent.selectym', component: SelectYearMonthDependentComponent },
+        { /* 依存経費計上リスト(月次) */ path: '/cost/dependent/:year/:month/', name: 'cost.dependent', component: CostListDependentComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Hour routes
