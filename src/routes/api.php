@@ -39,6 +39,9 @@ Route::get('/cost/latest/', 'CostController@getLatestCostData');
 // 経費計上リスト(年月)
 Route::get('/cost/list/{year}/{month}/', 'CostController@getCostListMonth');
 
+// 依存経費計上リスト(年月)
+Route::get('/cost/dependent/{year}/{month}/', 'CostController@getDependentCost');
+
 // 経費計上リスト(年月日)
 Route::get('/cost/list/{year}/{month}/{day}/', 'CostController@getCostListDay');
 
