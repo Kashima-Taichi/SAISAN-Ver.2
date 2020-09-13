@@ -77,7 +77,6 @@ import GraphCostSelectYearMonthAccount from "./components/graph/cost/monthlyAcco
 import MonthlyAccountComponent from "./components/graph/cost/monthlyAccount/MonthlyAccountComponent";
 import SavingComponent from "./components/graph/salary/saving/SavingComponent";
 import ProfitComponent from "./components/graph/salary/profit/ProfitComponent";
-import NikkeiComponent from "./components/graph/economy/nikkei/NikkeiComponent";
 // その他の機能
 import OtherMenuComponent from "./components/other/OtherMenuComponent";
 import DumpDatabaseComponent from "./components/other/DumpDatabaseComponent";
@@ -203,7 +202,6 @@ const router = new VueRouter({
         { /* 月次利益額推移 */ path: '/graph/line/salary/profit/', name: 'graph.salary.profit', component: ProfitComponent },
         { /* 経費計上科目別の円グラフ 年月選択 */ path: '/graph/donut/cost/account/select-ym/', name: 'graph.donut.cost-select', component: GraphCostAccountSelectYearMonth },
         { /* 経費計上科目別の円グラフ */ path: '/graph/donut/cost/account/:year/:month/', name: 'graph.donut.cost-account', component: MonthlyCostAccountComponent, props: true },
-        { /* 日経平均の推移 */ path: '/graph/line/nikkei/', name: 'graph.line.nikkei', component: NikkeiComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Others routes
