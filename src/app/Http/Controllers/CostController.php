@@ -30,12 +30,12 @@ class CostController extends Controller
 
     // 月次の経費リストを取得
     public function getCostListMonth($year, $month) {
-        return Cost::whereRaw('dependency = 0 and year = ? and month = ?', array($year, $month))->get();
+        return Cost::getCostDataForList($year, $month);
     }
 
     // 日次の経費リストを取得
     public function getCostListDay($year, $month, $day) {
-        return Cost::whereRaw('dependency = 0 and year = ? and month = ? and day =?', array($year, $month, $day))->get();
+        return Cost::getCostDataForList($year, $month, $day);
     }
 
     // 特定のIDの経費データを取得する
@@ -75,12 +75,12 @@ class CostController extends Controller
 
     // PL用の経費計上データを取得(月次)
     public function getMonthlyPlCostData($year, $month) {
-        return DB::select('SELECT accountName, sum(price) accountAmount, accountAlpha FROM costs WHERE dependency = 0 AND year = :year AND month = :month GROUP BY accountName, accountAlpha', ['year' => $year, 'month' => $month]);
+        return Cost::getCostDataForPl($year, $month);
     }
 
     // PL用の経費計上データを取得(年次)
     public function getYearlyPlCostData($year) {
-        return DB::select('SELECT accountName, sum(price) accountAmount, accountAlpha FROM costs WHERE dependency = 0 AND year = :year GROUP BY accountName, accountAlpha', ['year' => $year]);
+        return Cost::getCostDataForPl($year);
     }
 
     // 勘定科目別の経費計上データの取得

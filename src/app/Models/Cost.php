@@ -28,4 +28,25 @@ class Cost extends Model
         return DB::select('SELECT day, sum(price) dayAmount FROM costs WHERE dependency = 0 AND year = :year AND month = :month GROUP BY day', ['year' => $year, 'month' => $month]);
     }
 
+    // PL出力機能用の経費計上データの取得
+    public static function getCostDataForPl($year, $month = null) {
+        if ($month !== null) {
+            // 月次
+            return DB::select('SELECT accountName, sum(price) accountAmount, accountAlpha FROM costs WHERE dependency = 0 AND year = :year AND month = :month GROUP BY accountName, accountAlpha', ['year' => $year, 'month' => $month]);
+        } else {
+            // 年次
+            return DB::select('SELECT accountName, sum(price) accountAmount, accountAlpha FROM costs WHERE dependency = 0 AND year = :year GROUP BY accountName, accountAlpha', ['year' => $year]);
+        }
+    }
+
+    // 経費計上リスト参照用のデータ取得
+    public static function getCostDataForList($year, $month, $day = null) {
+        if ($day !== null) {
+            // 日次
+            return Cost::whereRaw('dependency = 0 and year = ? and month = ? and day =?', array($year, $month, $day))->get();
+        } else {
+            // 月次
+            return Cost::whereRaw('dependency = 0 and year = ? and month = ?', array($year, $month))->get();
+        }
+    }
 }
