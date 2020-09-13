@@ -190,18 +190,18 @@ const router = new VueRouter({
         |--------------------------------------------------------------------------
         | Graphノ部のルーティングは下記にて実装 */
         { /* グラフトップ */ path: '/graph/', name: 'saisan.graph', component: GraphMenuComponent },
-        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(単月)年月選択 */ path: '/graph/line/cost/daily/amount/select-ym/', name: 'graph.cost.daily-amount-select', component: GraphCostAmountSelectYearMonth },
-        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(単月) */ path: '/graph/line/cost/daily/amount/:year/:month/', name: 'graph.cost.daily-amount', component: DailyCostsAmountComponent, props: true },
-        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(複数月)年月選択 */ path: '/graph/line/cost/daily/amounts/select-ym/', name: 'graph.cost.daily-amounts-select', component: GraphCostAmountsSelectYearMonth },
-        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(複数月) */ path: '/graph/line/cost/daily/amounts/:year/:month/', name: 'graph.cost.daily-amounts', component: DailyCostsAmountsComponent, props: true },
-        { /* 経費計上折れ線グラフ(日別の計上金額推移)年月選択 */ path: '/graph/line/cost/daily/select-ym/', name: 'graph.cost.daily-select', component: GraphCostSelectYearMonth },
-        { /* 経費計上折れ線グラフ(日別の計上金額推移) */ path: '/graph/line/cost/daily/:year/:month/', name: 'graph.cost.daily', component: DailyCostsComponent, props: true },
-        { /* 経費計上折れ線グラフ(科目別の計上額推移)年月科目選択 */ path: '/graph/line/cost/account/select-a/', name: 'graph.cost.monthly-account-select', component: GraphCostSelectYearMonthAccount },
-        { /* 経費計上折れ線グラフ(科目別の計上額推移) */ path: '/graph/line/cost/account/:account/', name: 'graph.cost.monthly-account', component: MonthlyAccountComponent, props: true },
-        { /* 月次貯蓄可能額推移 */ path: '/graph/line/salary/saving/', name: 'graph.salary.saving', component: SavingComponent },
-        { /* 月次利益額推移 */ path: '/graph/line/salary/profit/', name: 'graph.salary.profit', component: ProfitComponent },
-        { /* 経費計上科目別の円グラフ 年月選択 */ path: '/graph/donut/cost/account/select-ym/', name: 'graph.donut.cost-select', component: GraphCostAccountSelectYearMonth },
-        { /* 経費計上科目別の円グラフ */ path: '/graph/donut/cost/account/:year/:month/', name: 'graph.donut.cost-account', component: MonthlyCostAccountComponent, props: true },
+        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(単月)年月選択 */ path: '/graph/cost/amount/select-ym/', name: 'graph.cost.daily-amount-select', component: GraphCostAmountSelectYearMonth },
+        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(単月) */ path: '/graph/cost/amount/:year/:month/', name: 'graph.cost.daily-amount', component: DailyCostsAmountComponent, props: true },
+        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(複数月)年月選択 */ path: '/graph/cost/amounts/select-ym/', name: 'graph.cost.daily-amounts-select', component: GraphCostAmountsSelectYearMonth },
+        { /* 経費計上折れ線グラフ(日別の計上合計金額推移)(複数月) */ path: '/graph/cost/amounts/:year/:month/', name: 'graph.cost.daily-amounts', component: DailyCostsAmountsComponent, props: true },
+        { /* 経費計上折れ線グラフ(日別の計上金額推移)年月選択 */ path: '/graph/cost/daily/select-ym/', name: 'graph.cost.daily-select', component: GraphCostSelectYearMonth },
+        { /* 経費計上折れ線グラフ(日別の計上金額推移) */ path: '/graph/cost/daily/:year/:month/', name: 'graph.cost.daily', component: DailyCostsComponent, props: true },
+        { /* 経費計上折れ線グラフ(科目別の計上額推移)年月科目選択 */ path: '/graph/cost/account/select-a/', name: 'graph.cost.monthly-account-select', component: GraphCostSelectYearMonthAccount },
+        { /* 経費計上折れ線グラフ(科目別の計上額推移) */ path: '/graph/cost/account/:account/', name: 'graph.cost.monthly-account', component: MonthlyAccountComponent, props: true },
+        { /* 月次貯蓄可能額推移 */ path: '/graph/salary/saving/', name: 'graph.salary.saving', component: SavingComponent },
+        { /* 月次利益額推移 */ path: '/graph/salary/profit/', name: 'graph.salary.profit', component: ProfitComponent },
+        { /* 経費計上科目別の円グラフ 年月選択 */ path: '/graph/cost/account/select-ym/', name: 'graph.donut.cost-select', component: GraphCostAccountSelectYearMonth },
+        { /* 経費計上科目別の円グラフ */ path: '/graph/cost/account/:year/:month/', name: 'graph.donut.cost-account', component: MonthlyCostAccountComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Others routes
