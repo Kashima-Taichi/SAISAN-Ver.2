@@ -24,6 +24,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 | 経費関係のAPIルーティングは下記にて実装する。
 */
 
+//  "/api/cost/" + this.year + "/" + this.account + "/"
+
 // PL用データの取得(月次)
 Route::get('/cost/pl/{year}/{month}/', 'CostController@getMonthlyPlCostData');
 
@@ -57,8 +59,11 @@ Route::get('/cost/month/', 'CostController@getCostMonth');
 // 日別に経費計上金額の推移データを取得
 Route::get('/cost/daily/{year}/{month}/', 'CostController@getDailyCostData');
 
-// 年別月別科目別経費計上データの取得
-Route::get('/cost/{year}/{month}/{account}/', 'CostController@getAccountCostData');
+// 科目別経費計上データの取得 (月次)
+Route::get('/cost/{year}/{month}/{account}/', 'CostController@getAccountMonthlyCostData');
+
+// 科目別経費計上データの取得 (年次)
+Route::get('/cost/{year}/{account}/', 'CostController@getAccountYearlyCostData');
 
 // 日別の経費計上合計金額のデータを取得(単月)
 Route::get('/cost/amount/daily/{year}/{month}/', 'CostController@getDailyAmountCostData');
