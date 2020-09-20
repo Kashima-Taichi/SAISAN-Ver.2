@@ -63,7 +63,7 @@ Route::get('/cost/daily/{year}/{month}/', 'CostController@getDailyCostData');
 Route::get('/cost/{year}/{month}/{account}/', 'CostController@getAccountMonthlyCostData');
 
 // 科目別経費計上データの取得 (年次)
-Route::get('/cost/{year}/{account}/', 'CostController@getAccountYearlyCostData');
+Route::get('/cost/{year}/{account}/', 'CostController@getAccountYearlyCostData')->where(['year' => '[0-9]+', 'account' => '[a-z]+']);
 
 // 日別の経費計上合計金額のデータを取得(単月)
 Route::get('/cost/amount/daily/{year}/{month}/', 'CostController@getDailyAmountCostData');
@@ -75,7 +75,7 @@ Route::get('/cost/amounts/daily/{year}/{month}/', 'CostController@getDailyAmount
 Route::get('/cost/account/monthly/{year}/{month}/', 'CostController@getMonthlyAccountCostData');
 
 // 科目別月別の経費計上金額データの取得
-Route::get('/cost/monthly/{account}', 'CostController@getMonthlyAccountAmountCostData');
+Route::get('/cost/monthly/{account}', 'CostController@getMonthlyAccountAmountCostData')->where('account', '[a-z]+');
 
 // 経費明細修正
 Route::put('/cost/edit/', 'CostController@edit');
