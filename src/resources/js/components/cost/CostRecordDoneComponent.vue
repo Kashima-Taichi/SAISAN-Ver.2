@@ -30,6 +30,11 @@
       <router-link v-bind:to="{name: 'cost.rec'}">
         <button class="btn btn-success mt-5">続けて経費計上</button>
       </router-link>
+      <router-link
+        v-bind:to="{name: 'cost.list-month', params: {year: this.year, month: this.month}}"
+      >
+        <button class="btn btn-success mt-5 ml-5">今月の計上経費を参照</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -37,9 +42,12 @@
 <script>
 export default {
   data: function () {
+    var now = new Date();
     return {
       loading: true,
       cost: [],
+      year: String(now.getFullYear()),
+      month: String(now.getMonth() + 1),
     };
   },
   methods: {
