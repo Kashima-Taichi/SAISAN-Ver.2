@@ -78,6 +78,7 @@ import GraphCostSelectYearMonth from "./components/graph/cost/daily/GraphCostSel
 import DailyCostsComponent from "./components/graph/cost/daily/DailyCostsComponent";
 import GraphCostSelectYearMonthAccount from "./components/graph/cost/monthlyAccount/GraphCostSelectYearMonthAccount";
 import MonthlyAccountComponent from "./components/graph/cost/monthlyAccount/MonthlyAccountComponent";
+import CostAmountsComponent from "./components/graph/cost/amounts/CostAmountsComponent";
 import SavingComponent from "./components/graph/salary/saving/SavingComponent";
 import ProfitComponent from "./components/graph/salary/profit/ProfitComponent";
 // その他の機能
@@ -204,6 +205,7 @@ const router = new VueRouter({
         { /* 経費計上折れ線グラフ(日別の計上金額推移) */ path: '/graph/cost/daily/:year/:month/', name: 'graph.cost.daily', component: DailyCostsComponent, props: true },
         { /* 経費計上折れ線グラフ(科目別の計上額推移)年月科目選択 */ path: '/graph/cost/account/select-a/', name: 'graph.cost.monthly-account-select', component: GraphCostSelectYearMonthAccount },
         { /* 経費計上折れ線グラフ(科目別の計上額推移) */ path: '/graph/cost/account/:account/', name: 'graph.cost.monthly-account', component: MonthlyAccountComponent, props: true },
+        { /* 経費計上折れ線グラフ(計上合計金額推移)(全期間) */ path: '/graph/cost/amounts/', name: 'graph.cost.amounts', component: CostAmountsComponent, props: true },
         { /* 月次貯蓄可能額推移 */ path: '/graph/salary/saving/', name: 'graph.salary.saving', component: SavingComponent },
         { /* 月次利益額推移 */ path: '/graph/salary/profit/', name: 'graph.salary.profit', component: ProfitComponent },
         { /* 経費計上科目別の円グラフ 年月選択 */ path: '/graph/cost/account/select-ym/', name: 'graph.donut.cost-select', component: GraphCostAccountSelectYearMonth },

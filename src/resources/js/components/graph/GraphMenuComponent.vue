@@ -33,6 +33,14 @@
           </td>
         </tr>
         <tr>
+          <th scope="row">経費計上合計金額推移(全期間)</th>
+          <td>
+            <router-link v-bind:to="{name: 'graph.cost.amounts'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
+        <tr>
           <th scope="row">科目別経費計上推移</th>
           <td>
             <router-link v-bind:to="{name: 'graph.cost.monthly-account-select'}">
