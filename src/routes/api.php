@@ -75,7 +75,10 @@ Route::get('/cost/amounts/daily/{year}/{month}/', 'CostController@getDailyAmount
 Route::get('/cost/account/monthly/{year}/{month}/', 'CostController@getMonthlyAccountCostData');
 
 // 科目別月別の経費計上金額データの取得
-Route::get('/cost/monthly/{account}', 'CostController@getMonthlyAccountAmountCostData')->where('account', '[a-z]+');
+Route::get('/cost/monthly/{account}/', 'CostController@getMonthlyAccountAmountCostData')->where('account', '[a-z]+');
+
+// 経費計上合計金額の推移(全期間)
+Route::get('/cost/amounts/all/', 'CostController@getCostAmountsData');
 
 // 経費明細修正
 Route::put('/cost/edit/', 'CostController@edit');

@@ -109,6 +109,11 @@ class CostController extends Controller
         return $lineGraphData;
     }
 
+    public function getCostAmountsData() {
+        $lineGraphData = DB::select('SELECT year, month, sum(price) AS sum FROM costs WHERE dependency = 0 GROUP BY year, month');
+        return $lineGraphData;
+    }
+
     // 日別の経費計上合計金額を取得(単月)
     public function getDailyAmountCostData($year, $month) {
         $lineGraphData = Cost::getCostDataForGraph($year, $month);
