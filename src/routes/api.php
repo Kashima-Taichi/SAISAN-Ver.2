@@ -49,6 +49,9 @@ Route::get('/cost/list/{year}/{month}/', 'CostController@getCostListMonth')->whe
 // 依存経費計上リスト(年月)
 Route::get('/cost/dependent/{year}/{month}/', 'CostController@getDependentCost')->where($yearMonth);
 
+// 事業経費計上リスト(年月)
+Route::get('/cost/business/{year}/{month}/', 'CostController@getBusinessCost')->where($yearMonth);
+
 // 経費計上リスト(年月日)
 Route::get('/cost/list/{year}/{month}/{day}/', 'CostController@getCostListDay')->where(['year' => '[0-9]+', 'month' => '[0-9]+', 'day' => '[0-9]+']);
 
