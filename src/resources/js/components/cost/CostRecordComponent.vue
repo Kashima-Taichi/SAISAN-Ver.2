@@ -48,6 +48,14 @@
               </div>
             </validation-provider>
 
+            <div class="form-group row mb-5 txt-tm">
+              <label for="rakuten" class="col-sm-3 col-form-label">Rakuten</label>
+              <select class="col-sm-9 form-control" id="rakuten" v-model="cost.rakuten">
+                <option value="1">paid by rakuten card</option>
+                <option value="0">didn't pay by rakuten card</option>
+              </select>
+            </div>
+
             <div class="form-group row mb-5">
               <label for="dependency" class="col-sm-3 col-form-label">Dependency</label>
               <select class="col-sm-9 form-control" id="dependency" v-model="cost.dependency">
