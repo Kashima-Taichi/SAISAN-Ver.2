@@ -2,6 +2,11 @@
 
 use Illuminate\Http\Request;
 
+// apiルーティングの制約で使用する配列
+$yearMonth = ['year' => '[0-9]+', 'month' => '[0-9]+'];
+$year = ['year' => '[0-9]+'];
+$id = ['id' => '[0-9]+'];
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,10 +32,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //  "/api/cost/" + this.year + "/" + this.account + "/"
 
 // PL用データの取得(月次)
-Route::get('/cost/pl/{year}/{month}/', 'CostController@getMonthlyPlCostData');
+Route::get('/cost/pl/{year}/{month}/', 'CostController@getMonthlyPlCostData')->where($yearMonth);
 
 // PL用データの取得(年次)
-Route::get('/cost/pl/{year}/', 'CostController@getYearlyPlCostData');
+Route::get('/cost/pl/{year}/', 'CostController@getYearlyPlCostData')->where($year);
 
 // 経費計上
 Route::post('/cost/store/', 'CostController@store');
@@ -39,16 +44,16 @@ Route::post('/cost/store/', 'CostController@store');
 Route::get('/cost/latest/', 'CostController@getLatestCostData');
 
 // 経費計上リスト(年月)
-Route::get('/cost/list/{year}/{month}/', 'CostController@getCostListMonth');
+Route::get('/cost/list/{year}/{month}/', 'CostController@getCostListMonth')->where($yearMonth);
 
 // 依存経費計上リスト(年月)
-Route::get('/cost/dependent/{year}/{month}/', 'CostController@getDependentCost');
+Route::get('/cost/dependent/{year}/{month}/', 'CostController@getDependentCost')->where($yearMonth);
 
 // 経費計上リスト(年月日)
-Route::get('/cost/list/{year}/{month}/{day}/', 'CostController@getCostListDay');
+Route::get('/cost/list/{year}/{month}/{day}/', 'CostController@getCostListDay')->where(['year' => '[0-9]+', 'month' => '[0-9]+', 'day' => '[0-9]+']);
 
 // 経費計上詳細データ
-Route::get('/cost/detail/{id}/', 'CostController@getIndividualCostData');
+Route::get('/cost/detail/{id}/', 'CostController@getIndividualCostData')->where($id);
 
 // 経費計上年の取得
 Route::get('/cost/year/', 'CostController@getCostYear');
@@ -57,22 +62,22 @@ Route::get('/cost/year/', 'CostController@getCostYear');
 Route::get('/cost/month/', 'CostController@getCostMonth');
 
 // 日別に経費計上金額の推移データを取得
-Route::get('/cost/daily/{year}/{month}/', 'CostController@getDailyCostData');
+Route::get('/cost/daily/{year}/{month}/', 'CostController@getDailyCostData')->where($yearMonth);
 
 // 科目別経費計上データの取得 (月次)
-Route::get('/cost/{year}/{month}/{account}/', 'CostController@getAccountMonthlyCostData');
+Route::get('/cost/{year}/{month}/{account}/', 'CostController@getAccountMonthlyCostData')->where(['year' => '[0-9]+', 'month' => '[0-9]+', 'account' => '[a-z]+']);
 
 // 科目別経費計上データの取得 (年次)
 Route::get('/cost/{year}/{account}/', 'CostController@getAccountYearlyCostData')->where(['year' => '[0-9]+', 'account' => '[a-z]+']);
 
 // 日別の経費計上合計金額のデータを取得(単月)
-Route::get('/cost/amount/daily/{year}/{month}/', 'CostController@getDailyAmountCostData');
+Route::get('/cost/amount/daily/{year}/{month}/', 'CostController@getDailyAmountCostData')->where($yearMonth);
 
 // 日別の経費計上合計金額のデータを取得(複数月)
-Route::get('/cost/amounts/daily/{year}/{month}/', 'CostController@getDailyAmountsCostData');
+Route::get('/cost/amounts/daily/{year}/{month}/', 'CostController@getDailyAmountsCostData')->where($yearMonth);
 
 // 月別の経費計上合計金額のデータを取得
-Route::get('/cost/account/monthly/{year}/{month}/', 'CostController@getMonthlyAccountCostData');
+Route::get('/cost/account/monthly/{year}/{month}/', 'CostController@getMonthlyAccountCostData')->where($yearMonth);
 
 // 科目別月別の経費計上金額データの取得
 Route::get('/cost/monthly/{account}/', 'CostController@getMonthlyAccountAmountCostData')->where('account', '[a-z]+');
@@ -84,7 +89,7 @@ Route::get('/cost/amounts/all/', 'CostController@getCostAmountsData');
 Route::put('/cost/edit/', 'CostController@edit');
 
 // 経費明細削除
-Route::delete('/cost/delete/{id}/', 'CostController@delete');
+Route::delete('/cost/delete/{id}/', 'CostController@delete')->where($id);
 
 
 /*
@@ -95,10 +100,10 @@ Route::delete('/cost/delete/{id}/', 'CostController@delete');
 */
 
 // PL用データの取得(月次)
-Route::get('/hour/pl/{year}/{month}/', 'HourController@getMonthlyPlHourData');
+Route::get('/hour/pl/{year}/{month}/', 'HourController@getMonthlyPlHourData')->where($yearMonth);
 
 // PL用データの取得(年次)
-Route::get('/hour/pl/{year}/', 'HourController@getYearlyPlHourData');
+Route::get('/hour/pl/{year}/', 'HourController@getYearlyPlHourData')->where($year);
 
 // 稼働時間計上
 Route::post('/hour/store/', 'HourController@store');
@@ -107,19 +112,19 @@ Route::post('/hour/store/', 'HourController@store');
 Route::get('/hour/latest/', 'HourController@getLatestHourData');
 
 // 稼働時間計上リスト
-Route::get('/hour/list/{year}/', 'HourController@getHourListYear');
+Route::get('/hour/list/{year}/', 'HourController@getHourListYear')->where($year);
 
 // 時間計上年月の取得
 Route::get('/hour/year/', 'HourController@getHourYear');
 
 // 個別の時間計上データを取得
-Route::get('/hour/detail/{id}/', 'HourController@getIndividualHourData');
+Route::get('/hour/detail/{id}/', 'HourController@getIndividualHourData')->where($id);
 
 // 稼働時間明細修正
 Route::put('/hour/edit/', 'HourController@edit');
 
 // 稼働時間明細削除
-Route::delete('/hour/delete/{id}/', 'HourController@delete');
+Route::delete('/hour/delete/{id}/', 'HourController@delete')->where($id);
 
 
 /*
@@ -130,10 +135,10 @@ Route::delete('/hour/delete/{id}/', 'HourController@delete');
 */
 
 // PL用データの取得(月次)
-Route::get('/salary/pl/{year}/{month}/', 'SalaryController@getMonthlyPlSalaryData');
+Route::get('/salary/pl/{year}/{month}/', 'SalaryController@getMonthlyPlSalaryData')->where($yearMonth);
 
 // PL用データの取得(年次)
-Route::get('/salary/pl/{year}/', 'SalaryController@getYearlyPlSalaryData');
+Route::get('/salary/pl/{year}/', 'SalaryController@getYearlyPlSalaryData')->where($year);
 
 // 収入計上
 Route::post('/salary/store/', 'SalaryController@store');
@@ -142,13 +147,13 @@ Route::post('/salary/store/', 'SalaryController@store');
 Route::get('/salary/latest/', 'SalaryController@getLatestSalaryData');
 
 // 稼働時間計上リスト
-Route::get('/salary/list/{year}/', 'SalaryController@getSalaryListYear');
+Route::get('/salary/list/{year}/', 'SalaryController@getSalaryListYear')->where($year);
 
 // 収入計上年月の取得
 Route::get('/salary/year/', 'SalaryController@getSalaryYear');
 
 // 個別の収入情報を取得
-Route::get('/salary/detail/{id}/', 'SalaryController@getIndividualSalaryData');
+Route::get('/salary/detail/{id}/', 'SalaryController@getIndividualSalaryData')->where($id);
 
 // グラフ参照機能用の総支給学と手取り額のデータを取得
 Route::get('/salary/all/', 'SalaryController@getAllSalaryData');
@@ -160,7 +165,7 @@ Route::get('/salary/profit/', 'SalaryController@getAllProfitData');
 Route::put('/salary/edit/', 'SalaryController@edit');
 
 // 所得明細削除
-Route::delete('/salary/delete/{id}/', 'SalaryController@delete');
+Route::delete('/salary/delete/{id}/', 'SalaryController@delete')->where($id);
 
 
 /*
@@ -183,13 +188,13 @@ Route::get('/account/list/', 'AccountController@getAccountList');
 Route::get('/account/all/', 'AccountController@getAccountsData');
 
 // 個別の勘定科目データの参照
-Route::get('/account/detail/{id}/', 'AccountController@getIndividualAccountData');
+Route::get('/account/detail/{id}/', 'AccountController@getIndividualAccountData')->where($id);
 
 // 勘定科目情報の修正
 Route::put('/account/edit/', 'AccountController@edit');
 
 // 勘定科目明細の削除
-Route::delete('/account/delete/{id}/', 'AccountController@delete');
+Route::delete('/account/delete/{id}/', 'AccountController@delete')->where($id);
 
 
 /*
@@ -200,10 +205,10 @@ Route::delete('/account/delete/{id}/', 'AccountController@delete');
 */
 
 // PL用データの取得(月次)
-Route::get('/bonus/pl/{year}/{month}/', 'BonusController@getMonthlyPlBonusData');
+Route::get('/bonus/pl/{year}/{month}/', 'BonusController@getMonthlyPlBonusData')->where($yearMonth);
 
 // PL用データの取得(年次)
-Route::get('/bonus/pl/{year}/', 'BonusController@getYearlyPlBonusData');
+Route::get('/bonus/pl/{year}/', 'BonusController@getYearlyPlBonusData')->where($year);
 
 // 賞与計上
 Route::post('/bonus/store/', 'BonusController@store');
@@ -215,13 +220,13 @@ Route::get('/bonus/latest/', 'BonusController@getLatestBonusData');
 Route::get('/bonus/year/', 'BonusController@getBonusYear');
 
 // 賞与計上実績を取得する
-Route::get('/bonus/list/{year}/', 'BonusController@getBonusListYear');
+Route::get('/bonus/list/{year}/', 'BonusController@getBonusListYear')->where($year);
 
 // 個別の賞与情報を取得
-Route::get('/bonus/detail/{id}/', 'BonusController@getIndividualBonusData');
+Route::get('/bonus/detail/{id}/', 'BonusController@getIndividualBonusData')->where($id);
 
 // 計上された賞与の修正
 Route::put('/bonus/edit/', 'BonusController@edit');
 
 // 計上された賞与の削除
-Route::delete('/bonus/delete/{id}/', 'BonusController@delete');
+Route::delete('/bonus/delete/{id}/', 'BonusController@delete')->where($id);
