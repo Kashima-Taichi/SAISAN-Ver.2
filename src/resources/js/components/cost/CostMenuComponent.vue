@@ -17,7 +17,7 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">経費を参照(月次・日次)</th>
+          <th scope="row">個人支出の経費を参照(月次・日次)</th>
           <td>
             <router-link v-bind:to="{name: 'cost.list.selectym'}">
               <button class="btn btn-primary">GO!</button>
@@ -28,6 +28,14 @@
           <th scope="row">依存経費を参照(月次)</th>
           <td>
             <router-link v-bind:to="{name: 'cost.dependent.selectym'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">事業経費を参照(月次)</th>
+          <td>
+            <router-link v-bind:to="{name: 'cost.business.selectym'}">
               <button class="btn btn-primary">GO!</button>
             </router-link>
           </td>
