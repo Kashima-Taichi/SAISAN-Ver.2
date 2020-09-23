@@ -17,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(cost, index) in costs" :key="index">
+          <tr :class="{ 'txt-tm': cost.rakuten == 1}" v-for="(cost, index) in costs" :key="index">
             <th scope="row">{{ cost.id }}</th>
             <td>{{ cost.accountName }}</td>
             <td>{{ parseInt(cost.price).toLocaleString() }}</td>
