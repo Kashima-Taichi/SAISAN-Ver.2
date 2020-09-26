@@ -49,6 +49,14 @@
           </td>
         </tr>
         <tr>
+          <th scope="row">過去200日間の経費計上推移</th>
+          <td>
+            <router-link v-bind:to="{name: 'graph.cost.long-term'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
+        <tr>
           <th scope="row">給与総額・手取額推移</th>
           <td>
             <router-link v-bind:to="{name: 'graph.salary.saving'}">
