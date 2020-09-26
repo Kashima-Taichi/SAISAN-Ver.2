@@ -15,9 +15,9 @@ export default {
             {
               ticks: {
                 beginAtZero: true,
-                min: -70000,
-                max: 70000,
-                stepSize: 2000,
+                min: -20000,
+                max: 20000,
+                stepSize: 1000,
               },
             },
           ],

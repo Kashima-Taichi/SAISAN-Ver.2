@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import CostLineChart from "../../../module/CostLineChart";
+import CostLineChart from "../../../module/CostLineChartSmall";
 export default {
   props: {
     year: String,
