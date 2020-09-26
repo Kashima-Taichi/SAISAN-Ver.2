@@ -29,8 +29,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 | 経費関係のAPIルーティングは下記にて実装する。
 */
 
-//  "/api/cost/" + this.year + "/" + this.account + "/"
-
 // PL用データの取得(月次)
 Route::get('/cost/pl/{year}/{month}/', 'CostController@getMonthlyPlCostData')->where($yearMonth);
 
@@ -90,6 +88,9 @@ Route::get('/cost/monthly/{account}/', 'CostController@getMonthlyAccountAmountCo
 
 // 経費計上合計金額の推移(全期間)
 Route::get('/cost/amounts/all/', 'CostController@getCostAmountsData');
+
+// 過去200日間の経費計上実績の取得
+Route::get('/cost/long/', 'CostController@getCostLongTermData');
 
 // 経費明細修正
 Route::put('/cost/edit/', 'CostController@edit');

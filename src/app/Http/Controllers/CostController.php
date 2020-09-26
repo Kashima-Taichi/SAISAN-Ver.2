@@ -124,6 +124,11 @@ class CostController extends Controller
         return $lineGraphData;
     }
 
+    public function getCostLongTermData() {
+        $lineGraphData = DB::select('SELECT datetime, sum FROM (SELECT date AS datetime, SUM(price) AS sum FROM costs GROUP BY date ORDER BY date DESC LIMIT 200) AS tbl ORDER BY datetime ASC');
+        return $lineGraphData;
+    }
+
     // 日別の経費計上合計金額を取得(単月)
     public function getDailyAmountCostData($year, $month) {
         $lineGraphData = Cost::getCostDataForGraph($year, $month);
