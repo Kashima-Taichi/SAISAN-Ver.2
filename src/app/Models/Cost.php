@@ -42,13 +42,21 @@ class Cost extends Model
     }
 
     // 経費計上リスト参照用のデータ取得
-    public static function getCostDataForList($year, $month, $day = null) {
+    public static function getCostDataForList($year, $month, $day = null, $dependency = false) {
         if ($day !== null) {
             // 日次
             return Cost::whereRaw('dependency = 0 and year = ? and month = ? and day =?', array($year, $month, $day))->get();
         } else {
-            // 月次
-            return Cost::whereRaw('dependency = 0 and year = ? and month = ?', array($year, $month))->get();
+
+            // 月次かつ依存経費を参照しない場合
+            if ($dependency === false) {
+                // 月次
+                return Cost::whereRaw('dependency = 0 and year = ? and month = ?', array($year, $month))->get();
+            } else {
+                // 月次・依存経費参照
+                return Cost::whereRaw('year = ? and month = ?', array($year, $month))->get();
+            }
+
         }
     }
 }

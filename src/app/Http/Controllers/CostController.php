@@ -30,12 +30,17 @@ class CostController extends Controller
 
     // 月次の経費リストを取得
     public function getCostListMonth($year, $month) {
-        return Cost::getCostDataForList($year, $month);
+        return Cost::getCostDataForList($year, $month, $day = null, $dependency = false);
+    }
+
+    // 月次経費で依存経費も参照
+    public function getMonthlyAllCostData($year, $month) {
+        return Cost::getCostDataForList($year, $month, $day = null, $dependency = true);
     }
 
     // 日次の経費リストを取得
     public function getCostListDay($year, $month, $day) {
-        return Cost::getCostDataForList($year, $month, $day);
+        return Cost::getCostDataForList($year, $month, $day, $dependency = false);
     }
 
     // 依存経費データを取得
