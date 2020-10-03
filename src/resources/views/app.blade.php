@@ -13,6 +13,10 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/loading.css') }}" rel="stylesheet">
     <link href="{{ asset('css/colors.css') }}" rel="stylesheet">
+
+    <!-- favicon icon -->
+    <link rel="shortcut icon" href="{{ asset('gold.ico') }}" type="image/vnd.microsoft.icon" />
+    <link rel="icon" href="{{ asset('gold.ico') }}" type="image/vnd.microsoft.icon" />
 </head>
 <body>
 <div id="app">

@@ -38,3 +38,7 @@ php artisan migrate
 2 : app.jsのVue.jsのルーティング設定にて、URLの前スラを抜いてしまうと、
 　　 下記ようないびつなURLが生成される。
 　　　http://127.0.0.1:20080/hour/list/hour/list/hour/list/hour/list/2020
+
+# サイトのアイコンの設定方法に関して
+https://service.tree-web.net/icon_converter/
+上記のサイトで設定を行うことができる
