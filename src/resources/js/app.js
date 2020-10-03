@@ -23,6 +23,8 @@ import SelectYearMonthBusinessComponent from "./components/cost/SelectYearMonthB
 import CostListBusinessComponent from "./components/cost/CostListBusinessComponent";
 import SelectYearMonthRakutenComponent from "./components/cost/SelectYearMonthRakutenComponent";
 import CostListRakutenComponent from "./components/cost/CostListRakutenComponent";
+import SelectYearMonthAllComponent from "./components/cost/SelectYearMonthAllComponent";
+import CostListAllComponent from "./components/cost/CostListAllComponent";
 // 時間関係
 import HourMenuComponent from "./components/hour/HourMenuComponent";
 import HourRecordComponent from "./components/hour/HourRecordComponent";
@@ -133,6 +135,8 @@ const router = new VueRouter({
         { /* 事業経費計上リスト(月次) */ path: '/cost/business/:year/:month/', name: 'cost.business', component: CostListBusinessComponent, props: true },
         { /* 楽天経費計上年月日の取得 */ path: '/cost/rakuten/select-ym/', name: 'cost.rakuten.selectym', component: SelectYearMonthRakutenComponent },
         { /* 楽天経費計上リスト(月次) */ path: '/cost/rakuten/:year/:month/', name: 'cost.rakuten', component: CostListRakutenComponent, props: true },
+        { /* 通常・依存経費計上年月の取得 */ path: '/cost/all/select-ym/', name: 'cost.all.selectym', component: SelectYearMonthAllComponent },
+        { /* 通常・依存経費計上リスト(月次) */ path: '/cost/all/:year/:month/', name: 'cost.all', component: CostListAllComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Hour routes

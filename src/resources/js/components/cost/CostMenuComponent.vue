@@ -25,6 +25,14 @@
           </td>
         </tr>
         <tr>
+          <th scope="row">全経費を参照(月次)</th>
+          <td>
+            <router-link v-bind:to="{name: 'cost.all.selectym'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
+        <tr>
           <th scope="row">依存経費を参照(月次)</th>
           <td>
             <router-link v-bind:to="{name: 'cost.dependent.selectym'}">
