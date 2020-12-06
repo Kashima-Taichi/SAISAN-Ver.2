@@ -72,6 +72,14 @@
             </router-link>
           </td>
         </tr>
+        <tr>
+          <th scope="row">資産管理</th>
+          <td>
+            <router-link v-bind:to="{name: 'saisan.asset'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>

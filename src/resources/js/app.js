@@ -45,6 +45,10 @@ import SalaryDetailComponent from "./components/salary/SalaryDetailComponent";
 import SalaryEditComponent from "./components/salary/SalaryEditComponent";
 import SalaryEditDoneComponent from "./components/salary/SalaryEditDoneComponent";
 import SalaryDeleteDoneComponent from "./components/salary/SalaryDeleteDoneComponent";
+// 資産管理
+import AssetMenuComponent from "./components/asset/AssetMenuComponent";
+import BalanceListComponent from "./components/asset/BalanceListComponent";
+
 // 賞与関係
 import BonusRecordComponent from "./components/bonus/BonusRecordComponent";
 import BonusRecordDoneComponent from "./components/bonus/BonusRecordDoneComponent";
@@ -165,6 +169,14 @@ const router = new VueRouter({
         { /* 収入計上明細の修正 */ path: '/salary/edit/:salaryId/', name: 'salary.edit', component: SalaryEditComponent, props: true },
         { /* 収入計上明細の修正完了 */ path: '/salary/edit-done/:salaryId/', name: 'salary.edit-done', component: SalaryEditDoneComponent, props: true },
         { /* 収入計上明細の削除完了 */ path: '/salary/delete-done/:salaryId/', name: 'salary.delete-done', component: SalaryDeleteDoneComponent, props: true },
+        /*
+        |--------------------------------------------------------------------------
+        | asset routes
+        |--------------------------------------------------------------------------
+        | 資産ノ部のルーティングは下記にて実装 */
+        { /* 資産管理トップ */ path: '/asset/', name: 'saisan.asset', component: AssetMenuComponent },
+        { /* 銀行預金残高リスト */ path: '/asset/balance/', name: 'saisan.banks', component: BalanceListComponent },
+
         /*
         |--------------------------------------------------------------------------
         | Bonus routes
