@@ -9,26 +9,23 @@
             <th scope="col">bank_id</th>
             <th scope="col">bank_name</th>
             <th scope="col">balance</th>
-            <th scope="col">Watch</th>
+            <th scope="col">Edit</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(balance, index) in balances" :key="index">
+          <tr>
             <th scope="row">{{ balance.id }}</th>
             <td>{{ balance.bank_id }}</td>
             <td>{{ balance.bank_name }}</td>
             <td>{{ balance.balance.toLocaleString() }}</td>
             <td>
-              <router-link v-bind:to="{name: 'banks.detail', params: { bankId: balance.id } }">
-                <button class="btn btn-primary">Watch</button>
+              <router-link v-bind:to="{name: 'banks.edit', params: { bankId: balance.id } }">
+                <button class="btn btn-success">Edit</button>
               </router-link>
             </td>
           </tr>
         </tbody>
       </table>
-      <p class="mt-5">
-        <strong>預金総額 ： {{ calcTotal }}</strong>
-      </p>
       <router-link v-bind:to="{name: 'saisan.asset'}">
         <button class="btn btn-success mt-5" style="width:170px">資産管理メニューへ</button>
       </router-link>
@@ -37,31 +34,25 @@
 </template>
 <script>
 export default {
+  props: {
+    bankId: String,
+  },
   data: function () {
     return {
-      balances: [],
-      totalAmount: 0,
+      balance: [],
       loading: true,
     };
   },
   methods: {
-    getBalanceData() {
-      axios.get("/api/bank/balance/").then((res) => {
-        this.balances = res.data;
+    getBalanceIndividualData() {
+      axios.get("/api/bank/detail/" + this.bankId + "/").then((res) => {
+        this.balance = res.data;
         this.loading = false;
       });
     },
   },
-  computed: {
-    calcTotal: function () {
-      for (var item in this.balances) {
-        this.totalAmount += this.balances[item]["balance"];
-      }
-      return parseInt(this.totalAmount).toLocaleString();
-    },
-  },
   mounted() {
-    this.getBalanceData();
+    this.getBalanceIndividualData();
   },
 };
 </script>

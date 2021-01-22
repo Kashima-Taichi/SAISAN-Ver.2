@@ -48,8 +48,10 @@ import SalaryDeleteDoneComponent from "./components/salary/SalaryDeleteDoneCompo
 // 資産管理
 import AssetMenuComponent from "./components/asset/AssetMenuComponent";
 import BalanceListComponent from "./components/asset/BalanceListComponent";
-
-// 賞与関係
+import BalanceDetailComponent from "./components/asset/BalanceDetailComponent";
+import BalanceEditComponent from "./components/asset/BalanceEditComponent";
+import BalanceEditDoneComponent from "./components/asset/BalanceEditDoneComponent";
+// 賞与関係ルーティング
 import BonusRecordComponent from "./components/bonus/BonusRecordComponent";
 import BonusRecordDoneComponent from "./components/bonus/BonusRecordDoneComponent";
 import BonusMenuComponent from "./components/bonus/BonusMenuComponent";
@@ -176,6 +178,9 @@ const router = new VueRouter({
         | 資産ノ部のルーティングは下記にて実装 */
         { /* 資産管理トップ */ path: '/asset/', name: 'saisan.asset', component: AssetMenuComponent },
         { /* 銀行預金残高リスト */ path: '/asset/balance/', name: 'saisan.banks', component: BalanceListComponent },
+        { /* 銀行預金残高リスト */ path: '/asset/detail/:bankId/', name: 'banks.detail', component: BalanceDetailComponent, props: true },
+        { /* 銀行預金残高の修正 */ path: '/asset/edit/:bankId/', name: 'banks.edit', component: BalanceEditComponent, props: true },
+        { /* 銀行預金残高の修正完了 */ path: '/asset/edit-done/:bankId/', name: 'banks.edit-done', component: BalanceEditDoneComponent, props: true },
 
         /*
         |--------------------------------------------------------------------------
