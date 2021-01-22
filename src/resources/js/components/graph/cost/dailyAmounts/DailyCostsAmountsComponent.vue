@@ -2,7 +2,8 @@
   <div class="container">
     <div v-show="loading" class="loader"></div>
     <div v-show="!loading">
-      <h2>{{ year }}年 {{ month }}月, {{ month - 1 }}月 経費計上合計金額推移</h2>
+      <h2 v-if="this.month!=1">{{ year }}年{{ month }}月, {{ year }}年{{ month - 1 }}月 経費計上合計金額推移</h2>
+      <h2 v-if="this.month==1">{{ year }}年{{ month }}月, {{ year - 1 }}年12月 経費計上合計金額推移</h2>
       <cost-line-chart :chartData="lineChartData" :height="295" ref="chart"></cost-line-chart>
     </div>
   </div>
@@ -44,7 +45,7 @@ export default {
               hoverRadius: 10,
             },
             {
-              label: [this.month - 1 + "月"],
+              label: [this.month == 1 ? "12月" : this.month - 1 + "月"],
               fill: false,
               borderColor: "#4DF9B9",
               data: this.dailyCostsAmounts.minus.map((item) => item.dayAmount),

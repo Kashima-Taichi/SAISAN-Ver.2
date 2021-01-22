@@ -147,7 +147,6 @@ class CostController extends Controller
 
     // 日別の経費計上合計金額を取得(複数月)
     public function getDailyAmountsCostData($year, $month) {
-        // TODO 1月の場合の実装を考える必要があった
         // 選択月
         $lineGraphData['selected'] = Cost::getCostDataForGraph($year, $month);
         foreach ($lineGraphData['selected'] as $key => $value) {
@@ -155,8 +154,17 @@ class CostController extends Controller
                 $lineGraphData['selected'][$key]->dayAmount = $lineGraphData['selected'][$key-1]->dayAmount + $lineGraphData['selected'][$key]->dayAmount;
             }
         }
+
         // 選択月マイナス1月
-        $lineGraphData['minus'] = Cost::getCostDataForGraph($year, $month - 1);
+        // 選択月が1月の場合、年数は1マイナス、月数は1マイナス
+        if ($month == 1) {
+            $minusOneMonth = 12;
+            $year = $year - 1;
+        } else {
+            $minusOneMonth = $month - 1;
+        }
+
+        $lineGraphData['minus'] = Cost::getCostDataForGraph($year, $minusOneMonth);
         foreach ($lineGraphData['minus'] as $key => $value) {
             if ($key !== 0) {
                 $lineGraphData['minus'][$key]->dayAmount = $lineGraphData['minus'][$key-1]->dayAmount + $lineGraphData['minus'][$key]->dayAmount;
