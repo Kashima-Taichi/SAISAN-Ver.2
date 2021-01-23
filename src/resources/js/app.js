@@ -220,7 +220,7 @@ const router = new VueRouter({
         { /* PL科目別経費計上明細(月次) */ path: '/pl/:year/:month/:account/', name: 'pl.monthly-account', component: MonthlyPlCostDetailComponent, props: true },
         { /* PL(年次)参照前の年月選択 */ path: '/pl/select-y/', name: 'pl.select-y', component: SelectYearPlComponent },
         { /* PL参照(年次) */ path: '/pl/:year/', name: 'pl.yearly', component: YearlyPlComponent, props: true },
-        { /* PL科目別経費計上明細(年次) */ path: '/pl/:year/:account/', name: 'pl.yearly-account', component: YearlyPlCostDetailComponent, props: true },
+        { /* PL科目別経費計上明細(年次) */ path: '/pl/:year/:account/details/', name: 'pl.yearly-account', component: YearlyPlCostDetailComponent, props: true },
         /*
         |--------------------------------------------------------------------------
         | Graph routes
