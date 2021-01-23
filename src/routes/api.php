@@ -44,6 +44,9 @@ Route::get('/cost/latest/', 'CostController@getLatestCostData');
 // 経費計上リスト(年月)
 Route::get('/cost/list/{year}/{month}/', 'CostController@getCostListMonth')->where($yearMonth);
 
+// 経費計上リスト(雑収入除く)
+Route::get('/cost/list/except-income/{year}/{month}/', 'CostController@getCostListExceptIncomeMonth')->where($yearMonth);
+
 // 依存経費計上リスト(年月)
 Route::get('/cost/dependent/{year}/{month}/', 'CostController@getDependentCost')->where($yearMonth);
 

@@ -33,6 +33,12 @@ class CostController extends Controller
         return Cost::getCostDataForList($year, $month, $day = null, $dependency = false);
     }
 
+    // 月次の経費リストを取得(雑収入除く)
+    public function getCostListExceptIncomeMonth($year, $month) {
+        $param = ['year' => $year, 'month' => $month];
+        return DB::select('SELECT * FROM costs WHERE NOT accountAlpha = "zasshunyu" AND year = :year AND month = :month', $param);
+    }
+
     // 月次経費で依存経費も参照
     public function getMonthlyAllCostData($year, $month) {
         return Cost::getCostDataForList($year, $month, $day = null, $dependency = true);

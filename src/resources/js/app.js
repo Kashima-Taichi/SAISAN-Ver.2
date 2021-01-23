@@ -12,6 +12,7 @@ import CostMenuComponent from "./components/cost/CostMenuComponent";
 import CostRecordComponent from "./components/cost/CostRecordComponent";
 import CostRecordDoneComponent from "./components/cost/CostRecordDoneComponent";
 import CostListComponent from "./components/cost/CostListComponent";
+import CostListExceptIncomeComponent from "./components/cost/CostListExceptIncomeComponent";
 import CostDetailComponent from "./components/cost/CostDetailComponent";
 import SelectYearMonthComponent from "./components/cost/SelectYearMonthComponent";
 import CostEditComponent from "./components/cost/CostEditComponent";
@@ -22,6 +23,7 @@ import CostListDependentComponent from "./components/cost/CostListDependentCompo
 import SelectYearMonthBusinessComponent from "./components/cost/SelectYearMonthBusinessComponent";
 import CostListBusinessComponent from "./components/cost/CostListBusinessComponent";
 import SelectYearMonthRakutenComponent from "./components/cost/SelectYearMonthRakutenComponent";
+import SelectYearMonthExceptIncomeComponent from "./components/cost/SelectYearMonthExceptIncomeComponent";
 import CostListRakutenComponent from "./components/cost/CostListRakutenComponent";
 import SelectYearMonthAllComponent from "./components/cost/SelectYearMonthAllComponent";
 import CostListAllComponent from "./components/cost/CostListAllComponent";
@@ -132,6 +134,8 @@ const router = new VueRouter({
         { /* 経費計上年月日の取得 */ path: '/cost/list/select-ym/', name: 'cost.list.selectym', component: SelectYearMonthComponent },
         { /* 経費計上リスト(日次) */ path: '/cost/list/:year/:month/:day/', name: 'cost.list-day', component: CostListComponent, props: true },
         { /* 経費計上リスト(月次) */ path: '/cost/list/:year/:month/', name: 'cost.list-month', component: CostListComponent, props: true },
+        { /* 経費計上リスト(雑収入除く)の年月取得 */ path: '/cost/except-income/select-ym/', name: 'cost.except-income.selectym', component: SelectYearMonthExceptIncomeComponent },
+        { /* 経費計上リスト(雑収入除く) */ path: '/cost/list/except-income/:year/:month/', name: 'cost.list-month.except-income', component: CostListExceptIncomeComponent, props: true },
         { /* 経費計上明細の修正 */ path: '/cost/edit/:costId/', name: 'cost.edit', component: CostEditComponent, props: true },
         { /* 経費計上明細の修正完了 */ path: '/cost/edit-done/:costId/', name: 'cost.edit-done', component: CostEditDoneComponent, props: true },
         { /* 経費計上明細の削除完了 */ path: '/cost/delete-done/:costId/', name: 'cost.delete-done', component: CostDeleteDoneComponent, props: true },
