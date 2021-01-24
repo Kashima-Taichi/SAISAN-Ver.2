@@ -12,6 +12,7 @@
             <th scope="col">journal</th>
             <th scope="col">year</th>
             <th scope="col">month</th>
+            <th scope="col">day</th>
           </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
             <td>{{ cost.journal }}</td>
             <td>{{ cost.year }}</td>
             <td>{{ cost.month }}</td>
+            <td>{{ cost.day }}</td>
           </tr>
         </tbody>
       </table>
