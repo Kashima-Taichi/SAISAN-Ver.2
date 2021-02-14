@@ -54,11 +54,6 @@ class CostController extends Controller
         return Cost::whereRaw('dependency = 1 and year = ? and month = ?', array($year, $month))->get();
     }
 
-    // ビジネス経費データを取得
-    public function getBusinessCost($year, $month) {
-        return Cost::whereRaw('business = 1 and year = ? and month = ?', array($year, $month))->get();
-    }
-
     // 楽天カードで決済して計上した経費データの取得
     public function getRakutenCost($year, $month) {
         return Cost::whereRaw('rakuten = 1 and year = ? and month = ?', array($year, $month))->get();

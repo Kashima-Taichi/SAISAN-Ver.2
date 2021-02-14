@@ -49,14 +49,6 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">事業経費を参照(月次)</th>
-          <td>
-            <router-link v-bind:to="{name: 'cost.business.selectym'}">
-              <button class="btn btn-primary">GO!</button>
-            </router-link>
-          </td>
-        </tr>
-        <tr>
           <th scope="row">楽天決済経費を参照(月次)</th>
           <td>
             <router-link v-bind:to="{name: 'cost.rakuten.selectym'}">

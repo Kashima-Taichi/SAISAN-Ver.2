@@ -2,7 +2,7 @@
   <div class="container">
     <div v-show="loading" class="loader"></div>
     <div v-show="!loading">
-      <h2>事業経費計上合計金額：{{ calcTotal }}円</h2>
+      <h2>経費計上合計金額：{{ calcTotal }}円</h2>
       <table class="table table-hover">
         <thead class="thead-light">
           <tr>
@@ -17,7 +17,7 @@
         </thead>
         <tbody>
           <tr
-            :class="{ 'txt-tm': cost.rakuten == 1, 'txt-pur': cost.dependency == 1, 'txt-g': cost.business == 1 }"
+            :class="{ 'txt-tm': cost.rakuten == 1, 'txt-pur': cost.dependency == 1 }"
             v-for="(cost, index) in costs"
             :key="index"
           >

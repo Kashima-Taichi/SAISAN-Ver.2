@@ -64,14 +64,6 @@
               </select>
             </div>
 
-            <div class="form-group row mb-5">
-              <label for="business" class="col-sm-3 col-form-label">Business Flag</label>
-              <select class="col-sm-9 form-control" id="business" v-model="cost.business">
-                <option value="0">事業に関係なし</option>
-                <option value="1">事業に関係あり</option>
-              </select>
-            </div>
-
             <validation-provider rules="required" v-slot="{ errors }">
               <div class="form-group row mb-5">
                 <label for="journal" class="col-sm-3 col-form-label">Journal</label>

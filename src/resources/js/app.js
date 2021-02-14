@@ -20,8 +20,6 @@ import CostEditDoneComponent from "./components/cost/CostEditDoneComponent";
 import CostDeleteDoneComponent from "./components/cost/CostDeleteDoneComponent";
 import SelectYearMonthDependentComponent from "./components/cost/SelectYearMonthDependentComponent";
 import CostListDependentComponent from "./components/cost/CostListDependentComponent";
-import SelectYearMonthBusinessComponent from "./components/cost/SelectYearMonthBusinessComponent";
-import CostListBusinessComponent from "./components/cost/CostListBusinessComponent";
 import SelectYearMonthRakutenComponent from "./components/cost/SelectYearMonthRakutenComponent";
 import SelectYearMonthExceptIncomeComponent from "./components/cost/SelectYearMonthExceptIncomeComponent";
 import CostListRakutenComponent from "./components/cost/CostListRakutenComponent";
@@ -141,8 +139,6 @@ const router = new VueRouter({
         { /* 経費計上明細の削除完了 */ path: '/cost/delete-done/:costId/', name: 'cost.delete-done', component: CostDeleteDoneComponent, props: true },
         { /* 依存経費計上年月日の取得 */ path: '/cost/dependent/select-ym/', name: 'cost.dependent.selectym', component: SelectYearMonthDependentComponent },
         { /* 依存経費計上リスト(月次) */ path: '/cost/dependent/:year/:month/', name: 'cost.dependent', component: CostListDependentComponent, props: true },
-        { /* 事業経費計上年月日の取得 */ path: '/cost/business/select-ym/', name: 'cost.business.selectym', component: SelectYearMonthBusinessComponent },
-        { /* 事業経費計上リスト(月次) */ path: '/cost/business/:year/:month/', name: 'cost.business', component: CostListBusinessComponent, props: true },
         { /* 楽天経費計上年月日の取得 */ path: '/cost/rakuten/select-ym/', name: 'cost.rakuten.selectym', component: SelectYearMonthRakutenComponent },
         { /* 楽天経費計上リスト(月次) */ path: '/cost/rakuten/:year/:month/', name: 'cost.rakuten', component: CostListRakutenComponent, props: true },
         { /* 通常・依存経費計上年月の取得 */ path: '/cost/all/select-ym/', name: 'cost.all.selectym', component: SelectYearMonthAllComponent },

@@ -50,9 +50,6 @@ Route::get('/cost/list/except-income/{year}/{month}/', 'CostController@getCostLi
 // 依存経費計上リスト(年月)
 Route::get('/cost/dependent/{year}/{month}/', 'CostController@getDependentCost')->where($yearMonth);
 
-// 事業経費計上リスト(年月)
-Route::get('/cost/business/{year}/{month}/', 'CostController@getBusinessCost')->where($yearMonth);
-
 // 楽天カード決済経費計上リスト(年月)
 Route::get('/cost/rakuten/{year}/{month}/', 'CostController@getRakutenCost')->where($yearMonth);
 

@@ -16,9 +16,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr
-            :class="{ 'txt-tm': cost.rakuten == 1, 'txt-pur': cost.dependency == 1, 'txt-g': cost.business == 1 }"
-          >
+          <tr :class="{ 'txt-tm': cost.rakuten == 1, 'txt-pur': cost.dependency == 1 }">
             <th scope="row">{{ cost.id }}</th>
             <td>{{ cost.accountName }}</td>
             <td>{{ numberFormat }}</td>
