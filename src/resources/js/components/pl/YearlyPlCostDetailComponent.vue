@@ -9,6 +9,7 @@
             <th scope="col">id</th>
             <th scope="col">price</th>
             <th scope="col">journal</th>
+            <th scope="col">month</th>
             <th scope="col">day</th>
           </tr>
         </thead>
@@ -17,6 +18,7 @@
             <th scope="row">{{ cost.id }}</th>
             <td>{{ parseInt(cost.price).toLocaleString() }}</td>
             <td>{{ cost.journal }}</td>
+            <td>{{ cost.month }}</td>
             <td>{{ cost.day }}</td>
           </tr>
         </tbody>

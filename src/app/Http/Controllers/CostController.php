@@ -111,7 +111,7 @@ class CostController extends Controller
 
     // 勘定科目別の経費計上データの取得
     public function getAccountYearlyCostData($year, $account) {
-        return Cost::select(['id', 'accountName', 'price', 'journal', 'day'])->whereRaw('dependency = 0 and year = ? and accountAlpha =?', array($year, $account))->get();
+        return Cost::select(['id', 'accountName', 'price', 'journal', 'month', 'day'])->whereRaw('dependency = 0 and year = ? and accountAlpha =?', array($year, $account))->get();
     }
 
     public function getMonthlyAccountCostData($year, $month) {
