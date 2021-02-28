@@ -27,7 +27,7 @@
         </tbody>
       </table>
       <p class="mt-5">
-        <strong>預金総額 ： {{ calcTotal }}</strong>
+        <strong>資産総額 ： {{ calcTotal }}</strong>
       </p>
       <router-link v-bind:to="{name: 'saisan.asset'}">
         <button class="btn btn-success mt-5" style="width:170px">資産管理メニューへ</button>
