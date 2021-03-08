@@ -24,7 +24,7 @@ class CostController extends Controller
     }
 
     // 経費計上後のデータ取得
-    public function getLatestCostData () {
+    public function getLatestCostData() {
         return Cost::orderBy('id', 'desc')->first();
     }
 

@@ -244,9 +244,9 @@ Route::delete('/bonus/delete/{id}/', 'BonusController@delete')->where($id);
 
 /*
 |--------------------------------------------------------------------------
-| 賞与関係
+| 資産関係
 |--------------------------------------------------------------------------
-| 賞与関係のAPIルーティングは下記にて実装する。
+| 資産関係のAPIルーティングは下記にて実装する。
 */
 
 // 資産管理残高の情報を取得する
@@ -255,5 +255,11 @@ Route::get('/bank/balance/', 'BankController@getAllBankData');
 // 個別の資産管理残高の取得
 Route::get('/bank/detail/{id}/', 'BankController@getIndividualBankData')->where($id);
 
-// 計上された賞与の修正
+// 計上された銀行残高の修正
 Route::put('/bank/edit/', 'BankController@edit');
+
+// 資産評価額の計上
+Route::post('/capital/store/', 'CapitalController@store');
+
+// 資産評価額の最新データの取得
+Route::post('/capital/latest/', 'CapitalController@getLatestData');

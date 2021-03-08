@@ -16,6 +16,22 @@
             </router-link>
           </td>
         </tr>
+        <tr>
+          <th scope="row">資産評価額を登録</th>
+          <td>
+            <router-link v-bind:to="{name: 'capitals.rec'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">資産評価額を参照</th>
+          <td>
+            <router-link v-bind:to="{name: 'capitals.list'}">
+              <button class="btn btn-primary">GO!</button>
+            </router-link>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
