@@ -262,4 +262,10 @@ Route::put('/bank/edit/', 'BankController@edit');
 Route::post('/capital/store/', 'CapitalController@store');
 
 // 資産評価額の最新データの取得
-Route::post('/capital/latest/', 'CapitalController@getLatestData');
+Route::get('/capital/latest/', 'CapitalController@getLatestData');
+
+// 資産評価額計上実績のある年を取得する
+Route::get('/capital/year/', 'CapitalController@getCapitalYear');
+
+// 資産評価額計上実績を取得する
+Route::get('/capital/list/{year}/', 'CapitalController@getCapitalListYear')->where($year);

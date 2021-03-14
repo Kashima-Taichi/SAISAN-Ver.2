@@ -9,7 +9,7 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">銀行の預金残高を参照</th>
+          <th scope="row">直近の資産評価額を参照</th>
           <td>
             <router-link v-bind:to="{name: 'saisan.banks'}">
               <button class="btn btn-primary">GO!</button>
@@ -27,7 +27,7 @@
         <tr>
           <th scope="row">資産評価額を参照</th>
           <td>
-            <router-link v-bind:to="{name: 'capitals.list'}">
+            <router-link v-bind:to="{name: 'capital.list.selecty'}">
               <button class="btn btn-primary">GO!</button>
             </router-link>
           </td>

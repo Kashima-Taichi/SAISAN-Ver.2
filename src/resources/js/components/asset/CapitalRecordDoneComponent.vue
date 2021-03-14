@@ -18,14 +18,11 @@
             <th scope="row">{{ capital.id }}</th>
             <td>{{ capital.year }}</td>
             <td>{{ capital.month }}</td>
-            <td>{{ capital.total }}</td>
-            <td>{{ capital.cash }}</td>
+            <td>{{ totalFormat }}</td>
+            <td>{{ cashFormat }}</td>
           </tr>
         </tbody>
       </table>
-      <!-- <router-link v-bind:to="{name: 'cost.list-selecty'}">
-        <button class="btn btn-success mt-5 ml-5">資産評価額推移を参照する</button>
-      </router-link>-->
     </div>
   </div>
 </template>
@@ -43,14 +40,15 @@ export default {
     getCapitalLatestData() {
       axios.get("/api/capital/latest/").then((res) => {
         this.capital = res.data;
-        console.log(this.capital);
         this.loading = false;
       });
     },
   },
   computed: {
-    numberFormat: function () {
+    totalFormat: function () {
       return parseInt(this.capital.total).toLocaleString();
+    },
+    cashFormat: function () {
       return parseInt(this.capital.cash).toLocaleString();
     },
   },

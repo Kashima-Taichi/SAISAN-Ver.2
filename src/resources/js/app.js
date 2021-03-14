@@ -51,10 +51,10 @@ import BalanceListComponent from "./components/asset/BalanceListComponent";
 import BalanceDetailComponent from "./components/asset/BalanceDetailComponent";
 import BalanceEditComponent from "./components/asset/BalanceEditComponent";
 import BalanceEditDoneComponent from "./components/asset/BalanceEditDoneComponent";
-
 import CapitalRecordComponent from "./components/asset/CapitalRecordComponent";
 import CapitalRecordDoneComponent from "./components/asset/CapitalRecordDoneComponent";
-
+import SelectYearCapitalComponent from "./components/asset/SelectYearCapitalComponent";
+import CapitalListComponent from "./components/asset/CapitalListComponent";
 // 賞与関係ルーティング
 import BonusRecordComponent from "./components/bonus/BonusRecordComponent";
 import BonusRecordDoneComponent from "./components/bonus/BonusRecordDoneComponent";
@@ -185,9 +185,11 @@ const router = new VueRouter({
         { /* 銀行預金残高リスト */ path: '/asset/detail/:bankId/', name: 'banks.detail', component: BalanceDetailComponent, props: true },
         { /* 銀行預金残高の修正 */ path: '/asset/edit/:bankId/', name: 'banks.edit', component: BalanceEditComponent, props: true },
         { /* 銀行預金残高の修正完了 */ path: '/asset/edit-done/:bankId/', name: 'banks.edit-done', component: BalanceEditDoneComponent, props: true },
+        { /* 資産総額の計上 */ path: '/asset/rec/', name: 'capitals.rec', component: CapitalRecordComponent },
+        { /* 資産総額の計上完了 */ path: '/asset/rec-done/', name: 'capitals.rec-done', component: CapitalRecordDoneComponent },
 
-        { /* 資産総額の計上 */ path: '/capital/rec/', name: 'capitals.rec', component: CapitalRecordComponent },
-        { /* 資産総額の計上完了 */ path: '/capital/rec-done/', name: 'capitals.rec-done', component: CapitalRecordDoneComponent },
+        { /* 資産評価額計上年の取得 */ path: '/asset/list/select-y/', name: 'capital.list.selecty', component: SelectYearCapitalComponent },
+        { /* 資産評価額計上リスト（年次） */ path: '/asset/list/:year/', name: 'capital.list', component: CapitalListComponent, props: true },
 
         /*
         |--------------------------------------------------------------------------

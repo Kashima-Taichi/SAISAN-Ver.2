@@ -22,4 +22,14 @@ class CapitalController extends Controller
         return Capital::orderBy('id', 'desc')->first();
     }
 
+    // APIで資産評価額計上実績のある年数の取得
+    public function getCapitalYear() {
+        return Capital::groupBy('year')->get('year');
+    }
+
+    // APIで資産評価額計上リストを取得
+    public function getCapitalListYear($year) {
+        return Capital::whereRaw('year = ?', $year)->get();
+    }
+
 }
